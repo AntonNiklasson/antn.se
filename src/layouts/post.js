@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   padding: 3em 0;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.5em;
 
   & .date {
     font-size: 0.8em;

@@ -19,7 +19,7 @@ const Links = styled.nav``;
 const Post = styled.div`
   margin: 0.5em 0;
   padding: 0.5em 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
 
   & .date {
     font-size: 0.7em;
@@ -32,7 +32,7 @@ const Post = styled.div`
     transition: all 300ms;
 
     &:hover {
-      color: #c9d262;
+      color: DarkOrange;
     }
   }
 `;
