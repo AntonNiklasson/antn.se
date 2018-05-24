@@ -1,6 +1,11 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
+exports.modifyBabelrc = ({ babelrc }) => ({
+  ...babelrc,
+  plugins: babelrc.plugins.concat(["transform-regenerator"])
+});
+
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 

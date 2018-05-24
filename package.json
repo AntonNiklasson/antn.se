@@ -9,9 +9,11 @@
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "gatsby build",
-    "new-post": "./scripts/newPost.js"
+    "new-post": "./scripts/newPost.js",
+    "logs": "heroku logs --tail --app antonniklasson"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "fs-writefile-promise": "^3.0.0",
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.39",
