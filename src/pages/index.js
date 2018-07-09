@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.3em;
-  color: white;
+  user-select: none;
 `;
 const Links = styled.div`
   display: flex;
@@ -21,36 +21,19 @@ const Links = styled.div`
 
   & a {
     margin: 0 0.3em;
-    color: #ccc;
+    color: #444;
     text-decoration: none;
     transition: color 400ms;
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 5%;
-      width: 90%;
-      height: 2px;
-      background: DarkOrange;
-      opacity: 0.01;
-      transition: opacity 400ms;
-    }
-
     &:hover {
-      position: relative;
-      color: DarkOrange;
-
-      &::after {
-        opacity: 1;
-      }
+      color: #0071b7;
     }
   }
 `;
 const Stats = styled.div`
   margin: 4em 0 0 0;
-  font-size: 0.9em;
-  color: #aaa;
+  font-size: 1.1em;
+  color: #444;
   text-align: center;
 
   & div {
@@ -60,14 +43,14 @@ const Stats = styled.div`
 
   & span.number {
     margin: 0 0.3em;
-    font-size: 1.9em;
-    color: white;
+    font-size: 1.3em;
+    color: #222;
     font-weight: bold;
     font-family: "Oswald", sans-serif;
   }
 
   & span.emoji {
-    font-size: 2em;
+    font-size: 1.8em;
     margin: 0 0 0 0.3em;
   }
 `;

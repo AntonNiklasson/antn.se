@@ -6,7 +6,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 800px;
+  height: 100vh;
+  max-width: 45em;
   margin: 0 auto;
 `;
 const Header = styled.div`
@@ -20,7 +21,6 @@ const Header = styled.div`
 `;
 const Content = styled.div`
   padding: 1.5em;
-  background: white;
   color: #333;
 
   & h1,
@@ -31,11 +31,6 @@ const Content = styled.div`
   & h6 {
     line-height: 1.8;
   }
-`;
-const Footer = styled.div`
-  padding: 1em;
-  font-size: 14;
-  text-align: center;
 `;
 
 class BlogPostTemplate extends React.Component {
@@ -53,13 +48,6 @@ class BlogPostTemplate extends React.Component {
         <Content>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Content>
-        <Footer>
-          <p>
-            Get in touch me through{" "}
-            <a href="https://twitter.com/AntonNiklasson">Twitter</a> or{" "}
-            <a href="https://t.me/antonniklasson">Telegram</a>
-          </p>
-        </Footer>
       </Wrapper>
     );
   }

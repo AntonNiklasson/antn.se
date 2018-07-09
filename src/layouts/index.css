@@ -8,9 +8,9 @@
 
 html, body {
   height: 100vh;
-  background: #222;
-  font: 18px/1.2 'Roboto', sans-serif;
-  color: whitesmoke;
+  background: WhiteSmoke;
+  font: 18px/1.4 'Roboto', sans-serif;
+  color: #222;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,22 +40,23 @@ pre {
   margin: 2em 1em;
   padding: 1em;
   font-size: 14px;
-  background: whitesmoke;
+  background: white;
   border: 1px solid #DDD;
-  box-shadow: 0 9px 8px -8px #00000022;
+  border-radius: 4px;
+  line-height: 1.6;
 }
 pre code {
   white-space: pre-wrap;
 }
 
 a {
-  color: Orange;
+  color: #0071b7;
   text-decoration: none;
   font-weight: bold;
   transition: all 300ms;
 }
 a:hover, a:focus {
-  color: DarkOrange;
+  color: #002238;
 }
 
 hr {

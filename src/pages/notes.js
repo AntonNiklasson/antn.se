@@ -8,31 +8,30 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: white;
 
-  & header {
-    padding: 3em 0;
+  .posts {
+    margin: 2em 0;
   }
 `;
-const Links = styled.nav``;
 const Post = styled.div`
   margin: 0.5em 0;
   padding: 0.5em 0;
-  font-size: 1.5em;
+  font-size: 2em;
 
   & .date {
     font-size: 0.7em;
-    color: #AAA;
+    color: #555;
   }
 
   & a {
-    color: white;
+    color: #222;
     text-decoration: none;
-    transition: all 300ms;
+    transition: all 150ms;
 
     &:hover {
-      color: DarkOrange;
+      color: #0071b7;
     }
   }
 `;
@@ -43,10 +42,6 @@ class IndexPage extends React.Component {
 
     return (
       <Wrapper>
-        <header>
-          <h1>antonniklasson.se/notes</h1>
-        </header>
-
         <div className="posts">
           {posts.map(({ node }) => {
             const title = get(node, "frontmatter.title") || node.fields.slug;
