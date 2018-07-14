@@ -20,8 +20,14 @@ const Header = styled.div`
   }
 `;
 const Content = styled.div`
-  padding: 1.5em;
+  padding: 0 2em;
   color: #333;
+  font-family: Georgia, serif;
+  font-weight: 300;
+
+  a {
+    font-weight: 300;
+  }
 
   & h1,
   & h2,
@@ -30,6 +36,16 @@ const Content = styled.div`
   & h5,
   & h6 {
     line-height: 1.8;
+  }
+
+  p {
+    margin: 0 0 1.2em 0;
+  }
+
+  .gatsby-resp-image-link {
+    max-width: 90%;
+    margin: 1em auto;
+    box-shadow: 0 10px 7px -8px rgba(0, 0, 0, 0.4);
   }
 `;
 
