@@ -111,6 +111,7 @@ class IndexPage extends React.Component {
         <h1>Anton Niklasson</h1>
         <Links>
           <a href="/notes">Notes</a>
+          <a href="http://cv.antonniklasson.se">CV</a>
           <a href="https://github.com/AntonNiklasson">GitHub</a>
           <a href="https://www.linkedin.com/in/antonniklasson/">LinkedIn</a>
           <a href="https://twitter.com/AntonNiklasson">Twitter</a>
