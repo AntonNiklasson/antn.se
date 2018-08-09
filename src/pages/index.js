@@ -1,126 +1,89 @@
 import React from "react";
 import Link from "gatsby-link";
 import styled from "styled-components";
-import axios from "axios";
-import moment from "moment";
+import get from "lodash/get";
 import emoji from "node-emoji";
 
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.3em;
-  user-select: none;
+
+  .posts {
+    width: 90%;
+    max-width: 600px;
+    margin: 3em auto;
+    padding: 3em 0 0 0;
+    text-align: center;
+  }
 `;
-const Links = styled.div`
-  display: flex;
-  margin: 1em 0 0 0;
-  font-family: "Oswald", sans-serif;
+const Post = styled.div`
+  margin: 0.5em 0;
+  padding: 0.5em 0;
+  font-size: 1.3em;
+
+  & .date {
+    font-size: 0.7em;
+    color: #555;
+  }
 
   & a {
-    margin: 0 0.3em;
-    color: #444;
+    color: #222;
     text-decoration: none;
-    transition: color 400ms;
+    transition: all 150ms;
 
     &:hover {
       color: #0071b7;
     }
   }
 `;
-const Stats = styled.div`
-  margin: 4em 0 0 0;
-  font-size: 1.1em;
-  color: #444;
-  text-align: center;
 
-  & div {
-    display: flex;
-    align-items: center;
-  }
+const IndexPage = props => {
+  const posts = get(props, "data.allMarkdownRemark.edges");
 
-  & span.number {
-    margin: 0 0.3em;
-    font-size: 1.3em;
-    color: #222;
-    font-weight: bold;
-    font-family: "Oswald", sans-serif;
-  }
-
-  & span.emoji {
-    font-size: 1.8em;
-    margin: 0 0 0 0.3em;
-  }
-`;
-
-class IndexPage extends React.Component {
-  state = {
-    isFetching: false,
-    phoneUnlocksToday: null
-  };
-
-  componentDidMount() {
-    this.setState({ isFetching: true });
-
-    axios("https://antonpi.herokuapp.com/phone_unlock").then(res => {
-      this.setState({
-        isFetching: false,
-        phoneUnlocksToday: res.data.filter(e =>
-          moment().isSame(moment(e.when), "day")
-        ).length
-      });
-    });
-  }
-
-  getReactionEmoji = () => {
-    const n = this.state.phoneUnlocksToday;
-
-    if (n > 100) return emoji.get("skull");
-    if (n > 80) return emoji.get("scream");
-    if (n > 60) return emoji.get("dizzy_face");
-    if (n > 50) return emoji.get("cold_sweat");
-    if (n > 30) return emoji.get("flushed");
-    if (n > 20) return emoji.get("face_with_rolling_eyes");
-    if (n > 10) return emoji.get("upside_down_face");
-
-    return emoji.get("angel");
-  };
-
-  renderStats = () => {
-    const { isFetching, phoneUnlocksToday } = this.state;
-    return (
-      <Stats>
-        {isFetching && <h2>Analyzing human...</h2>}
-        {Number.isInteger(phoneUnlocksToday) && (
-          <div>
-            Anton unlocked his phone{" "}
-            <span className="number">{phoneUnlocksToday}</span> times today<span className="emoji">
-              {this.getReactionEmoji()}
-            </span>
-          </div>
-        )}
-      </Stats>
-    );
-  };
-
-  render() {
-    return (
-      <Wrapper>
-        <h1>Anton Niklasson</h1>
-        <Links>
-          <a href="/notes">Notes</a>
-          <a href="http://cv.antonniklasson.se">CV</a>
-          <a href="https://github.com/AntonNiklasson">GitHub</a>
-          <a href="https://www.linkedin.com/in/antonniklasson/">LinkedIn</a>
-          <a href="https://twitter.com/AntonNiklasson">Twitter</a>
-          <a href="https://t.me/antonniklasson">Telegram</a>
-        </Links>
-        {this.renderStats()}
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper>
+      <div className="posts">
+        {posts.map(({ node }) => {
+          const title = get(node, "frontmatter.title") || node.fields.slug;
+          return (
+            <Post key={node.fields.slug}>
+              <h3>
+                <Link style={{ boxShadow: "none" }} to={node.fields.slug}>
+                  {title}
+                </Link>
+              </h3>
+              <small className="date">{node.frontmatter.date}</small>
+            </Post>
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
+};
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "DD MMMM, YYYY")
+            title
+          }
+        }
+      }
+    }
+  }
+`;
