@@ -1,15 +1,14 @@
 import React from "react";
-import Link from "gatsby-link";
 import styled from "styled-components";
 import get from "lodash/get";
 import emoji from "node-emoji";
+import Link from "./link";
 
 const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 0.5em;
   border-bottom: 1px solid #eee;
   background: white;
 
@@ -20,6 +19,11 @@ const Container = styled.header`
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    padding: 0 1em;
+
+    @media (max-width: 750px) {
+      flex-direction: column;
+    }
   }
 
   h1 {
@@ -36,6 +40,8 @@ const Container = styled.header`
   nav {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
 
     a {
       padding: 8px;
@@ -69,14 +75,9 @@ const Header = () => {
         </h1>
         <nav>
           {links.map(link => (
-            <a
-              href={link.url}
-              className={
-                window && window.location.pathname === link.url ? "active" : ""
-              }
-            >
+            <Link to={link.url} activeClassName="active">
               {link.title}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

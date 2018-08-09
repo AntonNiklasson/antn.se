@@ -9,10 +9,15 @@ const Content = styled.div``;
 const content = `
 > This is a [now page](https://sivers.org/nowff).
 
-I am currently employed at [Netlight Consulting](https://www.netlight.com/) as an IT-consultant.
+**PERSONAL:** The focus right now includes nailing a few healthy habits. Specifically I would like to meditate every morning and read every night. Also working out consistently about three times per week is a big one.
+
+**WORK:** I am currently employed at [Netlight Consulting](https://www.netlight.com/) as an IT-consultant.
 I have been at Bonnier News for a bit over a year now, building parts of their new publishing platform.
 
-My personal focus right now includes nailing a few healthy habits. Specifically I would like to meditate and read everyday, and also workout about 3 times per week. It's weird how I find it so hard to consistently get to it, while knowing how effective they are against anxiety and my overall well-being.
+**FUTURE:**
+- Start printing photos
+- Find more time to be outdoors. Renting a kayak and sleeping in a tent
+- Figure out what the next travel destination should be
 `;
 
 class NowPage extends React.Component {
