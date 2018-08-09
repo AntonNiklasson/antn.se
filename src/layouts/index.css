@@ -8,8 +8,11 @@
 
 html, body {
   height: 100vh;
-  background: WhiteSmoke;
-  font: 18px/1.4 'Roboto', sans-serif;
+}
+
+body {
+  font: 18px / 1.4 'Roboto', sans-serif;
+  background: White;
   color: #222;
 }
 
