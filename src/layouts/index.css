@@ -69,3 +69,8 @@ hr {
   background: #DDD;
   border: none;
 }
+
+.twitter-tweet {
+  max-width: 90%;
+  margin: 2em auto;
+}

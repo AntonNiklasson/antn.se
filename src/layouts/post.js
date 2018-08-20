@@ -24,6 +24,7 @@ const Content = styled.div`
   color: #333;
   font-family: Georgia, serif;
   font-weight: 300;
+  padding: 0 0 4em 0;
 
   a {
     font-weight: 300;
