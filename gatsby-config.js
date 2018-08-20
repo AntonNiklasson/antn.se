@@ -6,6 +6,7 @@ module.exports = {
     description: "this is the site description"
   },
   plugins: [
+    "gatsby-plugin-twitter",
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
