@@ -7382,7 +7382,7 @@ node-abi@^2.2.0:
   dependencies:
     semver "^5.4.1"
 
-node-emoji@^1.0.4:
+node-emoji@^1.0.4, node-emoji@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.8.1.tgz#6eec6bfb07421e2148c75c6bba72421f8530a826"
   integrity sha512-+ktMAh1Jwas+TnGodfCfjUbJKoANqPaJFN0z0iqh41eqD8dvguNzcitVSBSVK1pidz0AqGbLKcoVuVLRVZ/aVg==

@@ -36,6 +36,7 @@
     "glamorous": "^4.13.0",
     "mkdirp-promise": "^5.0.1",
     "moment": "^2.22.1",
+    "node-emoji": "^1.8.1",
     "prompts": "^0.1.8",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

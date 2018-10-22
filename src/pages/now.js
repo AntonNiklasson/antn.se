@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
+import emoji from 'node-emoji'
 import Stats from '../components/stats'
 
 const Content = styled.div`
@@ -17,9 +18,11 @@ const Content = styled.div`
 `
 
 const content = `
-🧠🤔 Here's what's on my mind right now: 
+${emoji.get('thinking_face')} Here's what's on my mind right now: 
 
-- 🧘‍♂️ _I want to get back to working out and meditating regularly_
+- ${emoji.get(
+  'running'
+)} _I want to get back to working out and meditating regularly_
 - 🌎 Solo travel
 - 👨‍💻 I want to learn Scala or something similar
 
