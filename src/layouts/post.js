@@ -1,24 +1,25 @@
-import React from "react";
-import Helmet from "react-helmet";
-import Link from "gatsby-link";
-import get from "lodash/get";
-import styled from "styled-components";
+import React from 'react'
+import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
+import get from 'lodash/get'
+import moment from 'moment'
+import styled from 'styled-components'
+import { RelativeTimestamp } from '../components/timestamp'
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   max-width: 45em;
   margin: 0 auto;
-`;
+`
 const Header = styled.div`
-  padding: 3em 0;
-  text-align: center;
-  font-size: 1.5em;
+  padding: 2em 0;
+  font-size: 1.2em;
 
   & .date {
     font-size: 0.8em;
   }
-`;
+`
 const Content = styled.div`
   padding: 0 2em;
   color: #333;
@@ -48,29 +49,32 @@ const Content = styled.div`
     margin: 1em auto;
     box-shadow: 0 10px 7px -8px rgba(0, 0, 0, 0.4);
   }
-`;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
-    const siteTitle = get(this.props, "data.site.siteMetadata.title");
+    const post = this.props.data.markdownRemark
+    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <Wrapper>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>
-          <div className="date">{post.frontmatter.date}</div>
+          <RelativeTimestamp date={post.frontmatter.date} />
+          {/* <div className="date">
+            {moment().diff(moment(post.frontmatter.date), 'days')} days ago
+          </div> */}
         </Header>
         <Content>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Content>
       </Wrapper>
-    );
+    )
   }
 }
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -89,4 +93,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

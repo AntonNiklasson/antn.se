@@ -1,18 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import styled from "styled-components";
-import Header from "../components/header";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import styled from 'styled-components'
+import Header from '../components/header'
 
-import "./index.css";
+import './index.css'
 
 const Container = styled.div`
   .content {
     width: 90%;
     max-width: 700px;
-    margin: 100px auto 0;
+    margin: 8rem auto;
+
+    @media (max-width: 750px) {
+      margin-top: 8rem;
+    }
   }
-`;
+`
 
 const Layout = ({ children, data }) => (
   <Container>
@@ -20,13 +24,13 @@ const Layout = ({ children, data }) => (
     <Header />
     <div className="content">{children()}</div>
   </Container>
-);
+)
 
 Layout.propTypes = {
-  children: PropTypes.func
-};
+  children: PropTypes.func,
+}
 
-export default Layout;
+export default Layout
 
 export const query = graphql`
   query SiteTitleQuery {
@@ -36,4 +40,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
