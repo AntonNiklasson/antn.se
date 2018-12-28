@@ -11,15 +11,15 @@ const Container = styled.header`
   right: 0;
   border-bottom: 1px solid #e8e8e8;
   background: white;
+  font-family: 'Staatliches', sans-serif;
+  padding: .5em;
 
   .inner {
     width: 100%;
     max-width: 50rem;
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     justify-content: space-between;
     margin: auto;
-    padding: 1em;
 
     @media (max-width: 600px) {
       flex-direction: column;
@@ -28,7 +28,8 @@ const Container = styled.header`
   }
 
   h1 {
-    font-size: 1.4em;
+    font-size: 3em;
+    line-height: 1.2;
 
     a {
       color: inherit;
@@ -40,13 +41,52 @@ const Container = styled.header`
     }
   }
 
-  .navigations {
-    display: flex;
-    flex-direction: column-reverse;
+  .navigation {
 
+    &__primary {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-flow: row wrap;
+      font-size: 1.2em;
+
+      a {
+        padding: 4px;
+        color: #777;
+        border-bottom: 3px solid transparent;
+        position: relative;
+
+        @media (max-width: 750px) {
+          padding: 4px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: calc(50% - 10px);
+          width: 20px;
+          height: 4px;
+          background: tomato;
+
+          transition: opacity 200ms;
+          opacity: 0;
+        }
+
+        &:hover,
+        &.active {
+          color: #333;
+        }
+        &.active {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
     &__secondary {
       color: #888;
-      font-size: 0.8em;
+      font-size: 1em;
 
       a {
         padding: 0 4px;
@@ -54,28 +94,6 @@ const Container = styled.header`
 
         &:hover {
           color: #444;
-        }
-      }
-    }
-
-    &__primary {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-flow: row wrap;
-
-      a {
-        padding: 8px;
-        color: #555;
-        border-bottom: 3px solid transparent;
-
-        @media (max-width: 750px) {
-          padding: 4px;
-        }
-
-        &.active,
-        &:hover {
-          border-bottom: 3px solid Tomato;
         }
       }
     }
@@ -87,11 +105,12 @@ const primary = [
   { title: 'Now', url: '/now' },
 ]
 const secondary = [
-  { title: 'CV', url: 'http://cv.antonniklasson.se' },
   { title: 'GitHub', url: 'https://github.com/AntonNiklasson' },
-  { title: 'LinkedIn', url: 'https://www.linkedin.com/in/antonniklasson/' },
   { title: 'Twitter', url: 'https://twitter.com/AntonNiklasson' },
   { title: 'Telegram', url: 'https://t.me/antonniklasson' },
+  { title: 'Keybase', url: 'https://keybase.io/antonniklasson' },
+  { title: 'CV', url: 'http://cv.antonniklasson.se' },
+  { title: 'LinkedIn', url: 'https://www.linkedin.com/in/antonniklasson/' },
 ]
 
 const renderLink = ({ url, title, exact = false }) => {
@@ -107,14 +126,12 @@ const Header = () => {
     <Container>
       <div className="inner">
         <h1>
-          <a href="/">Anton Niklasson</a>
+          <a href="/">Anton</a>
         </h1>
-        <div className="navigations">
-          <nav class="navigations__primary">{primary.map(renderLink)}</nav>
-          <nav className="navigations__secondary">
-            {secondary.map(renderLink)}
-          </nav>
-        </div>
+        <nav className="navigation__secondary">
+          {secondary.map(renderLink)}
+        </nav>
+        <nav class="navigation__primary">{primary.map(renderLink)}</nav>
       </div>
     </Container>
   )

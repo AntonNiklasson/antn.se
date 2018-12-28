@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import emoji from 'node-emoji'
-import Stats from '../components/stats'
 
 const Content = styled.div`
   footer {
@@ -18,16 +17,15 @@ const Content = styled.div`
 `
 
 const content = `
-${emoji.get('thinking_face')} Here's what's on my mind right now: 
+I worked my last day on the current assignment for a while. Now I'm off for a few weeks before going back there to work full-time in february and march.
+
+  The timeline
+
 
 - ${emoji.get('running')} I want to get back to working out and meditating regularly
 - 🌎 Travels. Something might be revealed in my [NomadList profile](https://www.nomadlist.com/@antonniklasson) shortly ${emoji.get('smirk')}
 
----
-
 I spend some time working on different projects, some are publicly available some are not. The one I'm the most into right now is *[Shortcuts.rocks](http://www.shortcuts.rocks)*. Some others are [LearnReact.xyz](http://www.learnreact.xyz), [CSSGrid.pro](http://www.cssgrid.pro), [react-dategrid](https://www.github.com/AntonNiklasson/react-dategrid) and [react-clickcopy](https://www.github.com/AntonNiklasson/react-clickcopy).
-
----
 
 I recently founded my own company - I am now available as a freelancer! 😍 I have done a lot of React, Redux, React Native and Node.js previously.
 

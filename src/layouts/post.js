@@ -62,9 +62,6 @@ class BlogPostTemplate extends React.Component {
         <Header>
           <h1>{post.frontmatter.title}</h1>
           <RelativeTimestamp date={post.frontmatter.date} />
-          {/* <div className="date">
-            {moment().diff(moment(post.frontmatter.date), 'days')} days ago
-          </div> */}
         </Header>
         <Content>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -89,7 +86,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM, YYYY")
       }
     }
   }

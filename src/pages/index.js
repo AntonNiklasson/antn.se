@@ -25,7 +25,7 @@ const Post = styled.div`
     transition: all 150ms;
 
     &:hover {
-      color: #0071b7;
+      color: #555;
     }
   }
 `
