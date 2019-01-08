@@ -5,6 +5,8 @@ import Markdown from 'react-markdown'
 import emoji from 'node-emoji'
 import moment from 'moment'
 
+import singaporePhoto from '../assets/img/singapore.jpg'
+
 const Content = styled.div`
   footer {
     display: flex;
@@ -20,7 +22,7 @@ const Content = styled.div`
 const content = `
 I landed in Singapore yesterday! 🇸🇬
 
-<img src="singapore.jpg" width="300" />
+<img src="${singaporePhoto}" width="300" />
 
 I'll be spending a total of about four nights here, before heading down to Bali. This trip is a bit of an experiment for me. It's my first time travelling solo, and I'm also intending to spend a fair amount of time working on personal projects.
 
