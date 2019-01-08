@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
 import emoji from 'node-emoji'
+import moment from 'moment'
 
 const Content = styled.div`
   footer {
@@ -17,28 +18,22 @@ const Content = styled.div`
 `
 
 const content = `
-I worked my last day on the current assignment for a while. Now I'm off for a few weeks before going back there to work full-time in february and march.
+I landed in Singapore yesterday! 🇸🇬
 
-  The timeline
+<img src="singapore.jpg" width="300" />
 
+I'll be spending a total of about four nights here, before heading down to Bali. This trip is a bit of an experiment for me. It's my first time travelling solo, and I'm also intending to spend a fair amount of time working on personal projects.
 
-- ${emoji.get('running')} I want to get back to working out and meditating regularly
-- 🌎 Travels. Something might be revealed in my [NomadList profile](https://www.nomadlist.com/@antonniklasson) shortly ${emoji.get('smirk')}
-
-I spend some time working on different projects, some are publicly available some are not. The one I'm the most into right now is *[Shortcuts.rocks](http://www.shortcuts.rocks)*. Some others are [LearnReact.xyz](http://www.learnreact.xyz), [CSSGrid.pro](http://www.cssgrid.pro), [react-dategrid](https://www.github.com/AntonNiklasson/react-dategrid) and [react-clickcopy](https://www.github.com/AntonNiklasson/react-clickcopy).
-
-I recently founded my own company - I am now available as a freelancer! 😍 I have done a lot of React, Redux, React Native and Node.js previously.
-
-I was previously employed at [Netlight](https://www.netlight.com/) as a consultant. I spent about a year and a half at Bonnier News building parts of their new publishing platform.
+I took a few weeks off my current assignment at Creuna to do this. I'll be back there consulting early february.
 `
 
 class NowPage extends React.Component {
   render() {
     return (
       <Content>
-        <Markdown source={content} />
+        <Markdown source={content} escapeHtml={false} />
         <footer>
-          <span>📅 Last updated: 2018-12-05</span>
+          <span>📅 Updated {moment().format('YYYY-MM-DD')}</span>
           <span>
             This is a <a href="https://sivers.org/nowff">now page</a>
           </span>

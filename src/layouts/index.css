@@ -84,3 +84,7 @@ hr {
   max-width: 90%;
   margin: 2em auto;
 }
+
+img {
+  max-width: 100%;
+}
