@@ -1,19 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: "antonniklasson.se",
-    author: "Anton Niklasson",
-    siteUrl: "http://www.antonniklasson.se",
-    description: "this is the site description"
+    title: 'antonniklasson.se',
+    author: 'Anton Niklasson',
+    siteUrl: 'http://www.antonniklasson.se',
+    description: 'this is the site description',
   },
   plugins: [
-    "gatsby-plugin-twitter",
+    'gatsby-plugin-twitter',
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
+        name: 'pages',
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -22,33 +22,27 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
-              wrapperStyle: "margin: 2em 0;",
-              showCaptions: true
-            }
+              maxWidth: 600,
+              wrapperStyle: 'margin: 1em 0;',
+              showCaptions: true,
+            },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
-          },
-          "gatsby-remark-prismjs",
-          "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants"
-        ]
-      }
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-13287140-7"
-      }
+        trackingId: 'UA-13287140-7',
+      },
     },
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`
-  ]
-};
+    `gatsby-plugin-react-helmet`,
+  ],
+}
