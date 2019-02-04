@@ -17,9 +17,22 @@ const Container = styled.header`
 
   &.compact {
     padding: 0.2em;
+    font-size: 0.8em;
 
-    h1 {
-      font-size: 2em;
+    h1 span {
+      display: none;
+    }
+
+    .inner {
+      max-width: 45em;
+    }
+
+    .navigation__primary {
+      font-size: 1.5em;
+    }
+
+    .navigation__secondary {
+      display: none;
     }
   }
 
@@ -30,6 +43,7 @@ const Container = styled.header`
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    transition: all 250ms;
 
     @media (max-width: 600px) {
       flex-direction: column;
@@ -57,10 +71,11 @@ const Container = styled.header`
       align-items: center;
       justify-content: flex-end;
       flex-flow: row wrap;
-      font-size: 1.2em;
+      font-size: 2em;
+      line-height: 1.1;
 
       a {
-        padding: 4px;
+        padding: 2px;
         color: #777;
         border-bottom: 3px solid transparent;
         position: relative;
@@ -73,11 +88,10 @@ const Container = styled.header`
           content: '';
           position: absolute;
           bottom: 0;
-          left: calc(50% - 10px);
-          width: 20px;
+          left: 10%;
+          width: 80%;
           height: 4px;
           background: tomato;
-
           transition: opacity 200ms;
           opacity: 0;
         }
@@ -134,7 +148,15 @@ class Header extends React.Component {
   containerRef = React.createRef()
 
   componentDidMount() {
-    console.log(this.containerRef.current, document.querySelector('header'))
+    window.addEventListener('scroll', event => {
+      const position = window.scrollY
+
+      if (position > 50) {
+        this.containerRef.current.classList.add('compact')
+      } else {
+        this.containerRef.current.classList.remove('compact')
+      }
+    })
   }
 
   render() {
@@ -142,7 +164,9 @@ class Header extends React.Component {
       <Container innerRef={this.containerRef}>
         <div className="inner">
           <h1>
-            <a href="/">Anton</a>
+            <a href="/">
+              Ant<span>o</span>n
+            </a>
           </h1>
           <nav className="navigation__secondary">
             {secondary.map(renderLink)}
