@@ -3,16 +3,21 @@ module.exports = {
     title: 'antonniklasson.se',
     author: 'Anton Niklasson',
     siteUrl: 'http://www.antonniklasson.se',
-    description: 'this is the site description',
+    description: "Anton's personal website",
   },
   plugins: [
-    'gatsby-plugin-twitter',
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: 'blog',
       },
     },
     {
@@ -33,16 +38,18 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-13287140-7',
       },
     },
+    'gatsby-plugin-twitter',
     `gatsby-plugin-feed`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
   ],
 }

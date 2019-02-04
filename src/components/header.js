@@ -12,12 +12,13 @@ const Container = styled.header`
   border-bottom: 1px solid #e8e8e8;
   background: white;
   font-family: 'Staatliches', sans-serif;
-  padding: .5em;
+  padding: 0.5em;
 
   .inner {
     width: 100%;
     max-width: 50rem;
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     margin: auto;
 
@@ -42,7 +43,6 @@ const Container = styled.header`
   }
 
   .navigation {
-
     &__primary {
       display: flex;
       align-items: center;
@@ -61,7 +61,7 @@ const Container = styled.header`
         }
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           bottom: 0;
           left: calc(50% - 10px);
@@ -115,7 +115,7 @@ const secondary = [
 
 const renderLink = ({ url, title, exact = false }) => {
   return (
-    <Link exact={exact} to={url} activeClassName="active">
+    <Link key={url} exact={exact} to={url} activeClassName="active">
       {title}
     </Link>
   )
@@ -128,10 +128,8 @@ const Header = () => {
         <h1>
           <a href="/">Anton</a>
         </h1>
-        <nav className="navigation__secondary">
-          {secondary.map(renderLink)}
-        </nav>
-        <nav class="navigation__primary">{primary.map(renderLink)}</nav>
+        <nav className="navigation__secondary">{secondary.map(renderLink)}</nav>
+        <nav className="navigation__primary">{primary.map(renderLink)}</nav>
       </div>
     </Container>
   )

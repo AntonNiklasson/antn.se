@@ -1,6 +1,6 @@
 ---
 title: Thoughts on solo-travel and a nomadic lifestyle
-date: "2019-02-04T13:00:00.626"
+date: "2019-02-04"
 ---
 
 The second half of 2018 involved quitting my job, starting my own company, finding my first freelancing gig and actually making some money as an independant software developer. It has been great, and I do not regret it for a second. One of the main reasons for making this change is the fact that I am my own boss now. I am not limited to five weeks of vacation or saying yes to things that do not excite me.

@@ -1,8 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import get from 'lodash/get'
-import moment from 'moment'
 import styled from 'styled-components'
 import { RelativeTimestamp } from '../components/timestamp'
 
@@ -86,7 +84,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "DD MMMM, YYYY")
+        date
       }
     }
   }
