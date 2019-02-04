@@ -9,7 +9,7 @@ import './index.css'
 const Container = styled.div`
   .content {
     width: 90%;
-    max-width: 700px;
+    max-width: 600px;
     margin: 8rem auto;
 
     @media (max-width: 750px) {

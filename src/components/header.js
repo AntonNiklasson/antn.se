@@ -13,6 +13,15 @@ const Container = styled.header`
   background: white;
   font-family: 'Staatliches', sans-serif;
   padding: 0.5em;
+  z-index: 1;
+
+  &.compact {
+    padding: 0.2em;
+
+    h1 {
+      font-size: 2em;
+    }
+  }
 
   .inner {
     width: 100%;
@@ -34,7 +43,7 @@ const Container = styled.header`
 
     a {
       color: inherit;
-      font-weight: 300;
+      font-weight: normal;
 
       &:hover {
         color: #777;
@@ -121,18 +130,28 @@ const renderLink = ({ url, title, exact = false }) => {
   )
 }
 
-const Header = () => {
-  return (
-    <Container>
-      <div className="inner">
-        <h1>
-          <a href="/">Anton</a>
-        </h1>
-        <nav className="navigation__secondary">{secondary.map(renderLink)}</nav>
-        <nav className="navigation__primary">{primary.map(renderLink)}</nav>
-      </div>
-    </Container>
-  )
+class Header extends React.Component {
+  containerRef = React.createRef()
+
+  componentDidMount() {
+    console.log(this.containerRef.current, document.querySelector('header'))
+  }
+
+  render() {
+    return (
+      <Container innerRef={this.containerRef}>
+        <div className="inner">
+          <h1>
+            <a href="/">Anton</a>
+          </h1>
+          <nav className="navigation__secondary">
+            {secondary.map(renderLink)}
+          </nav>
+          <nav className="navigation__primary">{primary.map(renderLink)}</nav>
+        </div>
+      </Container>
+    )
+  }
 }
 
 export default Header

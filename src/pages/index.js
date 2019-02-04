@@ -14,11 +14,6 @@ const Post = styled.div`
   margin: 1em 0;
   font-size: 1.3em;
 
-  & .date {
-    font-size: 0.7em;
-    color: #555;
-  }
-
   & a {
     color: #222;
     text-decoration: none;

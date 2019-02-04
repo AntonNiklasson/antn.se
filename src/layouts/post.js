@@ -13,16 +13,11 @@ const Wrapper = styled.div`
 const Header = styled.div`
   padding: 2em 0;
   font-size: 1.2em;
-
-  & .date {
-    font-size: 0.8em;
-  }
 `
 const Content = styled.div`
   padding: 0 2em;
   color: #333;
-  font-family: Georgia, serif;
-  font-weight: 300;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 0 0 4em 0;
 
   a {

@@ -1,6 +1,22 @@
 import React from 'react'
 import moment from 'moment'
+import emoji from 'node-emoji'
+import styled from 'styled-components'
 
-export const RelativeTimestamp = ({ date }) => (
-  <time className="date">{moment().diff(moment(date), 'days')} days ago</time>
-)
+const StyledTime = styled.time`
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #777;
+`
+
+export const RelativeTimestamp = ({ date }) => {
+  const dayDiff = moment().diff(moment(date), 'days')
+  const isToday = dayDiff < 1
+  const dateString = isToday ? 'Today' : `${dayDiff} days ago`
+
+  return (
+    <StyledTime>
+      {emoji.get('calendar')} {dateString}
+    </StyledTime>
+  )
+}
