@@ -35,7 +35,7 @@ class NowPage extends React.Component {
       <Content>
         <Markdown source={content} escapeHtml={false} />
         <footer>
-          <span>📅 Updated {moment().format('YYYY-MM-DD')}</span>
+          <span>📅 Updated 2019-01-08</span>
           <span>
             This is a <a href="https://sivers.org/nowff">now page</a>
           </span>
