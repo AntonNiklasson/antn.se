@@ -1,6 +1,6 @@
 ---
 title: I Quit My Job
-date: "2018-08-26T17:00:00.626"
+date: 2018-08-26
 ---
 
 A few weeks back I decided to leave Netlight. It has been great, and I have to say it feels a bit weird to leave such a cool company. The reasons for leaving is that I will be running my own company, and I want to be able to travel over longer periods of time.

@@ -1,6 +1,6 @@
 ---
 title: Introduction to CSS Grid
-date: "2017-12-11T12:00:00.626"
+date: 2017-12-11
 ---
 
 Flexbox is awesome. So why would we spend time on something like CSS Grid? Well, they’re not really meant to solve the same tasks.

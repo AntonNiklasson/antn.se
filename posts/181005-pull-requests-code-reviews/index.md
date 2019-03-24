@@ -1,6 +1,6 @@
 ---
 title: Pull Requests and Code Reviews
-date: "2018-10-05T13:00:00.626"
+date: 2018-10-05
 ---
 
 Writing code is basically a constant struggle to figure out what to changes and/or additions to make in order to build a specific feature or functionality. Making a small, isolated, well-tested change is often hard, while getting lost in a side quest is easy, and fun.

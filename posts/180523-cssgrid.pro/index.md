@@ -1,6 +1,6 @@
 ---
 title: CSSGrid.pro
-date: "2018-05-23T18:00:00.626"
+date: 2018-05-23
 ---
 
 A few months back I started learning CSS Grid. I usually want to learn by doing, and I always feel like

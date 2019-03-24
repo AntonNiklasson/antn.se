@@ -1,6 +1,6 @@
 ---
 title: Measurable Teams
-date: "2018-07-14T13:00:00.626"
+date: 2018-07-14
 ---
 
 During  the last 12 months I've been a part of a rather large software development team. There is always a discussion going on. Someone is feeling frustrated, someone else just got a great idea and wants to share. A third person is not comfortable with our static code analysis configuration.

@@ -1,6 +1,6 @@
 ---
 title: What is the best file structure for a React project?
-date: "2018-08-20T12:00:00.626"
+date: 2018-08-20
 ---
 
 React doesn't come with a set of rules for structuring your components. It solves a small set of problems really well, the rest is up to you as the developer to figure out and decide on. Structuring your app in files and folders can be the key to longevity and maintainability of the codebase, while at the same time confuse someone else even further as they try and grasp the data flow and overall behaviour of the application. Try thinking about who would benefit from a proper file structure.
