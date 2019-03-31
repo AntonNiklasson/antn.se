@@ -1,14 +1,10 @@
 {
   "name": "antonniklasson.se",
   "scripts": {
-    "build": "gatsby build",
     "dev": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "gatsby build",
-    "new-post": "./scripts/newPost.js",
-    "logs": "heroku logs --tail --app antonniklasson",
-    "deploy": "./scripts/deploy.sh"
+    "deploy": "./scripts/deploy.sh",
+    "prod:build": "gatsby build",
+    "prod:run": "gatsby serve"
   },
   "dependencies": {
     "axios": "^0.18.0",

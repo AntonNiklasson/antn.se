@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 import Header from './header'
 import { MaxWidthContainer } from './utils'
+import { storage } from '../utils'
 
 import './index.styl'
 
@@ -34,11 +35,11 @@ const ContentWrapper = styled(MaxWidthContainer)`
 `
 
 export default function BaseLayout({ children }) {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [theme, setTheme] = useState(storage.get('theme') || 'light')
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark'
 
-    localStorage.setItem('theme', nextTheme)
+    storage.set('theme', nextTheme)
 
     setTheme(nextTheme)
   }
