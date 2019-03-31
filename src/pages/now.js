@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Markdown from 'react-markdown'
-import emoji from 'node-emoji'
-import moment from 'moment'
+import { BaseLayout } from '../layout'
 
 import singaporePhoto from '../assets/img/singapore.jpg'
 
@@ -32,15 +30,17 @@ I took a few weeks off my current assignment at Creuna to do this. I'll be back 
 class NowPage extends React.Component {
   render() {
     return (
-      <Content>
-        <Markdown source={content} escapeHtml={false} />
-        <footer>
-          <span>📅 Updated 2019-01-08</span>
-          <span>
-            This is a <a href="https://sivers.org/nowff">now page</a>
-          </span>
-        </footer>
-      </Content>
+      <BaseLayout>
+        <Content>
+          <Markdown source={content} escapeHtml={false} />
+          <footer>
+            <span>📅 Updated 2019-01-08</span>
+            <span>
+              This is a <a href="https://sivers.org/nowff">now page</a>
+            </span>
+          </footer>
+        </Content>
+      </BaseLayout>
     )
   }
 }

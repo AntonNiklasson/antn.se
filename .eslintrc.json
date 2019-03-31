@@ -1,0 +1,29 @@
+{ 
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"globals": {
+		"graphql": true
+	},
+	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+	"settings": {
+		"react": {
+			"version": "16.8"
+		}
+	},
+	"rules": {
+		"react/prop-types": [2, { "skipUndeclared": true }],
+		"react/jsx-uses-react": 2,
+		"react/jsx-uses-vars": 2
+	}
+}

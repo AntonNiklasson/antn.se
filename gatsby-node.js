@@ -1,16 +1,11 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  plugins: babelrc.plugins.concat(['transform-regenerator']),
-})
-
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve('./src/layouts/post.js')
+    const blogPostTemplate = path.resolve('./src/layout/post.js')
 
     resolve(
       graphql(
@@ -38,9 +33,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allMarkdownRemark.edges
-
-        posts.forEach((post, index) => {
+        result.data.allMarkdownRemark.edges.forEach((post, index) => {
           createPage({
             path: post.node.fields.slug,
             component: blogPostTemplate,
@@ -54,20 +47,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
-	if (node.internal.type === `MarkdownRemark`) {
-		const pattern = new RegExp('[0-9]{6}-([^/]*)')
-		const value = createFilePath({ node, getNode })
+  if (node.internal.type === `MarkdownRemark`) {
+		const pattern = /[0-9]{6}-([^/]*)/
+    const value = createFilePath({ node, getNode })
 		const slug = pattern.exec(value)[1]
-
-		console.log({ pattern, value, slug })
 
     createNodeField({
       name: `slug`,
       node,
-			value: slug
+      value: slug,
     })
   }
 }

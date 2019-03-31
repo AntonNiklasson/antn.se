@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const StyledTime = styled.time`
   font-size: 0.7em;
   font-weight: bold;
-  color: #777;
+	color: ${p => p.theme.textSecondary};
 `
 
 export const RelativeTimestamp = ({ date }) => {

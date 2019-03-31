@@ -2,46 +2,20 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
+import BaseLayout from './base'
 import { RelativeTimestamp } from '../components/timestamp'
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  max-width: 45em;
-  margin: 0 auto;
-`
 const Header = styled.div`
-  padding: 2em 0;
-  font-size: 1.2em;
+  padding: 1em 0;
+  font-size: 1.5em;
 `
 const Content = styled.div`
-  padding: 0 2em;
-  color: #333;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 0 0 4em 0;
-
-  a {
-    font-weight: 300;
-  }
-
-  & h1,
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6 {
-    line-height: 1.8;
-  }
-
-  p {
-    margin: 0 0 1.2em 0;
-  }
-
   .gatsby-resp-image-link {
     max-width: 90%;
     margin: 1em auto;
     box-shadow: 0 10px 7px -8px rgba(0, 0, 0, 0.4);
-  }
+	}
 `
 
 class BlogPostTemplate extends React.Component {
@@ -50,7 +24,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Wrapper>
+      <BaseLayout>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>
@@ -59,7 +33,7 @@ class BlogPostTemplate extends React.Component {
         <Content>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Content>
-      </Wrapper>
+      </BaseLayout>
     )
   }
 }
