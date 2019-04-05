@@ -26,33 +26,11 @@ const Logo = styled.h1`
     color: inherit;
   }
 `
-const Navigation = styled.nav`
-  font-size: 1.5em;
-	font-family: 'VT323', monospace;
-
-	& > * {
-		margin: 0 .2em;
-	}
-
-  & .active {
-    border-bottom: 3px solid ${p => p.theme.accent};
-  }
-`
 const ThemeSwitchContainer = styled.div`
   display: flex;
-  align-items: center;
+        align-items: center;
+        font-size: 1.5em;
 `
-
-/*
-const secondary = [
-  { title: 'GitHub', url: 'https://github.com/AntonNiklasson' },
-  { title: 'Twitter', url: 'https://twitter.com/AntonNiklasson' },
-  { title: 'Telegram', url: 'https://t.me/antonniklasson' },
-  { title: 'Keybase', url: 'https://keybase.io/antonniklasson' },
-  { title: 'CV', url: 'http://cv.antonniklasson.se' },
-  { title: 'LinkedIn', url: 'https://www.linkedin.com/in/antonniklasson/' },
-]
-*/
 
 export default function Header({ toggleTheme, isDarkTheme }) {
   return (
@@ -69,14 +47,6 @@ export default function Header({ toggleTheme, isDarkTheme }) {
             <Switch on={isDarkTheme} onToggle={toggleTheme} />
             🌜
           </ThemeSwitchContainer>
-          <Navigation>
-            <Link to="/" activeClassName="active">
-              Notes
-            </Link>
-            <Link to="/now" exact activeClassName="active">
-              Now
-            </Link>
-          </Navigation>
         </InnerContainer>
       </MaxWidthContainer>
     </Container>
