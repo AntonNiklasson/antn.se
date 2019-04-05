@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import BaseLayout from './base'
+import Layout from './index'
 import { RelativeTimestamp } from '../components/timestamp'
 
 const Header = styled.div`
@@ -24,7 +24,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <BaseLayout>
+      <Layout>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Header>
           <h1>{post.frontmatter.title}</h1>
@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
         <Content>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Content>
-      </BaseLayout>
+      </Layout>
     )
   }
 }

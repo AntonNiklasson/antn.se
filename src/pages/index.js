@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import get from 'lodash/get'
-import { BaseLayout } from '../layout'
+import Layout from '../layout'
 import Post from '../components/post'
 
 const Wrapper = styled.div`
@@ -15,7 +15,7 @@ const IndexPage = props => {
   const posts = get(props, 'data.allMarkdownRemark.edges')
 
   return (
-    <BaseLayout>
+    <Layout>
       <Wrapper>
         <div className="posts">
           {posts.map(({ node }) => (
@@ -23,7 +23,7 @@ const IndexPage = props => {
           ))}
         </div>
       </Wrapper>
-    </BaseLayout>
+    </Layout>
   )
 }
 

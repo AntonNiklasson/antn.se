@@ -28,8 +28,8 @@ const Logo = styled.h1`
 `
 const ThemeSwitchContainer = styled.div`
   display: flex;
-        align-items: center;
-        font-size: 1.5em;
+	align-items: center;
+	font-size: 1.5em;
 `
 
 export default function Header({ toggleTheme, isDarkTheme }) {
