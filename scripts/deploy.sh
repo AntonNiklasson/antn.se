@@ -1,6 +1,6 @@
 ssh root@95.85.43.196 <<'ENDSSH'
 echo "1. Setting the workdir";
-cd /var/www/antonniklasson.se
+cd /var/www/antn.se
 
 echo "2. Fetching latest updates";
 git fetch origin
