@@ -15,7 +15,7 @@ const Content = styled.div`
     max-width: 90%;
     margin: 1em auto;
     box-shadow: 0 10px 7px -8px rgba(0, 0, 0, 0.4);
-	}
+  }
 `
 
 class BlogPostTemplate extends React.Component {

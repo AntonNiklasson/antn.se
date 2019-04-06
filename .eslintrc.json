@@ -15,14 +15,22 @@
 	"globals": {
 		"graphql": true
 	},
-	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"prettier"
+	],
 	"settings": {
 		"react": {
 			"version": "16.8"
 		}
 	},
 	"rules": {
-		"react/prop-types": [2, { "skipUndeclared": true }],
+		"no-console": 2,
+		"react/prop-types": [
+				2,
+				{ "skipUndeclared": true }
+		],
 		"react/jsx-uses-react": 2,
 		"react/jsx-uses-vars": 2
 	}

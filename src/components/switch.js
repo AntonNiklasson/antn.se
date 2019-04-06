@@ -4,26 +4,26 @@ import styled from 'styled-components'
 const Container = styled.div`
 `
 const Track = styled.div`
-	width: 2.5em;
-	height: 1.3em;
-	background: ${p => p.theme.background};
-	border: 1px solid ${p => p.theme.border};
-	border-radius: 1em;
-	position: relative;
+  width: 2.5em;
+  height: 1.3em;
+  background: ${p => p.theme.background};
+  border: 1px solid ${p => p.theme.border};
+  border-radius: 1em;
+  position: relative;
 
-	&:hover {
-		background: ${p => p.theme.border};
-	}
+  &:hover {
+    background: ${p => p.theme.border};
+  }
 `
 const Knob = styled.div`
-	background: ${p => p.theme.accent};
-	width: 1em;
-	height: 1em;
-	border-radius: 1em;
-	transition: all 250ms;
-	position: absolute;
-	top: .1em;
-	left: ${p => p.on ? 'calc(100% - 1.1em)' : '.1em'};
+  background: ${p => p.theme.accent};
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  transition: all 250ms;
+  position: absolute;
+  top: .1em;
+  left: ${p => p.on ? 'calc(100% - 1.1em)' : '.1em'};
 `
 
 export default function Switch({ on, onToggle }) {

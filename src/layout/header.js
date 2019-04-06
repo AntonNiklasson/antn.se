@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from '../components/link'
 import Switch from '../components/switch'
 import { MaxWidthContainer } from './utils'
 
@@ -8,12 +7,13 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+	right: 0;
+	padding: .5em;
   background: ${p => p.theme.background};
   color: ${p => p.theme.text};
   border-bottom: 1px solid ${p => p.theme.border};
 	z-index: 1;
-	transition-property: background, border-color, color;
+	transition: background 250ms, color: 250ms;
 `
 const InnerContainer = styled.div`
   display: flex;
@@ -28,8 +28,8 @@ const Logo = styled.h1`
 `
 const ThemeSwitchContainer = styled.div`
   display: flex;
-	align-items: center;
-	font-size: 1.5em;
+  align-items: center;
+  font-size: 1.5em;
 `
 
 export default function Header({ toggleTheme, isDarkTheme }) {
