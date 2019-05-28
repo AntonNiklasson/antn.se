@@ -1,11 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: 'antonniklasson.se',
+    title: 'antn.se',
     author: 'Anton Niklasson',
-    siteUrl: 'http://www.antonniklasson.se',
+    siteUrl: 'http://www.antn.se',
     description: "Anton's personal website",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-13287140-7`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -38,13 +44,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-13287140-7',
-      },
-    },
-		`gatsby-plugin-stylus`,
+    `gatsby-plugin-stylus`,
     'gatsby-plugin-twitter',
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,

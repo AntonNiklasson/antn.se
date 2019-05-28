@@ -9,10 +9,9 @@ git reset --hard origin/master
 echo "3. Building image";
 docker build -t antn .
 
-echo "4. Stop and remove previous container"
+echo "4. Stop previous container"
 docker stop antn-container || true
-docker rm antn-container || true
 
 echo "5. Starting docker container";
-docker run -d -p 8000:80 --name antn-container antn
+docker run --rm -d -p 8000:8000 --name antn-container antn
 ENDSSH

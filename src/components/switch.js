@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
-`
+const Container = styled.div``
 const Track = styled.div`
   width: 2.5em;
   height: 1.3em;
@@ -10,9 +9,10 @@ const Track = styled.div`
   border: 1px solid ${p => p.theme.border};
   border-radius: 1em;
   position: relative;
+  transition: background 250ms;
 
   &:hover {
-    background: ${p => p.theme.border};
+    background: ${p => p.theme.backgroundSecondary};
   }
 `
 const Knob = styled.div`
@@ -22,11 +22,11 @@ const Knob = styled.div`
   border-radius: 1em;
   transition: all 250ms;
   position: absolute;
-  top: .1em;
-  left: ${p => p.on ? 'calc(100% - 1.1em)' : '.1em'};
+  top: 0.1em;
+  left: ${p => (p.on ? 'calc(100% - 1.1em)' : '.1em')};
 `
 
-export default function Switch({ on, onToggle }) {
+export function Switch({ on, onToggle }) {
   return (
     <Container onClick={onToggle}>
       <Track on={on}>

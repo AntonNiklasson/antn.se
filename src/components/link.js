@@ -2,7 +2,7 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import _ from 'lodash/fp'
 
-const Link = ({ children, ...props }) => {
+export function Link({ children, ...props }) {
   if (props.to.startsWith('http')) {
     const anchorProps = _.omit(['activeClassName', 'exact'])(props)
 
@@ -15,5 +15,3 @@ const Link = ({ children, ...props }) => {
 
   return <GatsbyLink {...props}>{children}</GatsbyLink>
 }
-
-export default Link

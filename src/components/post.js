@@ -1,22 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { RelativeTimestamp } from '../components/timestamp'
+import { Timestamp } from '../components'
 
 const Container = styled.div`
-  margin: 1em 0;
-  font-size: 1.3em;
+  margin: 2em 0;
 `
 
-export default function Post({ fields, frontmatter }) {
+export function Post({ fields, frontmatter }) {
   return (
     <Container>
       <h2>
-        <Link style={{ boxShadow: 'none' }} to={fields.slug}>
-          {frontmatter.title}
-        </Link>
+        <Link to={fields.slug}>{frontmatter.title}</Link>
       </h2>
-      <RelativeTimestamp date={frontmatter.date} />
+      <Timestamp date={frontmatter.date} />
     </Container>
   )
 }
