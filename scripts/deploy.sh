@@ -11,7 +11,8 @@ docker build -t antn .
 
 echo "4. Stop previous container"
 docker stop antn-container || true
+docker rm antn-container || true
 
 echo "5. Starting docker container";
-docker run --rm -d -p 8000:8000 --name antn-container antn
+docker run -d -p 8000:8000 --name antn-container antn
 ENDSSH
