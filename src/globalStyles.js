@@ -8,8 +8,8 @@ export const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
   }
 	::selection {
-		background: red;
-		color: gold;
+		background: ${p => p.theme.accent};
+		color: ${p => p.theme.text};
 	}
   body {
     min-height: 100%;
@@ -79,10 +79,10 @@ export const GlobalStyles = createGlobalStyle`
 	kbd {
 		display: inline-block;
 		margin: .2em;
-		padding: .3em .5em;
+  padding: 0.1em 0.4em;
 		background: white;
 		background-image: linear-gradient(white, #EEE);
-		box-shadow: 0 2px 3px #DDD inset, 0 4px 0 ${p => p.theme.backgroundSecondary};
+		box-shadow: 0 3px 0 #444;
 		border: 1px solid ${p => p.theme.border};
 		border-radius: 4px;
 		color: #555;

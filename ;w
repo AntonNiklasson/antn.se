@@ -1,16 +1,15 @@
 ---
 title: System commands in vim
-date: 2019-05-25
+date: 2019-05-29
 ---
 
 
-**TL;DR:** You can run system commands in vim using the _expression register_.
-<kbd>Ctrl</kbd><kbd>R</kbd> + _any register_ inputs the contents of the register
+**TL;DR:** <kbd>Ctrl</kbd><kbd>R</kbd> + _any register_ inputs the contents of the register
 in insert mode.
 
-Pasting from the expression register involves writing an expression that
-evaluates to a string, and it supports a function `system` to run system
-commands.
+You can run system commands in vim using the _expression register_, available on `=`. Pasting from the
+expression register involves writing an expression that evaluates to a string, and it
+supports a function `system()` to run commands.
 
 <kbd>Ctrl</kbd><kbd>R</kbd><kbd>=</kbd> then `system('ls -la')` inputs the
 output of `ls -la` in your current vim buffer.
@@ -21,7 +20,7 @@ From time to time I find myself wanting to run some kind of system command and
 capture the output in the file I am working on at the moment. For one-off
 commands I usually go with something like `:!yarn add axios` from inside vim to
 quickly install another dependency. That runs a system command "from" vim, but
-the result is still not incorporated into my vim buffer.
+the result is not captured in the buffer.
 
 For a project I am working on at the moment I had a json file with about 100
 posts. Each post had a set of attributes such as title, body, tags, excerpt
@@ -30,7 +29,7 @@ of the posts.
 
 There is a command on a mac perfect for this: `uuidgen`.
 
-I saw this as a vim macro quite easily. Perform the following steps for each
+I could see this change as a vim macro. I wanted to perform the following steps for each
 post:
 
 1. Find the title attribute
@@ -72,7 +71,7 @@ folder I might create folders for each components, or just a single file per
 component, depending on the current setup. When consuming these components I
 want to make the imports slightly more compact by exporting each component by
 their name from an `index.js` in the components folder. Then importing them is
-easy:
+a bit more comfortable:
 
 ```javascript
 import { Button, Input, Modal } from '../components';
@@ -141,7 +140,7 @@ So now I have each component name on a single line, I would like that to read
 export { default as Component } from './Component'
 ```
 
-That is easy with a macro. Record a macro as an isolated change on a single line,
+That is doable with a macro. Record a macro as an isolated change on a single line,
 and then use visual line mode and normal command to run that macro on the other
 lines independantly. Here is what that macro could look like:
 
