@@ -11,4 +11,4 @@ RUN yarn
 COPY . .
 
 RUN yarn prod:build
-CMD yarn prod:serve
+CMD yarn prod:run
