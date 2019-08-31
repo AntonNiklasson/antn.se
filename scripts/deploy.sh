@@ -6,13 +6,8 @@ echo "2. Fetching latest updates";
 git fetch origin
 git reset --hard origin/master
 
-echo "3. Building image";
-docker build -t antn .
+echo "3. Build the static pages"
+yarn
+yarn prod:build
 
-echo "4. Stop previous container"
-docker stop antn-container || true
-docker rm antn-container || true
-
-echo "5. Starting docker container";
-docker run -d -p 8000:8000 --name antn-container antn
 ENDSSH

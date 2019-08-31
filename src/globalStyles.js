@@ -16,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
     padding-bottom: 5em;
 		font: 18px / 1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		background: ${p => p.theme.background};
-		background-image: linear-gradient(${p => p.theme.background}, ${p => darken(0.025, p.theme.background)});
     color: ${p => p.theme.text};
 		transition-property: background, color;
 		transition-duration: ${p => p.theme.transitionDuration};

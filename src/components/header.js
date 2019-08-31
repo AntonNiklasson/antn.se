@@ -43,14 +43,7 @@ export function Header({ toggleTheme, isDarkTheme }) {
       <MaxWidthContainer>
         <InnerContainer>
           <Logo>
-            <a href="/">
-              <span>a</span>
-              <span>n</span>
-              <span>t</span>
-              <span>o</span>
-              <span>n</span>
-              <span>.</span>
-            </a>
+            <a href="/">anton</a>
           </Logo>
           <ThemeSwitchContainer>
             🌞
