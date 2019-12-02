@@ -31,6 +31,11 @@ const Logo = styled.h1`
     }
   }
 `
+const Navigation = styled.nav`
+  font-size: 1.125rem;
+  font-weight: bold;
+`
+
 const ThemeSwitchContainer = styled.div`
   display: flex;
   align-items: center;
@@ -45,6 +50,9 @@ export function Header({ toggleTheme, isDarkTheme }) {
           <Logo>
             <a href="/">anton</a>
           </Logo>
+          <Navigation>
+            <a href="/contact">Contact</a>
+          </Navigation>
           <ThemeSwitchContainer>
             🌞
             <Switch on={isDarkTheme} onToggle={toggleTheme} />

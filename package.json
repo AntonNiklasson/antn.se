@@ -6,7 +6,7 @@
     "deploy": "./scripts/deploy.sh",
     "prod:build": "gatsby build",
     "prod:run": "gatsby serve --host 0.0.0.0 --port 8000",
-		"lint": "eslint src"
+    "lint": "eslint src"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
@@ -16,6 +16,7 @@
     "node-emoji": "^1.8.1"
   },
   "dependencies": {
+    "@statickit/react": "^1.2.0",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "1.10.6",
     "fs-writefile-promise": "^3.0.0",

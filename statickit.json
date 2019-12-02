@@ -1,0 +1,20 @@
+{
+  "forms": {
+    "contact": {
+      "name": "Contact",
+      "fields": {
+        "email": {
+          "type": "email",
+          "prettyName": "Email",
+          "required": true
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "to": "niklasson.anton@gmail.com"
+        }
+      ]
+    }
+  }
+}

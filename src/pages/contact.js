@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
+import { useForm } from '@statickit/react'
 import { BaseLayout } from '../layout/baseLayout'
+import { Button } from '../components/button'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  font-size: 20px;
-`
-const Form = styled.form`
-  width: 90%;
-  margin: auto;
+const FormContainer = styled.div`
+  width: 100%;
   max-width: 500px;
+  margin: auto;
+  padding-top: 3em;
 `
+
 const FormElement = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,76 +36,59 @@ const Textarea = styled.textarea`
   background: #f8f8f8;
   resize: none;
 `
-const Button = styled.button`
-  font-size: 0.8em;
-  font-weight: bold;
-  border-radius: 0.1em;
-  padding: 0.3em 1em;
-  background: ${p => p.theme.accent};
-  color: ${p => p.theme.background};
-  border: 1px solid ${p => p.theme.border};
-  border-radius: 3px;
-  text-transform: uppercase;
+
+const Message = styled.div`
+  margin: 2em 0;
+  padding: 1em;
+  border: 3px solid ${p => p.theme.accent};
+  color: ${p => p.theme.accent};
 `
-const Error = styled.div`
-  background: pink;
-  color: red;
-  border: 1px solid red;
-  margin: 1em 0;
-  padding: 0.5em;
-  font-size: 0.8em;
-`
+
+const links = [
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/antonniklasson/' },
+  { label: 'Twitter', url: 'https://twitter.com/AntonNiklasson' },
+  { label: 'GitHub', url: 'https://twitter.com/AntonNiklasson' },
+  { label: 'Instagram', url: 'https://www.instagram.com/anton.niklasson/' },
+]
 
 export default function ContactPage() {
-  const [sending, setSending] = useState(false)
-  const [error, setError] = useState(false)
-  const [email, setEmail] = useState('')
-  const [body, setBody] = useState('')
-
-  async function handleSubmit(event) {
-    event.preventDefault()
-
-    try {
-      setSending(true)
-      const response = await axios.post('https://pi.antn.se/inbox', {
-        from: email,
-        body,
-      })
-      console.log({ response })
-    } catch (error) {
-      console.error(error)
-      setError(true)
-    }
-
-    setSending(false)
-  }
+  const [state, handleSubmit] = useForm({
+    site: '4649adab2ef7',
+    form: 'contact',
+  })
 
   return (
     <BaseLayout>
-      <Wrapper>
-        <Form onSubmit={handleSubmit}>
-          <FormElement>
-            <label>How can I get back to you?</label>
-            <Input
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              type="email"
-              placeholder="name@domain.com"
-              disabled={sending}
-            />
-          </FormElement>
-          <FormElement>
-            <label>What is up?</label>
-            <Textarea
-              value={body}
-              onChange={e => setBody(e.target.value)}
-              disabled={sending}
-            />
-          </FormElement>
-          {error && <Error>This is not implemented properly yet 🤷‍♀️</Error>}
-          <Button disabled={sending}>Send</Button>
-        </Form>
-      </Wrapper>
+      <FormContainer>
+        {state.succeeded ? (
+          <Message>
+            {`Thank you for reaching out. I'll get back to you as soon as
+                possible 👋`}
+          </Message>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <FormElement>
+              <label htmlFor="email">Your email:</label>
+              <Input name="email" type="email" disabled={state.submitting} />
+            </FormElement>
+            <FormElement>
+              <label htmlFor="message">How can I help?</label>
+              <Textarea name="message" disabled={state.submitting} />
+            </FormElement>
+            <Button disabled={state.submitting}>Send</Button>
+          </form>
+        )}
+        <div>
+          <p>{"I'm also available on:"}</p>
+          <ul>
+            {links.map(link => (
+              <li key={link.label}>
+                <a href={link.url}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </FormContainer>
     </BaseLayout>
   )
 }
