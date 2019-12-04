@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MaxWidthContainer, Switch } from '../components'
+import { Link } from 'gatsby'
+import { MaxWidthContainer } from '../components'
 
 const Container = styled.header`
   position: fixed;
@@ -10,8 +11,17 @@ const Container = styled.header`
   background: ${p => p.theme.background};
   color: ${p => p.theme.text};
   z-index: 1;
-  box-shadow: 0 0 10px ${p => p.theme.shadow};
   font-size: 0.8em;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(${p => p.theme.background}, transparent);
+  }
 `
 const InnerContainer = styled.div`
   display: flex;
@@ -32,17 +42,22 @@ const Logo = styled.h1`
   }
 `
 const Navigation = styled.nav`
-  font-size: 1.125rem;
-  font-weight: bold;
-`
-
-const ThemeSwitchContainer = styled.div`
   display: flex;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.125rem;
+  font-weight: bold;
+
+  a {
+    display: inline-block;
+    margin: 0 1em;
+
+    &.active {
+      border-bottom: 3px solid ${p => p.theme.accent};
+    }
+  }
 `
 
-export function Header({ toggleTheme, isDarkTheme }) {
+export function Header() {
   return (
     <Container>
       <MaxWidthContainer>
@@ -51,13 +66,11 @@ export function Header({ toggleTheme, isDarkTheme }) {
             <a href="/">anton</a>
           </Logo>
           <Navigation>
-            <a href="/contact">Contact</a>
+            <a to="https://cv.antn.se">Resume</a>
+            <Link to="/contact/" activeClassName="active">
+              Contact
+            </Link>
           </Navigation>
-          <ThemeSwitchContainer>
-            🌞
-            <Switch on={isDarkTheme} onToggle={toggleTheme} />
-            🌜
-          </ThemeSwitchContainer>
         </InnerContainer>
       </MaxWidthContainer>
     </Container>

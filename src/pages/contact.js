@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useForm } from '@statickit/react'
+import TweetEmbed from 'react-tweet-embed'
 import { BaseLayout } from '../layout/baseLayout'
 import { Button } from '../components/button'
 
@@ -66,17 +67,20 @@ export default function ContactPage() {
                 possible 👋`}
           </Message>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <FormElement>
-              <label htmlFor="email">Your email:</label>
-              <Input name="email" type="email" disabled={state.submitting} />
-            </FormElement>
-            <FormElement>
-              <label htmlFor="message">How can I help?</label>
-              <Textarea name="message" disabled={state.submitting} />
-            </FormElement>
-            <Button disabled={state.submitting}>Send</Button>
-          </form>
+          <>
+            <form onSubmit={handleSubmit}>
+              <FormElement>
+                <label htmlFor="email">Your email:</label>
+                <Input name="email" type="email" disabled={state.submitting} />
+              </FormElement>
+              <FormElement>
+                <label htmlFor="message">How can I help?</label>
+                <Textarea name="message" disabled={state.submitting} />
+              </FormElement>
+              <Button disabled={state.submitting}>Send</Button>
+            </form>
+            <TweetEmbed id="1042898164683038720" options={{ dnt: true }} />
+          </>
         )}
         <div>
           <p>{"I'm also available on:"}</p>
