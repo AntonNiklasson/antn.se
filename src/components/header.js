@@ -40,6 +40,16 @@ const Logo = styled.h1`
       color: ${p => p.theme.accent};
     }
   }
+
+  .lastname {
+    visibility: hidden;
+    color: #777;
+    transition: all 1s;
+
+    @media (min-width: 1200px) {
+      visibility: visible;
+    }
+  }
 `
 const Navigation = styled.nav`
   display: flex;
@@ -63,10 +73,13 @@ export function Header() {
       <MaxWidthContainer>
         <InnerContainer>
           <Logo>
-            <a href="/">anton</a>
+            <a href="/">
+              <span className="firstname">anton</span>
+              <span className="lastname">niklasson</span>
+            </a>
           </Logo>
           <Navigation>
-            <a to="https://cv.antn.se">Resume</a>
+            <a href="https://cv.antn.se">Resume</a>
             <Link to="/contact/" activeClassName="active">
               Contact
             </Link>

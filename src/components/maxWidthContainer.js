@@ -8,4 +8,7 @@ export const MaxWidthContainer = styled.div`
   @media (min-width: 1000px) {
     max-width: 800px;
   }
+  @media (min-width: 1200px) {
+    max-width: 1000px;
+  }
 `

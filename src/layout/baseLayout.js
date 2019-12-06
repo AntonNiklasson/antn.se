@@ -7,7 +7,7 @@ import { Header, MaxWidthContainer } from '../components'
 import { storage } from '../utils'
 
 const ChildContainer = styled(MaxWidthContainer)`
-  margin-top: 5em;
+  margin-top: 7em;
 `
 
 export function BaseLayout({ children }) {

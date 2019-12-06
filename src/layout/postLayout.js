@@ -6,10 +6,16 @@ import { BaseLayout } from './baseLayout'
 import { Timestamp } from '../components/timestamp'
 
 const Header = styled.div`
+  max-width: 80%;
+  margin: 0 auto;
   padding: 1em 0;
-  font-size: 1.2em;
+  font-size: 1.4em;
+  text-align: center;
 `
 const Content = styled.div`
+  max-width: 40em;
+  margin: 0 auto;
+
   .gatsby-resp-image-link {
     max-width: 90%;
     margin: 1em auto;
@@ -17,24 +23,22 @@ const Content = styled.div`
   }
 `
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+function BlogPostTemplate({ data }) {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
 
-    return (
-      <BaseLayout>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <Header>
-          <h1>{post.frontmatter.title}</h1>
-          <Timestamp date={post.frontmatter.date} />
-        </Header>
-        <Content>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Content>
-      </BaseLayout>
-    )
-  }
+  return (
+    <BaseLayout>
+      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+      <Header>
+        <h1>{post.frontmatter.title}</h1>
+        <Timestamp date={post.frontmatter.date} />
+      </Header>
+      <Content>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Content>
+    </BaseLayout>
+  )
 }
 
 export default BlogPostTemplate

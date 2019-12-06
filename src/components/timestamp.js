@@ -3,8 +3,11 @@ import moment from 'moment'
 import emoji from 'node-emoji'
 import styled from 'styled-components'
 
-const StyledTime = styled.time`
-  font-size: 0.9em;
+const Time = styled.time`
+  font-size: 0.75em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
   color: ${p => p.theme.textSecondary};
 `
 
@@ -13,9 +16,5 @@ export const Timestamp = ({ date }) => {
   const isToday = dayDiff < 1
   const dateString = isToday ? 'Today' : `${dayDiff} days ago`
 
-  return (
-    <StyledTime>
-      {emoji.get('calendar')} {dateString}
-    </StyledTime>
-  )
+  return <Time>{dateString}</Time>
 }
