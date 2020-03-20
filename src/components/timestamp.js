@@ -1,12 +1,11 @@
 import React from 'react'
 import moment from 'moment'
-import emoji from 'node-emoji'
 import styled from 'styled-components'
 
 const Time = styled.time`
   font-size: 0.75em;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 1px;
   color: ${p => p.theme.textSecondary};
 `

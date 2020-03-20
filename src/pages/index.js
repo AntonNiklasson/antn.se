@@ -4,32 +4,15 @@ import styled from 'styled-components'
 import get from 'lodash/get'
 import { BaseLayout } from '../layout/baseLayout'
 import { Timestamp } from '../components'
-//import { Post } from '../components'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const Grid = styled.div`
-  display: grid;
-  grid-gap: 1em;
-  grid-template-columns: repeat(1, 1fr);
-  align-items: center;
-
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`
-const PostCard = styled.div`
+const Card = styled.div`
+  margin: 1em;
   padding: 2em;
   background: white;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  box-shadow: 0 3px 10px -5px #00000044;
   transition: all 200ms;
 
   &:hover {
-    background: #ececec;
+    background: #eee;
   }
 
   h2 {
@@ -42,18 +25,14 @@ const IndexPage = props => {
 
   return (
     <BaseLayout>
-      <Wrapper>
-        <Grid>
-          {posts.map(({ node: post }) => (
-            <Link key={post.id} to={post.fields.slug}>
-              <PostCard>
-                <h2>{post.frontmatter.title}</h2>
-                <Timestamp date={post.frontmatter.date} />
-              </PostCard>
-            </Link>
-          ))}
-        </Grid>
-      </Wrapper>
+      {posts.map(({ node: post }) => (
+        <Link key={post.id} to={post.fields.slug}>
+          <Card>
+            <h2>{post.frontmatter.title}</h2>
+            <Timestamp date={post.frontmatter.date} />
+          </Card>
+        </Link>
+      ))}
     </BaseLayout>
   )
 }
