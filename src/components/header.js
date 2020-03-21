@@ -24,20 +24,21 @@ export function Header() {
         padding: 1em 0;
       `}
     >
-      <a
-        href="/"
-        css={`
-          font-size: 1em;
-        `}
-      >
-        <h1
+      <h1>
+        <a
+          href="/"
           css={`
+            font-size: 1em;
             font-weight: bold;
+
+            &:hover {
+              color: #aaa;
+            }
           `}
         >
           anton niklasson
-        </h1>
-      </a>
+        </a>
+      </h1>
       <Navigation>
         <a href="https://cv.antn.se">Resume</a>
         <Link to="/contact/" activeClassName="active">

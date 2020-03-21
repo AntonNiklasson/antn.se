@@ -43,7 +43,7 @@ p {
 a {
 	text-decoration: none;
 	color: ${p => p.theme.text};
-	transition: color 250ms;
+	transition: all 300ms;
 	
 	&:hover {
 		color: ${p => p.theme.textSecondary};
