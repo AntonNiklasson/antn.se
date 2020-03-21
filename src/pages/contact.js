@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useForm } from '@statickit/react'
-import TweetEmbed from 'react-tweet-embed'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faTwitter,
+  faLinkedin,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons'
 import { BaseLayout } from '../layout/baseLayout'
 import { Button } from '../components/button'
 
@@ -46,10 +51,9 @@ const Message = styled.div`
 `
 
 const links = [
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/antonniklasson/' },
-  { label: 'Twitter', url: 'https://twitter.com/AntonNiklasson' },
-  { label: 'GitHub', url: 'https://twitter.com/AntonNiklasson' },
-  { label: 'Instagram', url: 'https://www.instagram.com/anton.niklasson/' },
+  { icon: faGithub, url: 'https://github.com/AntonNiklasson' },
+  { icon: faLinkedin, url: 'https://www.linkedin.com/in/antonniklasson/' },
+  { icon: faTwitter, url: 'https://twitter.com/AntonNiklasson' },
 ]
 
 export default function ContactPage() {
@@ -68,10 +72,24 @@ export default function ContactPage() {
           </Message>
         ) : (
           <>
+            <div
+              css={`
+                display: flex;
+                justify-content: space-evenly;
+                margin: 0 0 1em 0;
+                font-size: 2em;
+              `}
+            >
+              {links.map(link => (
+                <a key={link.url} href={link.url}>
+                  <FontAwesomeIcon icon={link.icon} />
+                </a>
+              ))}
+            </div>
             <form onSubmit={handleSubmit}>
               <FormElement>
-                <label htmlFor="email">Your email:</label>
-                <Input name="email" type="email" disabled={state.submitting} />
+                <label htmlFor="email">How can I get back to you?</label>
+                <Input name="text" disabled={state.submitting} />
               </FormElement>
               <FormElement>
                 <label htmlFor="message">How can I help?</label>
@@ -79,19 +97,8 @@ export default function ContactPage() {
               </FormElement>
               <Button disabled={state.submitting}>Send</Button>
             </form>
-            <TweetEmbed id="1042898164683038720" options={{ dnt: true }} />
           </>
         )}
-        <div>
-          <p>{"I'm also available on:"}</p>
-          <ul>
-            {links.map(link => (
-              <li key={link.label}>
-                <a href={link.url}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </FormContainer>
     </BaseLayout>
   )
