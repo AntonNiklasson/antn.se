@@ -7,12 +7,12 @@ export const GlobalStyles = createGlobalStyle`
 	box-sizing: border-box;
 	font-display: swap;
 }
-::selection {
+*:selection {
 	background: ${p => p.theme.accent};
 	color: ${p => p.theme.text};
 }
-::focus {
-	outline: 3px solid gold;
+*:focus {
+		outline: 3px solid ${p => p.theme.accent} !important;
 }
 body {
 	min-height: 100%;
