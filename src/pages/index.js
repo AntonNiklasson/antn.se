@@ -5,32 +5,23 @@ import get from 'lodash/get'
 import { BaseLayout } from '../layout/baseLayout'
 import { Timestamp } from '../components'
 
-const Card = styled.div`
-  margin: 1em;
-  padding: 2em;
-  background: white;
-  transition: all 200ms;
-
-  &:hover {
-    background: #eee;
-  }
-
-  h2 {
-    margin-bottom: 0.5em;
-  }
-`
-
 const IndexPage = props => {
   const posts = get(props, 'data.allMarkdownRemark.edges')
 
   return (
     <BaseLayout>
       {posts.map(({ node: post }) => (
-        <Link key={post.id} to={post.fields.slug}>
-          <Card>
-            <h2>{post.frontmatter.title}</h2>
-            <Timestamp date={post.frontmatter.date} />
-          </Card>
+        <Link
+          css={`
+            display: block;
+						margin: 1em 0;
+						padding: 1em;
+          `}
+          key={post.id}
+          to={post.fields.slug}
+        >
+          <h2>{post.frontmatter.title}</h2>
+          <Timestamp date={post.frontmatter.date} />
         </Link>
       ))}
     </BaseLayout>
