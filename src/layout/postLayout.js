@@ -5,6 +5,8 @@ import { graphql } from 'gatsby'
 import { BaseLayout } from './baseLayout'
 import { Timestamp } from '../components/timestamp'
 
+require("../prism-tomorrow.css");
+
 const Header = styled.div`
   max-width: 80%;
   margin: 0 auto;

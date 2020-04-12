@@ -38,7 +38,6 @@ export const GlobalStyles = createGlobalStyle`
 		}
 	}
 
-
 	h1,
 	h2,
 	h3,
@@ -122,5 +121,11 @@ export const GlobalStyles = createGlobalStyle`
 			&.note {
 			border-left: 3px solid ${p => p.theme.accent};
 		}
+	}
+
+	figcaption {
+    text-align: center;
+    font-size: .9em;
+    color: #888;
 	}
 `
