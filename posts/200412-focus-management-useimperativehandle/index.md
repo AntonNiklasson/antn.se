@@ -121,7 +121,7 @@ In a more complex scenario this ref proxy solution might not be enough. Some com
 
 We could represent the rendering of this menu with a simple boolean flag internal in component state. You can imagine that this menu could be closed with the Escape key or similar.
 
-In this scenario, we are looking to not only have the button trigger focus in the internal input, but also trigger the formatting menu to open. This is were `useImperativeHandle` is very handy. It gives yo ua way of defining what methods should be exposed to the consuming component.
+In this scenario, we are looking to not only have the button trigger focus in the internal input, but also trigger the formatting menu to open. This is were `useImperativeHandle` is very handy. It gives you a way of defining what methods should be exposed to the consuming component.
 
 We need to add three things to our component to support this:
 
