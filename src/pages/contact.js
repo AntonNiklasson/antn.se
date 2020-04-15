@@ -8,13 +8,13 @@ import {
   faGithub,
 } from '@fortawesome/free-brands-svg-icons'
 import { BaseLayout } from '../layout/baseLayout'
-import { Button } from '../components/button'
+import { Input, Button } from '../components'
 
 const FormContainer = styled.div`
   width: 100%;
   max-width: 500px;
   margin: auto;
-  padding-top: 3em;
+        padding-top: 1em;
 `
 
 const FormElement = styled.div`
@@ -25,22 +25,6 @@ const FormElement = styled.div`
   label {
     font-size: 0.8em;
   }
-`
-const Input = styled.input`
-  width: 100%;
-  font-size: 1em;
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  background: #f8f8f8;
-`
-const Textarea = styled.textarea`
-  font-size: 0.9em;
-  font-family: inherit;
-  height: 10em;
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  background: #f8f8f8;
-  resize: none;
 `
 
 const Message = styled.div`
@@ -64,40 +48,50 @@ export default function ContactPage() {
 
   return (
     <BaseLayout>
+      <div
+        css={`
+          display: flex;
+          justify-content: space-evenly;
+                                        margin: 1em 0;
+          font-size: 2em;
+        `}
+      >
+        {links.map(link => (
+          <a key={link.url} href={link.url}>
+            <FontAwesomeIcon icon={link.icon} />
+          </a>
+        ))}
+      </div>
       <FormContainer>
+        {state.errors ? (
+          <ul>
+            {state.errors.map(error => (
+              <li key={error.field}>{JSON.stringify(error, null, 2)}</li>
+            ))}
+          </ul>
+        ) : null}
         {state.succeeded ? (
           <Message>
             {`Thank you for reaching out. I'll get back to you as soon as
                 possible 👋`}
           </Message>
         ) : (
-          <>
-            <div
-              css={`
-                display: flex;
-                justify-content: space-evenly;
-                margin: 0 0 1em 0;
-                font-size: 2em;
-              `}
-            >
-              {links.map(link => (
-                <a key={link.url} href={link.url}>
-                  <FontAwesomeIcon icon={link.icon} />
-                </a>
-              ))}
-            </div>
-            <form onSubmit={handleSubmit}>
-              <FormElement>
-                <label htmlFor="email">How can I get back to you?</label>
-                <Input name="text" disabled={state.submitting} />
-              </FormElement>
-              <FormElement>
-                <label htmlFor="message">How can I help?</label>
-                <Textarea name="message" disabled={state.submitting} />
-              </FormElement>
-              <Button disabled={state.submitting}>Send</Button>
-            </form>
-          </>
+          <form onSubmit={handleSubmit}>
+            <FormElement>
+              <label htmlFor="email">How can I get back to you?</label>
+              <Input id="email" name="email" disabled={state.submitting} />
+            </FormElement>
+            <FormElement>
+              <label htmlFor="message">How can I help?</label>
+              <Input
+                multiline
+                id="message"
+                name="message"
+                disabled={state.submitting}
+              />
+            </FormElement>
+            <Button disabled={state.submitting}>Send</Button>
+          </form>
         )}
       </FormContainer>
     </BaseLayout>
