@@ -48,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
 		line-height: 1.2;
 		font-weight: 500;
 		font-family: 'Playfair Display', serif;
+		word-break: break-word;
 	}
 
 	ol, ul {
