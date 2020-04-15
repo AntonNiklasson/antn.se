@@ -6,10 +6,12 @@ module.exports = {
     description: "Anton's personal website",
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
+		{
+      resolve: `gatsby-plugin-goatcounter`,
       options: {
-        trackingId: `UA-13287140-7`,
+        code: 'antn',
+        head: false,
+        pixel: false,
       },
     },
     {
