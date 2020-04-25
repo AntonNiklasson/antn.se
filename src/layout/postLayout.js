@@ -2,10 +2,11 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { BaseLayout } from './baseLayout'
 import { Timestamp } from '../components/timestamp'
 
-require("../prism-tomorrow.css");
+require('../prism-tomorrow.css')
 
 const Header = styled.div`
   max-width: 80%;
@@ -17,27 +18,25 @@ const Header = styled.div`
 const Content = styled.div`
   max-width: 40em;
   margin: 0 auto;
-
-  .gatsby-resp-image-link {
-    max-width: 90%;
-    margin: 1em auto;
-    box-shadow: 0 10px 7px -8px rgba(0, 0, 0, 0.4);
-  }
 `
 
-function BlogPostTemplate({ data }) {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+function BlogPostTemplate({ data, ...props }) {
+  const {
+    mdx: post,
+    site: {
+      siteMetadata: { title },
+    },
+  } = data
 
   return (
     <BaseLayout>
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+      <Helmet title={`${post.frontmatter.title} | ${title}`} />
       <Header>
         <h1>{post.frontmatter.title}</h1>
         <Timestamp date={post.frontmatter.date} />
       </Header>
       <Content>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXRenderer>{post.body}</MDXRenderer>
       </Content>
     </BaseLayout>
   )
@@ -50,12 +49,11 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       frontmatter {
         title
         date
