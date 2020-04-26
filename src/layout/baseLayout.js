@@ -1,9 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
+import { MDXProvider } from '@mdx-js/react'
 import { lightTheme } from '../theme.js'
 import { GlobalStyles } from '../globalStyles.js'
-import { Header, MaxWidthContainer } from '../components'
+import { Header, MaxWidthContainer, YoutubeEmbed } from '../components'
 
 export function BaseLayout({ children }) {
   return (
@@ -19,7 +20,7 @@ export function BaseLayout({ children }) {
         <GlobalStyles />
         <MaxWidthContainer>
           <Header />
-          {children}
+          <MDXProvider components={{ YoutubeEmbed }}>{children}</MDXProvider>
         </MaxWidthContainer>
       </>
     </ThemeProvider>
