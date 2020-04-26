@@ -19,6 +19,20 @@ const Message = styled.div`
   color: ${p => p.theme.accent};
 `
 
+const Errors = styled.div`
+  background: ${p => p.theme.backgroundWarning};
+  border-left: 3px solid orange;
+  margin: 1em 0;
+  padding: 1em;
+  font-size: 0.9em;
+  color: orange;
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+`
+
 export function ContactForm() {
   const [state, handleSubmit] = useForm({
     site: '4649adab2ef7',
@@ -29,17 +43,21 @@ export function ContactForm() {
     <div
       css={`
         width: 100%;
-        max-width: 500px;
+        max-width: 400px;
         margin: auto;
         padding-top: 1em;
       `}
     >
-      {state.errors ? (
-        <ul>
-          {state.errors.map(error => (
-            <li key={error.field}>{JSON.stringify(error, null, 2)}</li>
-          ))}
-        </ul>
+      {state.errors.length ? (
+        <Errors>
+          <ul>
+            {state.errors.map(error => (
+              <li key={error.field}>
+                "{error.field}" {error.message}
+              </li>
+            ))}
+          </ul>
+        </Errors>
       ) : null}
       {state.succeeded ? (
         <Message>
@@ -49,17 +67,17 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit}>
           <FormElement>
-            <label htmlFor="email">How can I get back to you?</label>
-            <Input id="email" name="email" disabled={state.submitting} />
-          </FormElement>
-          <FormElement>
-            <label htmlFor="message">How can I help?</label>
+            <label htmlFor="message">What can I do for you?</label>
             <Input
               multiline
               id="message"
               name="message"
               disabled={state.submitting}
             />
+          </FormElement>
+          <FormElement>
+            <label htmlFor="email">Your email:</label>
+            <Input id="email" name="email" disabled={state.submitting} />
           </FormElement>
           <Button disabled={state.submitting}>Send</Button>
         </form>

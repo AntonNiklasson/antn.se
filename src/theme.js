@@ -9,8 +9,9 @@ export const lightTheme = {
   textSecondary: '#555',
   background: '#fff',
   backgroundSecondary: '#eee',
+  backgroundWarning: '#f7f7ed',
   border: '#ddd',
-  accent: 'orange',
+  accent: '#2e498a',
 }
 
 export const darkTheme = {
