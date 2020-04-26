@@ -1,4 +1,5 @@
 export { Button } from './button'
+export { ContactForm } from './contactForm'
 export { Header } from './header.js'
 export { Input } from './input.js'
 export { Link } from './link.js'
