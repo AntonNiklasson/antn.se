@@ -8,6 +8,7 @@ export const lightTheme = {
   text: '#333',
   textSecondary: '#555',
   background: '#fff',
+  backgroundSecondary: '#eee',
   border: '#ddd',
   accent: 'orange',
 }
@@ -17,6 +18,7 @@ export const darkTheme = {
   text: '#EEE',
   textSecondary: '#BBB',
   background: '#061b26',
+  backgroundSecondary: '#555',
   border: '#555',
   accent: '#15bf8f',
 }

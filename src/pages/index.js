@@ -1,12 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import get from 'lodash/get'
 import { BaseLayout } from '../layout/baseLayout'
 import { Timestamp } from '../components'
 
-const IndexPage = props => {
-  const posts = get(props, 'data.allMarkdownRemark.edges')
+const IndexPage = ({ data, ...props }) => {
+  const posts = data?.allMdx?.edges ?? []
 
   return (
     <BaseLayout>
@@ -14,8 +13,8 @@ const IndexPage = props => {
         <Link
           css={`
             display: block;
-						margin: 1em 0;
-						padding: 1em;
+            margin: 1em 0;
+            padding: 1em;
           `}
           key={post.id}
           to={post.fields.slug}
@@ -37,7 +36,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id

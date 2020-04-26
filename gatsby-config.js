@@ -6,14 +6,6 @@ module.exports = {
     description: "Anton's personal website",
   },
   plugins: [
-		{
-      resolve: `gatsby-plugin-goatcounter`,
-      options: {
-        code: 'antn',
-        head: false,
-        pixel: false,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,31 +17,32 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/posts`,
-        name: 'blog',
+        name: 'posts',
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1000,
-              wrapperStyle: 'margin: 1em 0;',
-              showCaptions: true,
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
+        extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          default: require.resolve('./src/layout/postLayout.js'),
+        },
+        gatsbyRemarkPlugins: [`gatsby-remark-prismjs`, `gatsby-remark-images`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: 'antn',
+        head: false,
+        pixel: false,
       },
     },
     `gatsby-plugin-stylus`,
     'gatsby-plugin-twitter',
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

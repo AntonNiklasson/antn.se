@@ -10,7 +10,7 @@ Flexbox works really well in one dimension. It’s great at placing items in a r
 For the sake of simplicity; this is all the markup we’ll use:
 
 ```html
-<div class=”zoo”>
+<div class="zoo">
   <div class="elephant">🐘</div>
   <div class="tiger">🐯</div>
   <div class="dog">🐶</div>
@@ -43,9 +43,9 @@ The CSS Grid spec includes a new unit: fr. It represents a number of fractions i
 
 ```css
 .zoo {
- display: grid;
- grid-template-rows: 1fr 1fr 1fr;
- grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 ```
 
@@ -56,7 +56,6 @@ Good job, here’s your grid! 👊 The items are automatically positioned in the
 All the rows and columns are evenly distributed since they all claim one fraction each. Let’s say the first row would be 2fr, then that row would be allocating half the space. Since 1 + 1 + 2 = 4.
 
 <img src="02.png" />
-
 
 ## 2. Positioning the items
 
@@ -91,9 +90,9 @@ Areas are defined with grid-template-areas on the container and it comes with a 
   grid-template-rows: 200px auto 200px;
   grid-template-columns: 200px auto;
   grid-template-areas:
-    "header header"
-    "sidebar content"
-    "footer footer";
+    'header header'
+    'sidebar content'
+    'footer footer';
 }
 ```
 

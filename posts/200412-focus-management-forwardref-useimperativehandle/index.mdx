@@ -26,22 +26,22 @@ We will use this component to create two fields: title and description. On top o
 
 ```js
 export function App() {
-	function focusTitle() {
-		// TBD
-	}
+  function focusTitle() {
+    // TBD
+  }
 
-	function focusDescription() {
-		// TBD
-	}
+  function focusDescription() {
+    // TBD
+  }
 
-	return (
-		<div className="container">
-			<button onClick={focusTitle}>Focus title</button>
-			<button onClick={focusDescription}>Focus description</button>
-			<Input label="Title" />
-			<Input label="Description" multiline />
-		</div>
-	)
+  return (
+    <div className="container">
+      <button onClick={focusTitle}>Focus title</button>
+      <button onClick={focusDescription}>Focus description</button>
+      <Input label="Title" />
+      <Input label="Description" multiline />
+    </div>
+  )
 }
 ```
 
@@ -151,7 +151,7 @@ export const Input = forwardRef(function({ label, multiline = false, ...props },
 			{label}
 -      {multiline ? <textarea {...props} /> : <input {...props} />}
 +      {multiline ? <textarea ref={inputRef} {...props} /> : <input ref={inputRef} {...props} />}
-+      {showMenu && renderFormattingMenu()} 
++      {showMenu && renderFormattingMenu()}
 		</label>
 	)
 })
@@ -166,9 +166,9 @@ export const Input = forwardRef(function({ label, multiline = false, ...props },
 Here is the full example as a working thing:
 
 <iframe
-     src="https://codesandbox.io/embed/useimperativehandle-m11lz?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="useImperativeHandle"
-     allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-   ></iframe>
+  src="https://codesandbox.io/embed/useimperativehandle-m11lz?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="useImperativeHandle"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
