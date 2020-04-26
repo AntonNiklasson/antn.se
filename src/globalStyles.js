@@ -34,7 +34,10 @@ export const GlobalStyles = createGlobalStyle`
 		min-height: 100%;
 
 		& *:focus {
-			outline: 3px solid ${p => p.theme.accent} !important;
+			outline: 2px solid ${p => p.theme.accent} !important;
+		}
+		& *:active {
+			outline: none;
 		}
 	}
 

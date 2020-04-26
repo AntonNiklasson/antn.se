@@ -13,7 +13,14 @@ const Time = styled.time`
 export const Timestamp = ({ date }) => {
   const dayDiff = moment().diff(moment(date), 'days')
   const isToday = dayDiff < 1
-  const dateString = isToday ? 'Today' : `${dayDiff} days ago`
 
-  return <Time>{dateString}</Time>
+  return (
+    <Time>
+      {dayDiff > 20
+        ? moment(date).format('MMMM DD YYYY')
+        : isToday
+        ? 'Today'
+        : `${dayDiff} days ago`}
+    </Time>
+  )
 }

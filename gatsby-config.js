@@ -27,7 +27,7 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/layout/postLayout.js'),
         },
-        gatsbyRemarkPlugins: [`gatsby-remark-prismjs`],
+        gatsbyRemarkPlugins: [`gatsby-remark-prismjs`, `gatsby-remark-images`],
       },
     },
     {
@@ -42,6 +42,7 @@ module.exports = {
     'gatsby-plugin-twitter',
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
