@@ -7,6 +7,11 @@
           "type": "email",
           "prettyName": "Email",
           "required": true
+        },
+        "message": {
+          "type": "text",
+          "prettyName": "Message",
+          "required": true
         }
       },
       "actions": [

@@ -4,6 +4,11 @@ module.exports = {
     author: 'Anton Niklasson',
     siteUrl: 'http://www.antn.se',
     description: "Anton's personal website",
+    links: [
+      'https://github.com/AntonNiklasson',
+      'https://www.linkedin.com/in/antonniklasson/',
+      'https://twitter.com/AntonNiklasson',
+    ],
   },
   plugins: [
     {

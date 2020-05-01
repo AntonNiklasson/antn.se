@@ -12,6 +12,6 @@ export const Button = styled.button`
   transition: all 200ms;
 
   &:disabled {
-    background: red;
+    background: ${p => p.theme.backgroundSecondary};
   }
 `

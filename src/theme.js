@@ -9,8 +9,9 @@ export const lightTheme = {
   textSecondary: '#555',
   background: '#fff',
   backgroundSecondary: '#eee',
+  backgroundWarning: '#f7f7ed',
   border: '#ddd',
-  accent: 'orange',
+  accent: '#a80086',
 }
 
 export const darkTheme = {
@@ -21,6 +22,7 @@ export const darkTheme = {
   backgroundSecondary: '#555',
   border: '#555',
   accent: '#15bf8f',
+  accentSecondary: 'orange',
 }
 
 export const breakpoints = {
