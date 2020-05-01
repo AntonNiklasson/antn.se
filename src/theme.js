@@ -11,7 +11,7 @@ export const lightTheme = {
   backgroundSecondary: '#eee',
   backgroundWarning: '#f7f7ed',
   border: '#ddd',
-  accent: '#2e498a',
+  accent: '#a80086',
 }
 
 export const darkTheme = {
@@ -22,6 +22,7 @@ export const darkTheme = {
   backgroundSecondary: '#555',
   border: '#555',
   accent: '#15bf8f',
+  accentSecondary: 'orange',
 }
 
 export const breakpoints = {

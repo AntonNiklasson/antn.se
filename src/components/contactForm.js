@@ -40,14 +40,7 @@ export function ContactForm() {
   })
 
   return (
-    <div
-      css={`
-        width: 100%;
-        max-width: 400px;
-        margin: auto;
-        padding-top: 1em;
-      `}
-    >
+    <div>
       {state.errors.length ? (
         <Errors>
           <ul>

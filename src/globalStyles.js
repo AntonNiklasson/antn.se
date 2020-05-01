@@ -34,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
 		min-height: 100%;
 
 		& *:focus {
-			outline: 2px solid ${p => p.theme.accent} !important;
+			outline: 2px solid ${p => p.theme.accent};
 		}
 		& *:active {
 			outline: none;
@@ -64,11 +64,12 @@ export const GlobalStyles = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		color: ${p => p.theme.text};
+		color: ${p => p.theme.accent};
 		transition: all 300ms;
+		font-weight: bold;
 
 		&:hover {
-			color: ${p => p.theme.textSecondary};
+			color: ${p => p.theme.accentSecondary};
 		}
 	}
 
