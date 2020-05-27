@@ -64,12 +64,12 @@ export const GlobalStyles = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		color: ${p => p.theme.accent};
+		color: ${p => p.theme.link};
 		transition: all 300ms;
 		font-weight: bold;
 
 		&:hover {
-			color: ${p => p.theme.accentSecondary};
+			color: ${p => p.theme.linkHover};
 		}
 	}
 
