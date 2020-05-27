@@ -60,6 +60,10 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit}>
           <FormElement>
+            <label htmlFor="email">Your email:</label>
+            <Input id="email" name="email" disabled={state.submitting} />
+          </FormElement>
+          <FormElement>
             <label htmlFor="message">What can I do for you?</label>
             <Input
               multiline
@@ -67,10 +71,6 @@ export function ContactForm() {
               name="message"
               disabled={state.submitting}
             />
-          </FormElement>
-          <FormElement>
-            <label htmlFor="email">Your email:</label>
-            <Input id="email" name="email" disabled={state.submitting} />
           </FormElement>
           <Button disabled={state.submitting}>Send</Button>
         </form>

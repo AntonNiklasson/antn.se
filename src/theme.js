@@ -11,7 +11,9 @@ export const lightTheme = {
   backgroundSecondary: '#eee',
   backgroundWarning: '#f7f7ed',
   border: '#ddd',
-  accent: '#a80086',
+  accent: 'hotpink',
+  link: 'hotpink',
+  linkHover: 'pink',
 }
 
 export const darkTheme = {

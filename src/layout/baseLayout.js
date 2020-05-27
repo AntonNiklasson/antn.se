@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { lightTheme } from '../theme.js'
 import { GlobalStyles } from '../globalStyles.js'
-import { Header, MaxWidthContainer, YoutubeEmbed } from '../components'
+import { Header, YoutubeEmbed } from '../components'
 
 export function BaseLayout({ children }) {
   return (
@@ -18,10 +18,17 @@ export function BaseLayout({ children }) {
           />
         </Helmet>
         <GlobalStyles />
-        <MaxWidthContainer>
+        <div
+          css={`
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 1em;
+          `}
+        >
           <Header />
           <MDXProvider components={{ YoutubeEmbed }}>{children}</MDXProvider>
-        </MaxWidthContainer>
+        </div>
       </>
     </ThemeProvider>
   )
