@@ -9,15 +9,22 @@ import { Timestamp } from '../components/timestamp'
 require('../prism-tomorrow.css')
 
 const Header = styled.div`
-  max-width: 80%;
   margin: 0 auto;
-  padding: 1em 0;
+  padding: 1em 0 3em 0;
   font-size: 1.4em;
   text-align: center;
+  color: white;
+
+  h1 {
+    font-size: 70px;
+    font-weight: 700;
+  }
 `
 const Content = styled.div`
   max-width: 40em;
   margin: 0 auto;
+  padding: 2em;
+  background: white;
 `
 
 function BlogPostTemplate({ data, ...props }) {

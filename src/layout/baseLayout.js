@@ -1,34 +1,37 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
-import { lightTheme } from '../theme.js'
+import { theme, breakpoints } from '../theme.js'
 import { GlobalStyles } from '../globalStyles.js'
 import { Header, YoutubeEmbed } from '../components'
 
+const ResponsiveWrapper = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em;
+
+  @media (min-width: ${breakpoints.medium}) {
+    width: 70%;
+  }
+
+  @media (min-width: ${breakpoints.large}) {
+    width: 1000px;
+  }
+`
+
 export function BaseLayout({ children }) {
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme}>
       <>
         <Helmet>
           <title>antn.se</title>
-          <link
-            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap"
-            rel="stylesheet"
-          />
         </Helmet>
         <GlobalStyles />
-        <div
-          css={`
-            width: 100%;
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 1em;
-          `}
-        >
+        <ResponsiveWrapper>
           <Header />
           <MDXProvider components={{ YoutubeEmbed }}>{children}</MDXProvider>
-        </div>
+        </ResponsiveWrapper>
       </>
     </ThemeProvider>
   )

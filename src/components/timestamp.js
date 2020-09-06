@@ -7,7 +7,6 @@ const Time = styled.time`
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 1px;
-  color: ${p => p.theme.textSecondary};
 `
 
 export const Timestamp = ({ date }) => {
@@ -17,7 +16,7 @@ export const Timestamp = ({ date }) => {
   return (
     <Time>
       {dayDiff > 20
-        ? moment(date).format('MMMM DD YYYY')
+        ? moment(date).format('MMMM DD, YYYY')
         : isToday
         ? 'Today'
         : `${dayDiff} days ago`}

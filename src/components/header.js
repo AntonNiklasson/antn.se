@@ -3,37 +3,38 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import emoji from 'node-emoji'
 
+const HeaderContainer = styled.header`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 0;
+  color: ${p => p.theme.textSecondary};
+`
 const Navigation = styled.nav`
   a {
     display: inline-block;
-    padding: 0.5em 1em;
+    padding: 0.5em;
+    color: ${p => p.theme.textSecondary};
+
+    &:hover {
+      color: ${p => p.theme.linkHover};
+    }
 
     &.active {
       border-bottom: 3px solid ${p => p.theme.link};
-    }
-
-    &:hover {
-      background: #eee;
     }
   }
 `
 
 export function Header() {
   return (
-    <div
-      css={`
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1em 0;
-      `}
-    >
+    <HeaderContainer>
       <h1>
         <a
           href="/"
           css={`
-            color: ${p => p.theme.text};
+            color: ${p => p.theme.textSecondary};
             font-size: 1em;
             font-weight: bold;
 
@@ -48,10 +49,8 @@ export function Header() {
       <Navigation>
         <a href="https://antn.se">Notes</a>
         <a href="https://cv.antn.se">Resume</a>
-        <Link to="/contact/" activeClassName="active">
-          Contact
-        </Link>
+        <Link to="/contact/">Contact</Link>
       </Navigation>
-    </div>
+    </HeaderContainer>
   )
 }

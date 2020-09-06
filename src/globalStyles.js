@@ -1,12 +1,38 @@
 import { createGlobalStyle } from 'styled-components'
 
+import InterRegularWoff from './fonts/inter/Inter-Regular.woff'
+import InterRegularWoff2 from './fonts/inter/Inter-Regular.woff2'
+import InterBoldWoff from './fonts/inter/Inter-Bold.woff'
+import InterBoldWoff2 from './fonts/inter/Inter-Bold.woff2'
+
 export const GlobalStyles = createGlobalStyle`
+	@font-face {
+		font-family: 'Inter';
+		font-style:  normal;
+		font-weight: 400;
+		font-display: swap;
+		src:
+			url("${InterRegularWoff2}?v=3.15") format("woff2"),
+			url("${InterRegularWoff}?v=3.15") format("woff");
+	}
+
+	@font-face {
+		font-family: 'Inter';
+		font-style:  normal;
+		font-weight: 700;
+		font-display: swap;
+		src:
+			url("${InterBoldWoff2}?v=3.15") format("woff2"),
+			url("${InterBoldWoff}?v=3.15") format("woff");
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 		font-display: swap;
 	}
+
 	*:selection {
 		background: ${p => p.theme.accent};
 		color: ${p => p.theme.text};
@@ -20,11 +46,9 @@ export const GlobalStyles = createGlobalStyle`
 		height: 100%;
 		min-height: 100%;
 		padding-bottom: 5em;
-		font: 18px / 1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		background: ${p => p.theme.background};
+		background: ${p => p.theme.backgroundSecondary};
 		color: ${p => p.theme.text};
-		transition-property: background, color;
-		transition-duration: ${p => p.theme.transitionDuration};
+		font: normal 18px / 1.4 'Inter', Helvetica, Arial, sans-serif;
 	}
 
 	#___gatsby {
@@ -47,10 +71,9 @@ export const GlobalStyles = createGlobalStyle`
 	h4,
 	h5,
 	h6 {
-		color: ${p => p.theme.text};
+		color: inherit;
 		line-height: 1.2;
 		font-weight: 500;
-		font-family: 'Playfair Display', serif;
 		word-break: break-word;
 	}
 
@@ -60,17 +83,15 @@ export const GlobalStyles = createGlobalStyle`
 
 	p {
 		margin: 1em 0;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 
 	a {
-		text-decoration: none;
-		color: ${p => p.theme.link};
+		text-decoration: none; color: ${p => p.theme.link};
 		transition: all 300ms;
 		font-weight: bold;
-
-		&:hover {
-			color: ${p => p.theme.linkHover};
-		}
 	}
 
 	img {
@@ -120,11 +141,24 @@ export const GlobalStyles = createGlobalStyle`
 	blockquote {
 		margin: 1em 2em;
 		padding: 1em;
-		background: ${p => p.theme.backgroundSecondary};
 		font-size: .9em;
+		text-style: italic;
+		position: relative;
+		z-index: 1;
 
-			&.note {
+		&.note {
 			border-left: 3px solid ${p => p.theme.accent};
+		}
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: -1rem;
+			content: "\u201D";
+			font-size: 250px;
+			line-height: 1;
+			color: #CCC;
+			z-index: -1;
 		}
 	}
 

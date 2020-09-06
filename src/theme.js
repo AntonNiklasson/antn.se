@@ -3,32 +3,21 @@ export const base = {
   shadow: 'rgba(0,0,0,0.3)',
 }
 
-export const lightTheme = {
+export const theme = {
   ...base,
   text: '#333',
-  textSecondary: '#555',
-  background: '#fff',
-  backgroundSecondary: '#eee',
+  textSecondary: 'white',
+  background: 'white',
+  backgroundSecondary: '#222',
   backgroundWarning: '#f7f7ed',
   border: '#ddd',
-  accent: 'hotpink',
-  link: 'hotpink',
-  linkHover: 'pink',
-}
-
-export const darkTheme = {
-  ...base,
-  text: '#EEE',
-  textSecondary: '#BBB',
-  background: '#061b26',
-  backgroundSecondary: '#555',
-  border: '#555',
-  accent: '#15bf8f',
-  accentSecondary: 'orange',
+  accent: '#9068b9',
+  link: '#333',
+  linkHover: '#9068b9',
 }
 
 export const breakpoints = {
   small: '800px',
-  medium: '1200px',
-  large: '1600px',
+  medium: '1000px',
+  large: '1500px',
 }

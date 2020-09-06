@@ -6,6 +6,7 @@ import { ContactForm } from '../components'
 const Content = styled.div`
   max-width: 30em;
   margin: 0 auto;
+  color: ${p => p.theme.textSecondary};
 `
 
 export default function ContactPage() {
