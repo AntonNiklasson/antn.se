@@ -47,8 +47,9 @@ export function Header() {
         </a>
       </h1>
       <Navigation>
-        <a href="https://antn.se">Notes</a>
         <a href="https://cv.antn.se">Resume</a>
+        <Link to="/">Notes</Link>
+        <Link to="/photos">Photos</Link>
         <Link to="/contact/">Contact</Link>
       </Navigation>
     </HeaderContainer>
