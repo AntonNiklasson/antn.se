@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from 'react'
-import { animated, useSpring, useSprings } from 'react-spring'
+import { animated, useSpring } from 'react-spring'
 import { BaseLayout } from '../layout/baseLayout'
 import { Loader } from '../components'
 
-const springs = [
-  {
-    from: {
-      transform: `scale(0.8) rotate(2deg)`,
-    },
-    to: {
-      transform: `scale(1.0) rotate(0deg)`,
-    },
-    config: {
-      mass: 20,
-      tension: 300,
-      friction: 20,
-    },
+const animation = {
+  from: {
+    transform: `translate(-500px, 0px)`,
+    opacity: 0,
   },
-]
+  to: {
+    transform: `translate(0px, 0px)`,
+    opacity: 1,
+  },
+}
 
 export default () => {
   const [loading, setLoading] = useState(true)
+  const [loadedImgs, setLoadedImgs] = useState(0)
   const [photos, setPhotos] = useState([])
-  const [animations] = useSprings(springs.length, i => springs[i])
+  const [props, set, stop] = useSpring(() => animation.from)
+
+  function imgOnLoad(event) {
+    setLoadedImgs(loadedImgs + 1)
+
+    if (photos.length - 1 === loadedImgs) {
+      setLoading(false)
+      set(animation.to)
+    }
+  }
 
   useEffect(() => {
     async function grabData() {
       const response = await fetch('/api/instagram')
       const data = await response.json()
 
-      setLoading(false)
       setPhotos(data.photos)
     }
 
@@ -38,6 +42,17 @@ export default () => {
 
   return (
     <BaseLayout>
+      {loading && (
+        <div
+          css={`
+            display: flex;
+            justify-content: center;
+            padding: 4em;
+          `}
+        >
+          <Loader />
+        </div>
+      )}
       <div
         css={`
           display: grid;
@@ -46,14 +61,12 @@ export default () => {
           align-items: center;
         `}
       >
-        {loading && <Loader />}
         {photos.map(photo => (
           <animated.img
+            onLoad={imgOnLoad}
             key={photo.shortcode}
             src={photo.display_url}
-            style={{
-              ...animations[0],
-            }}
+            style={props}
           />
         ))}
       </div>

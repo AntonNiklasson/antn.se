@@ -9,13 +9,13 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 2em 0;
-  color: ${p => p.theme.textSecondary};
+  color: ${p => p.theme.text};
 `
 const Navigation = styled.nav`
   a {
     display: inline-block;
     padding: 0.5em;
-    color: ${p => p.theme.textSecondary};
+    color: ${p => p.theme.text};
 
     &:hover {
       color: ${p => p.theme.linkHover};
@@ -34,7 +34,7 @@ export function Header() {
         <a
           href="/"
           css={`
-            color: ${p => p.theme.textSecondary};
+            color: ${p => p.theme.text};
             font-size: 1em;
             font-weight: bold;
 
