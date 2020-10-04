@@ -9,13 +9,13 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 2em 0;
-  color: ${p => p.theme.textSecondary};
+  color: ${p => p.theme.text};
 `
 const Navigation = styled.nav`
   a {
     display: inline-block;
     padding: 0.5em;
-    color: ${p => p.theme.textSecondary};
+    color: ${p => p.theme.text};
 
     &:hover {
       color: ${p => p.theme.linkHover};
@@ -34,7 +34,7 @@ export function Header() {
         <a
           href="/"
           css={`
-            color: ${p => p.theme.textSecondary};
+            color: ${p => p.theme.text};
             font-size: 1em;
             font-weight: bold;
 
@@ -47,8 +47,9 @@ export function Header() {
         </a>
       </h1>
       <Navigation>
-        <a href="https://antn.se">Notes</a>
         <a href="https://cv.antn.se">Resume</a>
+        <Link to="/">Notes</Link>
+        <Link to="/photos">Photos</Link>
         <Link to="/contact/">Contact</Link>
       </Navigation>
     </HeaderContainer>

@@ -34,14 +34,6 @@ const IndexPage = ({ data, ...props }) => {
               background: ${p => p.theme.background};
               border-radius: 2px;
               padding: 1em;
-              transition: all 200ms;
-              box-shadow: 0 0 1px black, 0 0 10px rgba(0, 0, 0, 0.2) inset;
-
-              &:focus,
-              &:hover {
-                transform: rotate(1deg) scale(1.2);
-                box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.6);
-              }
             `}
             to={post.fields.slug}
           >

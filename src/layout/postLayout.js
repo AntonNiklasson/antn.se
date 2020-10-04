@@ -13,7 +13,6 @@ const Header = styled.div`
   padding: 1em 0 3em 0;
   font-size: 1.4em;
   text-align: center;
-  color: white;
 
   h1 {
     font-size: 70px;

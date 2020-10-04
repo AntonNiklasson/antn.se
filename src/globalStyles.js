@@ -46,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
 		height: 100%;
 		min-height: 100%;
 		padding-bottom: 5em;
-		background: ${p => p.theme.backgroundSecondary};
+		background: ${p => p.theme.background};
 		color: ${p => p.theme.text};
 		font: normal 18px / 1.4 'Inter', Helvetica, Arial, sans-serif;
 	}
