@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BaseLayout } from '../layout/baseLayout'
+import { Layout } from '../layout/layout'
 import { ContactForm } from '../components'
 
 const Content = styled.div`
@@ -11,7 +11,7 @@ const Content = styled.div`
 
 export default function ContactPage() {
   return (
-    <BaseLayout>
+    <Layout>
       <Content>
         <p>
           You can get in touch with me on{' '}
@@ -21,6 +21,6 @@ export default function ContactPage() {
         </p>
         <ContactForm />
       </Content>
-    </BaseLayout>
+    </Layout>
   )
 }

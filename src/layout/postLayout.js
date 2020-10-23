@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { BaseLayout } from './baseLayout'
+import { Layout } from './layout'
 import { Timestamp } from '../components/timestamp'
 
 require('../prism-tomorrow.css')
@@ -35,7 +35,7 @@ function BlogPostTemplate({ data, ...props }) {
   } = data
 
   return (
-    <BaseLayout>
+    <Layout>
       <Helmet title={`${post.frontmatter.title} | ${title}`} />
       <Header>
         <h1>{post.frontmatter.title}</h1>
@@ -44,7 +44,7 @@ function BlogPostTemplate({ data, ...props }) {
       <Content>
         <MDXRenderer>{post.body}</MDXRenderer>
       </Content>
-    </BaseLayout>
+    </Layout>
   )
 }
 

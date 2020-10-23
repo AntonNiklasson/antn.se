@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { BaseLayout } from '../layout/baseLayout'
+import { Layout } from '../layout/layout'
 import { Loader } from '../components'
 
 const animation = {
@@ -41,7 +41,19 @@ export default () => {
   }, [])
 
   return (
-    <BaseLayout>
+    <Layout>
+      <p>
+        These photos are loading in real-time from my Instagram profile, through
+        a serverless function.{' '}
+        <a href="https://github.com/AntonNiklasson/antn.se/blob/master/api/instagram.js">
+          Check out the code for it here.
+        </a>
+      </p>
+      <p>
+        The first load is probably really slow. Consecutive loads are cached
+        though :)
+      </p>
+
       {loading && (
         <div
           css={`
@@ -70,6 +82,6 @@ export default () => {
           />
         ))}
       </div>
-    </BaseLayout>
+    </Layout>
   )
 }

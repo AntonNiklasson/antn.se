@@ -2,25 +2,24 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
-import { theme, breakpoints } from '../theme.js'
+import { theme, mediaQueries } from '../theme.js'
 import { GlobalStyles } from '../globalStyles.js'
 import { Header, YoutubeEmbed } from '../components'
 
-const ResponsiveWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0 1em;
 
-  @media (min-width: ${breakpoints.medium}) {
+  ${mediaQueries.medium} {
     width: 70%;
   }
-
-  @media (min-width: ${breakpoints.large}) {
+  ${mediaQueries.large} {
     width: 1000px;
   }
 `
 
-export function BaseLayout({ children }) {
+export function Layout({ children, fullWidth = false }) {
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -28,10 +27,12 @@ export function BaseLayout({ children }) {
           <title>antn.se</title>
         </Helmet>
         <GlobalStyles />
-        <ResponsiveWrapper>
+        <ContentWrapper>
           <Header />
-          <MDXProvider components={{ YoutubeEmbed }}>{children}</MDXProvider>
-        </ResponsiveWrapper>
+        </ContentWrapper>
+        <MDXProvider components={{ YoutubeEmbed }}>
+          {fullWidth ? children : <ContentWrapper>{children}</ContentWrapper>}
+        </MDXProvider>
       </>
     </ThemeProvider>
   )

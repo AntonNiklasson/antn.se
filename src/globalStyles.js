@@ -56,13 +56,6 @@ export const GlobalStyles = createGlobalStyle`
 	}
 	#gatsby-focus-wrapper {
 		min-height: 100%;
-
-		& *:focus {
-			outline: 2px solid ${p => p.theme.accent};
-		}
-		& *:active {
-			outline: none;
-		}
 	}
 
 	h1,

@@ -16,8 +16,10 @@ export const theme = {
   linkHover: '#9068b9',
 }
 
-export const breakpoints = {
-  small: '800px',
-  medium: '1000px',
-  large: '1500px',
+const breakpoints = [800, 1400]
+
+export const mediaQueries = {
+  small: `@media only screen and (max-width: ${breakpoints[0]}px)`,
+  medium: `@media only screen and (min-width: ${breakpoints[0]}px)`,
+  large: `@media only screen and (min-width: ${breakpoints[1]}px)`,
 }
