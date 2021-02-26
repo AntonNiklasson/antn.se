@@ -16,7 +16,7 @@
     "@mdx-js/mdx": "^1.5.9",
     "@mdx-js/react": "^1.5.9",
     "@statickit/react": "^1.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.0.3",
     "babel-plugin-styled-components": "1.10.6",
     "eslint": "5",
