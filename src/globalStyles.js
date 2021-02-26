@@ -1,36 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
-import InterRegularWoff from './fonts/inter/Inter-Regular.woff'
-import InterRegularWoff2 from './fonts/inter/Inter-Regular.woff2'
-import InterBoldWoff from './fonts/inter/Inter-Bold.woff'
-import InterBoldWoff2 from './fonts/inter/Inter-Bold.woff2'
-
 export const GlobalStyles = createGlobalStyle`
-	@font-face {
-		font-family: 'Inter';
-		font-style:  normal;
-		font-weight: 400;
-		font-display: swap;
-		src:
-			url("${InterRegularWoff2}?v=3.15") format("woff2"),
-			url("${InterRegularWoff}?v=3.15") format("woff");
-	}
-
-	@font-face {
-		font-family: 'Inter';
-		font-style:  normal;
-		font-weight: 700;
-		font-display: swap;
-		src:
-			url("${InterBoldWoff2}?v=3.15") format("woff2"),
-			url("${InterBoldWoff}?v=3.15") format("woff");
-	}
-
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		font-display: swap;
 	}
 
 	*:selection {
@@ -48,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
 		padding-bottom: 5em;
 		background: ${p => p.theme.background};
 		color: ${p => p.theme.text};
-		font: normal 18px / 1.4 'Inter', Helvetica, Arial, sans-serif;
+		font: 18px "Inter", monospace;
 	}
 
 	#___gatsby {
@@ -106,7 +80,6 @@ export const GlobalStyles = createGlobalStyle`
 		font-size: .8em;
 		color: ${p => p.theme.text};
 		margin: 1em 0;
-		font-weight: lighter;
 	}
 	:not(pre) > code {
 		display: inline-block;
