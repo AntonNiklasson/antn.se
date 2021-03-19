@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve('./src/layout/postLayout.js')
+    const postTemplate = path.resolve('./src/layout/PostLayout.tsx')
 
     resolve(
       graphql(

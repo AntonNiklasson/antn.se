@@ -30,7 +30,7 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
-          default: require.resolve('./src/layout/postLayout.js'),
+          default: require.resolve('./src/layout/PostLayout.tsx'),
         },
         gatsbyRemarkPlugins: [`gatsby-remark-prismjs`, `gatsby-remark-images`],
       },

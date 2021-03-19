@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useForm } from '@statickit/react'
-import { Input, Button } from '../components'
+import { Input, Button } from '.'
 
 const FormElement = styled.div`
   display: flex;

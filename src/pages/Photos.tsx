@@ -18,7 +18,7 @@ export default () => {
   const [loading, setLoading] = useState(true)
   const [loadedImgs, setLoadedImgs] = useState(0)
   const [photos, setPhotos] = useState([])
-  const [props, set, stop] = useSpring(() => animation.from)
+  const [props, set] = useSpring(() => animation.from)
 
   function imgOnLoad(event) {
     setLoadedImgs(loadedImgs + 1)
