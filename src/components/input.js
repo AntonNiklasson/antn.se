@@ -1,24 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const StyledInput = styled.input`
-  font-family: inherit;
-  font-size: 1em;
-  border: 1px solid ${p => p.theme.border};
-  background: ${p => p.theme.background};
-  padding: 0.2em;
-  border-radius: 3px;
-`
-
-const StyledTextarea = styled(StyledInput)`
-  height: 10em;
-  resize: none;
-`
 
 export function Input({ multiline = false, ...props }) {
+  const classes = ['p-2 resize-none border rounded', multiline && 'h-32']
+    .filter(Boolean)
+    .join(' ')
+
   return multiline ? (
-    <StyledTextarea as="textarea" {...props} />
+    <textarea className={classes} {...props} />
   ) : (
-    <StyledInput {...props} />
+    <input className={classes} {...props} />
   )
 }

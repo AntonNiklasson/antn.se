@@ -1,17 +1,12 @@
-import styled from 'styled-components'
+import React from 'react'
 
-export const Button = styled.button`
-  font-size: 0.8em;
-  font-weight: bold;
-  padding: 0.5em 1em;
-  background: ${p => p.theme.accent};
-  color: ${p => p.theme.background};
-  border: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  transition: all 200ms;
-
-  &:disabled {
-    background: ${p => p.theme.backgroundSecondary};
-  }
-`
+export function Button({ children }) {
+  return (
+    <button
+      role="button"
+      className="my-2 py-1 px-4 bg-blue-900 border-none rounded-sm text-white text-sm font-bold tracking-wider"
+    >
+      {children}
+    </button>
+  )
+}

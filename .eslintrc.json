@@ -17,7 +17,7 @@
   },
   "settings": {
     "react": {
-      "version": "16.8"
+      "version": "17"
     }
   },
   "extends": [
@@ -30,6 +30,7 @@
   "plugins": ["react-hooks"],
   "rules": {
     "no-console": 2,
+    "react/react-in-jsx-scope": 0,
     "react/prop-types": [2, { "skipUndeclared": true }],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,

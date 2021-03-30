@@ -1,39 +1,44 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
-import { theme, mediaQueries } from '../theme.js'
-import { GlobalStyles } from '../globalStyles.js'
-import { Header, YoutubeEmbed } from '../components'
+import { Link } from 'gatsby'
+import { YoutubeEmbed } from '../components'
 
-export const ContentWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1em;
-
-  ${mediaQueries.medium} {
-    width: 70%;
-  }
-  ${mediaQueries.large} {
-    width: 1000px;
-  }
-`
-
-export function Layout({ children, fullWidth = false }) {
+function HeaderLink({ to, children }) {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <Helmet>
-          <title>antn.se</title>
-        </Helmet>
-        <GlobalStyles />
-        <ContentWrapper>
-          <Header />
-        </ContentWrapper>
-        <MDXProvider components={{ YoutubeEmbed }}>
-          {fullWidth ? children : <ContentWrapper>{children}</ContentWrapper>}
-        </MDXProvider>
-      </>
-    </ThemeProvider>
+    <Link
+      to={to}
+      className="block p-1 font-bold text-gray-900 transition hover:text-blue-900 border-b-4 border-transparent transition hover:border-b-2 hover:border-blue-600"
+    >
+      {children}
+    </Link>
+  )
+}
+
+export function Layout({ children }) {
+  return (
+    <div className="bg-white">
+      <Helmet>
+        <title>antn.se</title>
+      </Helmet>
+      <header className="py-8">
+        <div className="flex justify-between items-center max-w-xl mx-auto">
+          <a href="/">
+            <h1 className="text-3xl font-bold">
+              anton<span className="animate-ping-slow">|</span>
+            </h1>
+          </a>
+          <nav className="flex space-x-2">
+            <HeaderLink to="https://cv.antn.se">Resume</HeaderLink>
+            <HeaderLink to="/notes">Notes</HeaderLink>
+            <HeaderLink to="/photos">Photos</HeaderLink>
+            <HeaderLink to="/contact/">Contact</HeaderLink>
+          </nav>
+        </div>
+      </header>
+      <div className="mx-auto max-w-xl">
+        <MDXProvider components={{ YoutubeEmbed }}>{children}</MDXProvider>
+      </div>
+    </div>
   )
 }

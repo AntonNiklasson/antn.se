@@ -11,6 +11,7 @@ module.exports = {
     ],
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,7 +50,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
   ],
 }

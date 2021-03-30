@@ -1,80 +1,37 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { mediaQueries } from '../theme'
-import { Layout, ContentWrapper } from '../layout/layout'
+import { Layout } from '../layout/layout'
 import { Timestamp } from '../components'
 
-const Section = styled.section`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  padding: 2em 0;
-  background: white;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-`
-const SectionTitle = styled.h2`
-  margin: 1em 0;
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-`
-const NavLink = styled.a`
-  display: inline-block;
-  margin: 1em 0;
-  padding: 1em;
-  font-weight: normal;
-
-  &:hover {
-    background: #eaeaea;
-  }
-`
-
-export default function IndexPage({ data, ...props }) {
+export default function IndexPage({ data }) {
   const posts = data?.allMdx?.edges ?? []
 
   return (
-    <Layout fullWidth>
-      <Section>
-        <SectionTitle>Latest posts:</SectionTitle>
-        <div
-          css={`
-            display: grid;
-            grid-gap: 1em;
-            grid-template-columns: 1fr;
-            padding: 0 2em;
-
-            ${mediaQueries.medium} {
-              grid-template-columns: 1fr 1fr 1fr;
-            }
-            ${mediaQueries.large} {
-              padding: 0 10em;
-            }
-          `}
-        >
+    <Layout>
+      <section>
+        <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
           {posts.map(({ node: post }) => (
-            <Link
+            <div
               key={post.id}
-              to={post.fields.slug}
-              css={`
-                padding: 1em;
-                border-top: 2px solid transparent;
-                &:hover {
-                  border-color: #ddd;
-                  background: #ededed;
-                }
-              `}
+              className="p-4 shadow-sm rounded transition transition-300 hover:shadow-md"
             >
-              <Timestamp date={post.frontmatter.date} />
-              <h2>{post.frontmatter.title}</h2>
-            </Link>
+              <Link to={post.fields.slug}>
+                <Timestamp date={post.frontmatter.date} />
+                <h2 className="text-2xl">{post.frontmatter.title}</h2>
+              </Link>
+            </div>
           ))}
         </div>
-        <NavLink href="/notes">Check out all my posts ✍️</NavLink>
-      </Section>
+
+        <div className="flex justify-center m-4">
+          <a
+            href="/notes"
+            className="inline-block p-2 text-center transition hover:bg-gray-100"
+          >
+            Check out all my posts ✍️
+          </a>
+        </div>
+      </section>
     </Layout>
   )
 }
@@ -86,7 +43,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(limit: 6, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(limit: 4, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id

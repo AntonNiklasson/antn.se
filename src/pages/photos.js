@@ -14,13 +14,13 @@ const animation = {
   },
 }
 
-export default () => {
+const Photos = () => {
   const [loading, setLoading] = useState(true)
   const [loadedImgs, setLoadedImgs] = useState(0)
   const [photos, setPhotos] = useState([])
-  const [props, set, stop] = useSpring(() => animation.from)
+  const [props, set] = useSpring(() => animation.from)
 
-  function imgOnLoad(event) {
+  function imgOnLoad() {
     setLoadedImgs(loadedImgs + 1)
 
     if (photos.length - 1 === loadedImgs) {
@@ -42,46 +42,37 @@ export default () => {
 
   return (
     <Layout>
-      <p>
-        These photos are loading in real-time from my Instagram profile, through
-        a serverless function.{' '}
-        <a href="https://github.com/AntonNiklasson/antn.se/blob/master/api/instagram.js">
-          Check out the code for it here.
-        </a>
-      </p>
-      <p>
-        The first load is probably really slow. Consecutive loads are cached
-        though :)
-      </p>
+      <div className="prose">
+        <p>
+          These photos are loading in real-time from my Instagram profile,
+          through a serverless function.{' '}
+          <a href="https://github.com/AntonNiklasson/antn.se/blob/master/api/instagram.js">
+            Check out the code for it here.
+          </a>
+        </p>
+        <p>
+          The first load is probably really slow. Consecutive loads are cached
+          though :)
+        </p>
 
-      {loading && (
-        <div
-          css={`
-            display: flex;
-            justify-content: center;
-            padding: 4em;
-          `}
-        >
-          <Loader />
+        {loading && (
+          <div className="flex justify-center items-center p-8">
+            <Loader />
+          </div>
+        )}
+        <div className="grid gap-4 grid-columns-3">
+          {photos.map(photo => (
+            <animated.img
+              onLoad={imgOnLoad}
+              key={photo.shortcode}
+              src={photo.display_url}
+              style={props}
+            />
+          ))}
         </div>
-      )}
-      <div
-        css={`
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-gap: 1em;
-          align-items: center;
-        `}
-      >
-        {photos.map(photo => (
-          <animated.img
-            onLoad={imgOnLoad}
-            key={photo.shortcode}
-            src={photo.display_url}
-            style={props}
-          />
-        ))}
       </div>
     </Layout>
   )
 }
+
+export default Photos
