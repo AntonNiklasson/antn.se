@@ -11,7 +11,7 @@ export default function IndexPage({ data }) {
       <div className="space-y-8">
         {posts.map(({ node: post }) => (
           <div key={post.id} className="p-4 shadow rounded">
-            <Link to={post.fields.slug}>
+            <Link to={`/${post.fields.slug}`}>
               <Timestamp date={post.frontmatter.date} />
               <h2 className="text-xl">{post.frontmatter.title}</h2>
             </Link>
