@@ -3,13 +3,13 @@ title: I am joining Sana Labs!
 date: 2021-04-16
 ---
 
-I recently decided to join [Sana Labs](sana-labs). I am incredibly excited to
+I recently decided to join [Sana Labs](https://www.sanalabs.com/). I am incredibly excited to
 dive into product development, the education space in general and just focusing
 long-term on something I genuinly find interesting and challenging. Not only
 have I found a company that I really believe is onto something big. I have also
 decided to leave the freelancing setup in favor of an employment.
 
-Back in 2018 [I decided to quit my current job](quit-job) and start freelancing.
+Back in 2018 [I decided to quit my current job](https://antn.se/i-quit-my-job) and start freelancing.
 Since then I have had the chance to work on some really interesting problems
 with great people. It has been great. I loved almost all of it, and I am for
 sure going to miss a few features of that life setup. Being your own boss comes
@@ -70,6 +70,3 @@ ups and downs with the people around me.
 
 I am really looking forward to _be able to_ depend on other people. And build a
 great product.
-
-[sana-labs]: https://sana.ai
-[quit-job]: https://antn.se/notes/i-quit-my-job
