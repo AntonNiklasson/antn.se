@@ -1,0 +1,75 @@
+---
+title: I am joining Sana Labs!
+date: 2021-04-16
+---
+
+I recently decided to join [Sana Labs](sana-labs). I am incredibly excited to
+dive into product development, the education space in general and just focusing
+long-term on something I genuinly find interesting and challenging. Not only
+have I found a company that I really believe is onto something big. I have also
+decided to leave the freelancing setup in favor of an employment.
+
+Back in 2018 [I decided to quit my current job](quit-job) and start freelancing.
+Since then I have had the chance to work on some really interesting problems
+with great people. It has been great. I loved almost all of it, and I am for
+sure going to miss a few features of that life setup. Being your own boss comes
+with a lot of additional work, but to me the sense of freedom has definitely
+been worth it. And that is probably why joining Sana Labs as an employee feels
+like such a big thing. I am giving up parts of that flexibility, but I am also
+adding a few key things to my life.
+
+Independence is something I have strived to achieve for a long time. Financial
+freedom and having complete control over my own time has been major goals for
+me. And they still are. But I have come to realise that the independence is
+fulfilling and desirable in a context where dependable structures still exist to
+some extent. Being independent as a freelancer also meant that those dependable
+structures vanished.
+
+---
+
+I caught up with my friend Ludvig a few weeks ago. He told me he recently joined
+this company called Sana Labs. He explained what they are trying to achieve, all
+the great people they have onboard this far, and why he is so excited to get
+going there. I have been lacking the passion and drive for a while. You can be a
+great consultant in most places without any deep care for the products you are
+building.
+
+One thing led to another, and I met up with one of their engineering managers.
+From there I did a technical interview and met a few others from the
+organisation.
+
+As per usual, I was not particularly happy with how the interviews went. I am
+not really sure why, but being to hard on yourself really has the opposite
+effect then what was intended. Instead of seeing the things I did right, I find
+myself pinpointing all the mistakes I did. I have a lot to work on here, but it
+is hard.
+
+## What is Sana Labs?
+
+Sana Labs is working on **personalising learning for individuals**. It is such a
+vast problem space. I love the grand vision and ambition to improve the world by
+approaching how the world learns.
+
+At Sana we are currently focusing on building an online learning platform
+powered by AI. It is continuously monitoring the learners progress to figure out
+strengths and weaknesses, skipping what you already know, making sure you master
+the topics and that you maintain knowledge over time.
+
+Not only that, Sana is also helping anyone that's _teaching_ in building out
+courses. _Is the question clear and concise instead of confusing and complex for
+learners?_ Teaching, and building courses, is not an easy task. All learners are
+perceive the material in their own way, and great teachers understand this. Sana
+will help teachers be more data-driven, adaptive and aware. It all comes
+together beautifully to improve _how the world learns_.
+
+---
+
+What I am transitioning into here is a role where I can think more long term. I
+will be able to care for the product and the vision. I will be able to enjoy the
+ups and downs with the people around me.
+
+I am really looking forward to _be able to_ depend on other people. And build a
+great product.
+
+[sana-labs]: https://sana.ai
+[quit-job]: https://antn.se/notes/i-quit-my-job
