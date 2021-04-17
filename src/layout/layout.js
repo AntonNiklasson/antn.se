@@ -17,18 +17,18 @@ function HeaderLink({ to, children }) {
 
 export function Layout({ children }) {
   return (
-    <div className="bg-white">
+    <div className="bg-white p-4">
       <Helmet>
         <title>antn.se</title>
       </Helmet>
       <header className="py-8">
-        <div className="flex justify-between items-center max-w-xl mx-auto">
+        <div className="flex flex-wrap justify-between items-center max-w-xl mx-auto">
           <a href="/">
             <h1 className="text-3xl font-bold">
               anton<span className="animate-ping-slow">|</span>
             </h1>
           </a>
-          <nav className="flex space-x-2">
+          <nav className="flex flex-wrap space-x-2">
             <HeaderLink to="https://cv.antn.se">Resume</HeaderLink>
             <HeaderLink to="/notes">Notes</HeaderLink>
             <HeaderLink to="/photos">Photos</HeaderLink>
