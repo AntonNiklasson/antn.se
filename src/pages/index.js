@@ -8,6 +8,9 @@ export default function IndexPage({ data }) {
 
   return (
     <Layout>
+      <section className="mb-16 py-8 text-center flex justify-center items-center border-b-2 border-gray-200">
+        <h2 className="text-xl">Currently: personalising learning at <a href="https://sanalabs.com" className="underline font-bold">Sana Labs</a> 🤖👨‍🏫</h2>
+      </section>
       <section>
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
           {posts.map(({ node: post }) => (
