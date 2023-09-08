@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/Date.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const raw = await getCollection("blog");
+const posts = raw.sort((a, b) => {
+  const x = new Date(a.data.date);
+  const y = new Date(b.data.date);
+  return y.valueOf() - x.valueOf();
+});
+---
+
+<PageLayout>
+  <section>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/${post.slug}`}>
+              <div class="post">
+                <h2 class="title" transition:name={`post-title-${post.id}`}>
+                  {post.data.title}
+                </h2>
+                <FormattedDate date={post.data.date} />
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</PageLayout>
+
+<style>
+  ul {
+    list-style: none;
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-block: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-block: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: transparent;
+    background: black;
+    background-clip: text;
+    text-fill-color: transparent;
+    transition: background-image 120ms;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  a:hover .title {
+    animation: 1s infinite alternate dizzy;
+  }
+
+  @keyframes dizzy {
+    from {
+      color: green;
+      /* background-image: linear-gradient(
+        to right,
+        hotpink,
+        purple,
+        red,
+        tomato,
+        crimson,
+        orange,
+        red
+      ); */
+    }
+    to {
+      color: orange;
+      /* background-image: linear-gradient(
+        to right,
+        hotpink,
+        purple,
+        crimson,
+        red
+      ); */
+    }
+  }
+</style>

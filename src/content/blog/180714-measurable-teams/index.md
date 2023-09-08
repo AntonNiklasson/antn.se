@@ -1,6 +1,7 @@
 ---
 title: Measurable Teams
 date: 2018-07-14
+slug: measurable-teams
 ---
 
 During the last 12 months I've been a part of a rather large software
