@@ -6,7 +6,7 @@
 
 :root {
 	--text: black;
-	--text-muted: #555;
+	--text-muted: #666;
 	--surface: white;
 	--surface-secondary: #EEE;
 	--border: #E0E0E0;
@@ -23,12 +23,12 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		--text: white;
-		--text-muted: #CCC;
+		--text-muted: #AAA;
 		--surface: black;
 		--surface-secondary: #333;
 		--border: #444;;
 		--border-muted: #222;;
-		--accent: #fc98ff;
+		--accent: #ff00b3;
 	}
   }
 
@@ -81,18 +81,6 @@ strong,
 b {
 	font-weight: 700;
 }
-a {
-	color: var(--accent);
-}
-a:hover {
-	filter: hue-rotate(45deg);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
 
 @media (max-width: 720px) {
 	body {
@@ -108,4 +96,14 @@ main {
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 2rem;
+}
+
+.prose a {
+    text-decoration: underline;
+    transition: all 120ms;
+	color: var(--text);
+}
+	
+.prose a:hover {
+	color: var(--accent);
 }

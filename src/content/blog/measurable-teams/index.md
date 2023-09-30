@@ -30,7 +30,7 @@ satisfied did you feel at work this week? These are the kinds of questions he
 asked us every single week for the last 8 months or so. Go read his post, that
 topic is super interesting. Data-driven retrospectives is a thing now.
 
-<img src="./data.jpg" />
+![](./data.jpg)
 
 I found [Atlassian's Team Health Monitor][3] while planning for a retrospective
 a few weeks back. They have compiled their insights and shared knowledge about

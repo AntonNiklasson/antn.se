@@ -12,4 +12,4 @@ it.
 I did a short intro to flexbox and the current state of it. Here are my
 <a href="http://antonniklasson.github.io/talk-flexbox">slides</a>.
 
-[![Slides](flexbox-slides.png)](http://antonniklasson.github.io/talk-flexbox)
+[![Slides](./flexbox-slides.png)](http://antonniklasson.github.io/talk-flexbox)

@@ -12,8 +12,6 @@ time to time I really enjoy completely shutting off the brain. Usually that
 works pretty good when I'm listening to a podcast or some music, or exercising.
 It is not always enough though.
 
-<span class="more"></span>
-
 I recently read something about meditation and how some people describe the
 feeling. So I decided to try it. What I have found while meditating is that I am
 able to reset my thoughts somehow. After a 10 minute session I feel more alert.

@@ -33,7 +33,7 @@ keys. Type `A` and `O` to get the capital ones.
 I just removed the swedish keyboard layout as an Input Source. I think I can get
 used to this.
 
-![Demo](swedishletters.gif)
+![Demo](./swedishletters.gif)
 
 [1]:
   https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg/2000px-KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg.png

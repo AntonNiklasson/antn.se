@@ -11,7 +11,7 @@ According the [caniuse.com/flexbox](http://caniuse.com/#feat=flexbox) around 80%
 of all people using the web would be able to render flexbox. Nothing near
 perfect, but still enough for some specific usecases I would say.
 
-![caniuse.com/flexbox](caniuse-flexbox.png)
+![caniuse.com/flexbox](./caniuse-flexbox.png)
 
 CSS-tricks have
 [an awesome guide](http://css-tricks.com/snippets/css/a-guide-to-flexbox/) to

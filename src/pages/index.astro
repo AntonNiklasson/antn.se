@@ -49,43 +49,14 @@ const posts = raw.sort((a, b) => {
 
   .title {
     font-size: 2rem;
-    color: transparent;
-    background: black;
-    background-clip: text;
-    text-fill-color: transparent;
-    transition: background-image 120ms;
+    color: var(--text);
   }
 
   a {
     text-decoration: none;
+    transition: all 120ms;
   }
   a:hover .title {
-    animation: 1s infinite alternate dizzy;
-  }
-
-  @keyframes dizzy {
-    from {
-      color: green;
-      /* background-image: linear-gradient(
-        to right,
-        hotpink,
-        purple,
-        red,
-        tomato,
-        crimson,
-        orange,
-        red
-      ); */
-    }
-    to {
-      color: orange;
-      /* background-image: linear-gradient(
-        to right,
-        hotpink,
-        purple,
-        crimson,
-        red
-      ); */
-    }
+    color: var(--accent);
   }
 </style>
