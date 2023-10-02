@@ -59,7 +59,7 @@ once at my destination. I carried everything in a 30 liter backpack. That was a
 first for me and required some thinking. I bought packing cubes and made sure I
 had everything organized in pouches.
 
-<img src="./gear.jpg" />
+![](./gear.jpg)
 
 **I can design the life I want to live.** This still sounds pretty crazy to me,
 but this trip somehow confirmed that idea in me. There is not really anything

@@ -61,13 +61,13 @@ using fr would be like this:
 Good job, here’s your grid! 👊 The items are automatically positioned in the
 grid in a row-by-row fashion by default.
 
-<img src="./01.png" />
+![](./01.png)
 
 All the rows and columns are evenly distributed since they all claim one
 fraction each. Let’s say the first row would be 2fr, then that row would be
 allocating half the space. Since 1 + 1 + 2 = 4.
 
-<img src="02.png" />
+![](./02.png)
 
 ## 2. Positioning the items
 
@@ -89,7 +89,7 @@ the lines would be 3 to 4 vertically, and 1 to 2 horizontally.
 }
 ```
 
-<img src="03.png" />
+![](./03.png)
 
 Note: grid-column and grid-row are shorthand properties for grid-column-start,
 grid-column-end, grid-row-start and grid-row-end.
@@ -101,7 +101,7 @@ grid container, and makes the process a bit easier for each item. Instead of
 keeping track of lines the item can just pick an area and be done with it.
 Here’s what we’re building with areas:
 
-<img src="04.png" />
+![](./04.png)
 
 Areas are defined with grid-template-areas on the container and it comes with a
 bit of a weird syntax:

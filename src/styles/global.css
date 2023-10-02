@@ -62,24 +62,33 @@ h6 {
 	font-weight: 600;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2.0em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.7em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.55em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.3em;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1.2em;
+}
+h6 {
+	font-size: 1.1em;
 }
 
 strong,
 b {
 	font-weight: 700;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 2px;
 }
 
 @media (max-width: 720px) {
@@ -98,6 +107,11 @@ main {
 	padding: 2rem;
 }
 
+.prose {
+	margin: 0 auto;
+	max-width: 34em;
+	margin-trim: block;
+}
 .prose a {
     text-decoration: underline;
     transition: all 120ms;
@@ -106,4 +120,24 @@ main {
 	
 .prose a:hover {
 	color: var(--accent);
+}
+
+.prose p,
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+	margin: 1.2rem 0;
+}
+.prose p > code {
+	font-size: 0.8em;
+}
+.prose > pre {
+	margin-block: 1.2rem;
+}
+.prose ul, .prose ol {
+	list-style-position: outside;
+	margin-left: 1.5em;
+}
+.prose hr {
+	border-color: var(--border-muted);	
+	width: 70%;
+	margin: 2rem auto;
 }
