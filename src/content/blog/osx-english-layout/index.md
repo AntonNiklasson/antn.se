@@ -35,5 +35,4 @@ used to this.
 
 ![Demo](./swedishletters.gif)
 
-[1]:
-  https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg/2000px-KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg.png
+[1]: https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg/2000px-KB_Intl_English_Mac_-_Apple_Keyboard_(MC184Z).svg.png

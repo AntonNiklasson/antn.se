@@ -86,7 +86,7 @@ The key command here is `ls -la src/components`:
 
 1. Create `components/index.js`
 2. Enter insert mode in that empty file
-3. ` Ctrl+R``= ` and type `:system('ls -l src/components')`
+3. `Ctrl+R``=` and type `:system('ls -l src/components')`
 
 This inputs the following:
 

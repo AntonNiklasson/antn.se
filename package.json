@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "prettier --check ./src"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.0",

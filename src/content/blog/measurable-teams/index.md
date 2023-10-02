@@ -69,6 +69,5 @@ Health Monitor every six weeks or so.
 What gets measured gets managed.
 
 [1]: https://medium.com/@H_Stahl
-[2]:
-  https://uxplanet.org/are-you-monitoring-your-teams-well-being-if-not-you-should-b8aa53a6ce35
+[2]: https://uxplanet.org/are-you-monitoring-your-teams-well-being-if-not-you-should-b8aa53a6ce35
 [3]: https://www.atlassian.com/team-playbook/health-monitor/project-teams
