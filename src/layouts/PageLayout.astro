@@ -1,0 +1,61 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+import HeaderLink from "../components/HeaderLink.astro";
+
+type Props = {
+  title?: string;
+  summary?: string;
+};
+
+const { title, summary } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`${title ?? "anton niklasson"} | antn.se`}
+      description={summary}
+    />
+  </head>
+
+  <body>
+    <header>
+      <h2><a href="/">anton niklasso<span class="cursor">n</span></a></h2>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <style>
+      header,
+      main {
+        max-width: 40rem;
+        width: 100%;
+        padding: 2rem;
+        margin: 0 auto;
+      }
+
+      h2 a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.8rem;
+      }
+      h2 .cursor {
+        background: var(--text);
+        color: var(--surface);
+      }
+
+      header nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </body>
+</html>

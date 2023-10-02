@@ -1,3 +1,150 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+  --text: black;
+  --text-muted: #666;
+  --surface: white;
+  --surface-secondary: #eee;
+  --border: #e0e0e0;
+  --border-muted: #ededed;
+  --accent: #db00a4;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: white;
+    --text-muted: #aaa;
+    --surface: black;
+    --surface-secondary: #333;
+    --border: #444;
+    --border-muted: #222;
+    --accent: #ff00b3;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background: var(--surface);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.7em;
+}
+h3 {
+  font-size: 1.55em;
+}
+h4 {
+  font-size: 1.3em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  font-size: 1.1em;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 18px;
+  }
+  main {
+    padding: 1em;
+  }
+}
+
+main {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.prose {
+  margin: 0 auto;
+  margin-trim: block;
+}
+.prose a {
+  text-decoration: underline;
+  transition: all 120ms;
+  color: var(--text);
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.prose p,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  margin: 1.2rem 0;
+}
+.prose p > code {
+  font-size: 0.8em;
+}
+.prose > pre {
+  margin-block: 1.2rem;
+}
+.prose ul,
+.prose ol {
+  list-style-position: outside;
+  margin-left: 1.5em;
+}
+.prose hr {
+  border-color: var(--border-muted);
+  width: 70%;
+  margin: 2rem auto;
+}
