@@ -23,7 +23,16 @@ const { title, summary } = Astro.props;
 
   <body>
     <header>
-      <h2><a href="/">anton niklasso<span class="cursor">n</span></a></h2>
+      <h2><a href="/">anton niklass<span class="cursor">o</span>n</a></h2>
+
+      <nav>
+        <a href="https://cv.antn.se" target="_blank">resume</a>
+        <a href="https://x.com/antonniklasson" target="_blank">twitter</a>
+        <a href="https://github.com/antonniklasson" target="_blank">github</a>
+        <a href="https://www.linkedin.com/in/antonniklasson" target="_blank"
+          >linkedin</a
+        >
+      </nav>
     </header>
 
     <main>
@@ -41,6 +50,12 @@ const { title, summary } = Astro.props;
         margin: 0 auto;
       }
 
+      header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
       h2 a {
         color: inherit;
         text-decoration: none;
@@ -49,12 +64,53 @@ const { title, summary } = Astro.props;
       h2 .cursor {
         background: var(--text);
         color: var(--surface);
+
+        animation: fade 700ms alternate infinite;
+      }
+
+      @keyframes fade {
+        from {
+          filter: none;
+        }
+        to {
+          filter: invert();
+        }
       }
 
       header nav {
         display: flex;
         align-items: center;
-        gap: 10px;
+
+        a {
+          display: inline-block;
+          padding: 0.5em;
+          text-decoration: none;
+          transition: all 120ms;
+
+          font-weight: bold;
+          color: var(--text-muted);
+
+          &:hover {
+            text-fill-color: transparent;
+            animation: gradient-flow 2.6s infinite linear;
+            background-image: linear-gradient(45deg, red, orange, purple, red);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+          }
+        }
+      }
+
+      @keyframes gradient-flow {
+        from {
+          background-position: 0%;
+        }
+        to {
+          background-position: 200%;
+        }
       }
     </style>
   </body>
