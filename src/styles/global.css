@@ -7,6 +7,7 @@
 :root {
   --text: black;
   --text-muted: #666;
+  --text-link: #ff9e27;
   --surface: white;
   --surface-secondary: #eee;
   --border: #e0e0e0;
@@ -27,6 +28,7 @@
   :root {
     --text: white;
     --text-muted: #aaa;
+    --text-link: #ff9e27;
     --surface: black;
     --surface-secondary: #333;
     --border: #444;
@@ -80,6 +82,14 @@ h5 {
 }
 h6 {
   font-size: 1.1em;
+}
+
+a {
+  color: var(--text-link);
+  transition: all 120ms;
+}
+a:hover {
+  color: var(--text);
 }
 
 strong,
