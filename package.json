@@ -1,8 +1,6 @@
 {
   "private": true,
   "name": "antn.se",
-  "type": "module",
-  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,10 +10,10 @@
     "check": "prettier --check ./src"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.0.0",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.0",
-    "astro": "^3.0.8",
+    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/sitemap": "^3.0.3",
+    "astro": "^4.0.4",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
   }
