@@ -158,3 +158,15 @@ main {
   width: 70%;
   margin: 2rem auto;
 }
+
+kbd {
+  display: inline;
+  margin: 0 2px;
+  padding: 2px;
+  border: 1px solid var(--border-muted);
+  background: var(--surface-secondary);
+  border-radius: 4px;
+  font-size: 1.2em;
+  font-family: monospace;
+  font-weight: bold;
+}
