@@ -11,6 +11,7 @@ I found myself creating conflicting shortcuts sometimes. To avoid confusion, I t
 
 Here is a list of a few hyper shortcuts I have found useful:
 
+- <kbd>★</kbd><kbd>Space</kbd>: Raycast
 - <kbd>★</kbd><kbd>T</kbd>: Launch Todoist "Quick add"
 - <kbd>★</kbd><kbd>H</kbd>: Align current window to the left half
 - <kbd>★</kbd><kbd>J</kbd>: Maximise the current window
