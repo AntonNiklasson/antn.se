@@ -5,10 +5,12 @@ import PageLayout from "./PageLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
-const { id, title, summary, date, hero } = Astro.props;
+const image = "https://placekitten.com/300/300";
+
+const { id, title, date } = Astro.props;
 ---
 
-<PageLayout title={title}>
+<PageLayout title={title} image={image}>
   <article>
     <header>
       <h1 transition:name={`blog-post-${id}`}>{title}</h1>

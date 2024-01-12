@@ -5,9 +5,10 @@ import Footer from "../components/Footer.astro";
 type Props = {
   title?: string;
   summary?: string;
+  image?: string;
 };
 
-const { title, summary } = Astro.props;
+const { title, summary, image } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,6 +17,7 @@ const { title, summary } = Astro.props;
     <BaseHead
       title={`${title ?? "anton niklasson"} | antn.se`}
       description={summary}
+      image={image}
     />
   </head>
 

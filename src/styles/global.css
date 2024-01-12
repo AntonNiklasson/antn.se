@@ -5,53 +5,53 @@
  */
 
 :root {
-  --text: black;
-  --text-muted: #666;
-  --text-link: #ff9e27;
-  --surface: white;
-  --surface-secondary: #eee;
-  --border: #e0e0e0;
-  --border-muted: #ededed;
-  --accent: #db00a4;
+	--text: black;
+	--text-muted: #666;
+	--text-link: #ff9e27;
+	--surface: white;
+	--surface-secondary: #eee;
+	--border: #e0e0e0;
+	--border-muted: #ededed;
+	--accent: #db00a4;
 
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
 }
 
 @supports (font-variation-settings: normal) {
-  :root {
-    font-family: "Inter var", sans-serif;
-  }
+	:root {
+		font-family: "Inter var", sans-serif;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --text: white;
-    --text-muted: #aaa;
-    --text-link: #ff9e27;
-    --surface: black;
-    --surface-secondary: #333;
-    --border: #444;
-    --border-muted: #222;
-    --accent: #ff00b3;
-  }
+	:root {
+		--text: white;
+		--text-muted: #aaa;
+		--text-link: #ff9e27;
+		--surface: black;
+		--surface-secondary: #333;
+		--border: #444;
+		--border-muted: #222;
+		--accent: #ff00b3;
+	}
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  background: var(--surface);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  color: var(--text);
-  line-height: 1.7;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: var(--surface);
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: var(--text);
+	line-height: 1.7;
 }
 
 h1,
@@ -60,77 +60,77 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text);
-  line-height: 1.2;
-  letter-spacing: -0.05em;
-  font-weight: 600;
+	color: var(--text);
+	line-height: 1.2;
+	letter-spacing: -0.05em;
+	font-weight: 600;
 }
 h1 {
-  font-size: 1.9em;
+	font-size: 1.9em;
 }
 h2 {
-  font-size: 1.7em;
+	font-size: 1.7em;
 }
 h3 {
-  font-size: 1.45em;
+	font-size: 1.45em;
 }
 h4 {
-  font-size: 1.3em;
+	font-size: 1.3em;
 }
 h5 {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 h6 {
-  font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 a {
-  color: var(--text-link);
-  transition: all 120ms;
+	color: var(--text-link);
+	transition: all 120ms;
 }
 a:hover {
-  color: var(--text);
+	color: var(--text);
 }
 
 strong,
 b {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 2px;
+	max-width: 100%;
+	height: auto;
+	border-radius: 2px;
 }
 
 @media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    padding: 1em;
-  }
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
 }
 
 main {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
 .prose {
-  margin: 0 auto;
-  margin-trim: block;
+	margin: 0 auto;
+	margin-trim: block;
 }
 .prose a {
-  text-decoration: underline;
-  transition: all 120ms;
-  color: var(--text);
+	text-decoration: underline;
+	transition: all 120ms;
+	color: var(--text);
 }
 
 .prose a:hover {
-  color: var(--accent);
+	color: var(--accent);
 }
 
 .prose p,
@@ -140,33 +140,33 @@ main {
 .prose h4,
 .prose h5,
 .prose h6 {
-  margin: 1.2rem 0;
+	margin: 1.2rem 0;
 }
 .prose p > code {
-  font-size: 0.8em;
+	font-size: 0.8em;
 }
 .prose > pre {
-  margin-block: 1.2rem;
+	margin-block: 1.2rem;
 }
 .prose ul,
 .prose ol {
-  list-style-position: outside;
-  margin-left: 1.5em;
+	list-style-position: outside;
+	margin-left: 1.5em;
 }
 .prose hr {
-  border-color: var(--border-muted);
-  width: 70%;
-  margin: 2rem auto;
+	border-color: var(--border-muted);
+	width: 70%;
+	margin: 2rem auto;
 }
 
 kbd {
-  display: inline;
-  margin: 0 2px;
-  padding: 2px;
-  border: 1px solid var(--border-muted);
-  background: var(--surface-secondary);
-  border-radius: 4px;
-  font-size: 1.2em;
-  font-family: monospace;
-  font-weight: bold;
+	display: inline;
+	margin: 0 2px;
+	padding: 2px;
+	border: 1px solid var(--border-muted);
+	background: var(--surface-secondary);
+	border-radius: 4px;
+	font-size: 1.2em;
+	font-family: monospace;
+	font-weight: bold;
 }

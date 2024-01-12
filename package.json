@@ -1,20 +1,23 @@
 {
-  "private": true,
-  "name": "antn.se",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check": "prettier --check ./src"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^2.0.1",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "astro": "^4.0.4",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0"
-  }
+	"private": true,
+	"name": "antn.se",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "prettier --check ./src"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^2.0.1",
+		"@astrojs/rss": "^4.0.1",
+		"@astrojs/sitemap": "^3.0.3",
+		"@resvg/resvg-js": "^2.6.0",
+		"astro": "^4.0.4",
+		"gray-matter": "^4.0.3",
+		"prettier": "^3.0.3",
+		"prettier-plugin-astro": "^0.12.0",
+		"satori": "^0.10.11"
+	}
 }
