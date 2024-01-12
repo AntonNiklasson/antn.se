@@ -5,34 +5,37 @@ import PageLayout from "./PageLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
-const image = "https://placekitten.com/300/300";
-
 const { id, title, date } = Astro.props;
+const slug = id.split("/")[0];
+console.log({
+	slug,
+});
+const image = `${slug}/cover.png`;
 ---
 
 <PageLayout title={title} image={image}>
-  <article>
-    <header>
-      <h1 transition:name={`blog-post-${id}`}>{title}</h1>
-      <Date date={date} />
-    </header>
+	<article>
+		<header>
+			<h1 transition:name={`blog-post-${id}`}>{title}</h1>
+			<Date date={date} />
+		</header>
 
-    <div class="prose">
-      <slot />
-    </div>
-  </article>
+		<div class="prose">
+			<slot />
+		</div>
+	</article>
 </PageLayout>
 
 <style>
-  article {
-    padding: 2rem 0;
-  }
+	article {
+		padding: 2rem 0;
+	}
 
-  article header {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
+	article header {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		text-align: center;
+		margin-bottom: 3rem;
+	}
 </style>
