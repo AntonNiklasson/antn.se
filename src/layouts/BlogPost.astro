@@ -7,9 +7,6 @@ type Props = CollectionEntry<"blog">["data"] & { id: string };
 
 const { id, title, date } = Astro.props;
 const slug = id.split("/")[0];
-console.log({
-	slug,
-});
 const image = `${slug}/cover.png`;
 ---
 
