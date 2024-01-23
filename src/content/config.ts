@@ -13,7 +13,7 @@ const experiences = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		organization: z.string(),
-		description: z.string().optional(),
+		url: z.string().url().optional(),
 		startDate: z.coerce.date(),
 		endDate: z.coerce.date().optional(),
 	}),

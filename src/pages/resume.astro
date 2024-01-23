@@ -1,50 +1,55 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
 
-type Experience = {
-	title: string;
-	organization: string;
-	description?: string;
-	startDate: Date;
-	endDate?: Date;
-};
+let collection = await getCollection("experiences");
+collection = collection.sort((a, b) => {
+	const x = new Date(a.data.startDate);
+	const y = new Date(b.data.startDate);
+	return x.valueOf() - y.valueOf();
+});
 
-const experiences: Experience[] = [
-	{
-		title: "Senior Software Engineer",
-		organization: "Google",
-		description: "I work on the Google Search team.",
-		startDate: new Date("2021-01-01"),
-	},
-	{
-		title: "Senior Software Engineer",
-		organization: "Facebook",
-		description: "I worked on the Facebook Search team.",
-		startDate: new Date("2019-01-01"),
-		endDate: new Date("2020-12-31"),
-	},
-	{
-		title: "Software Engineer",
-		organization: "Microsoft",
-		description: "I worked on the Microsoft Search team.",
-		startDate: new Date("2017-01-01"),
-		endDate: new Date("2018-12-31"),
-	},
-];
+const rendered = collection.map(async (experience) => {
+	const { Content } = await experience.render();
+	return {
+		...experience,
+		body: Content,
+	};
+});
+const experiences = await Promise.all(rendered);
 ---
 
 <PageLayout>
-	<h1>Resume</h1>
 	{
-		experiences.map((experience) => (
-			<div>
-				<h2>{experience.title}</h2>
-				<h3>@ {experience.organization}</h3>
-				<p>{experience.description}</p>
-				<p>
-					{experience.startDate} - {experience.endDate}
-				</p>
-			</div>
-		))
+		experiences.map((experience) => {
+			const Content = experience.body;
+
+			return (
+				<div class="experience">
+					<header>
+						<h2>{experience.data.title}</h2>
+						<h3>@ {experience.data.organization}</h3>
+						<time>
+							{experience.data.startDate} -{" "}
+							{experience.data.endDate ?? ""}
+						</time>
+					</header>
+					<div class="prose">
+						<Content />
+					</div>
+				</div>
+			);
+		})
 	}
 </PageLayout>
+
+<style>
+	.experience {
+		margin-block: 1rem;
+
+		time {
+			font-size: 0.85em;
+			font-weight: bold;
+		}
+	}
+</style>
