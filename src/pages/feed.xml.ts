@@ -18,7 +18,7 @@ export async function GET(context: any) {
 
 	return rss({
 		title: "Anton Niklasson",
-		description: "",
+		description: "Anton's personal blog",
 		site: context.site,
 		items,
 	});
