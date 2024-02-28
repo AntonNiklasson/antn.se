@@ -1,0 +1,91 @@
+---
+title: Dynamic templates in Obsidian with JavaScript
+date: 2024-02-29
+---
+
+import { Image } from "astro:assets";
+import screenshot_list from "./list-of-days.png";
+import screenshot_foldertemplates from "./folder-templates.png";
+import screenshot_userscripts from "./user-script-settings.png";
+
+On top of [my habit of creating a daily note][daily-note] in Obsidian, I'm also
+keeping a _weekly note_. This is where I do my weekly review, and try to take a
+step back and look at the bigger picture.
+
+An important piece of that review is reflection. I want to be able to easily
+look back at all the daily notes for that week.
+
+Below is the finished product from my weekly note `2023-W14`. Obsidian makes it
+clear what daily notes exists, and which ones I never got around to creating. I
+really like this about Obsidian, "placeholder links" are still valid links.
+
+<Image
+	src={screenshot_list}
+	alt="Screenshot of a list of daily notes in a weekly note"
+	width="300"
+/>
+
+---
+
+## 🏗️ Implementation
+
+The [templater plugin][templater] is the driver behind this setup for me. It
+allows me to specify a folder template, write my scripts in plain JavaScript and
+then easily call the script from inside the Obsidian template.
+
+### Folder Templates
+
+Templater lets you configure _folder templates_. This means that whenever a new
+note is created in a specific folder, the associated template is automatically
+used to populate that new note. These are the folder templates I have
+configured:
+
+<Image
+	src={screenshot_foldertemplates}
+	alt="Screenshot of folder template settings in Obsidian"
+/>
+
+### Custom Script
+
+The script is just a JavaScript file exporting a single function. Whatever is
+returned from that function will replace the template tag at the call-site. The
+documentation on how to define a user script in Templater is available
+[here][templater-scripts].
+
+The script exposes a function `list_days_in_week` which takes one single
+argument: the filename of the current weekly note. It then extrapolates the
+dates from that, and constructs the markdown content.
+
+[Here is the full script, if you are curious.][script-gist]
+
+### Calling the Script
+
+The final piece of the puzzle is calling the script from inside the template.
+First you need to enable user scripts in Templater settings. You point Templater
+to look for scripts in a folder of your choice, and it will auto-detect them and
+make them available in your templates. I just used a `/scripts` folder at the
+root of my vault.
+
+<Image
+	src={screenshot_userscripts}
+	alt="Screenshot of user script settings in Obsidian"
+/>
+
+All the scripts in that folder will be exposed as `tp.user.<script-name>`, so
+the call looks like this:
+
+```
+<% tp.user.list_days_in_week(tp.file.title) %>
+```
+
+---
+
+All done! I really find this useful. My daily notes are not write-only, I know I
+will come back to the things I write at least once.
+
+[daily-note]: https://antn.se/the-daily-note
+[templater]: https://github.com/SilentVoid13/Templater
+[templater-scripts]:
+	https://silentvoid13.github.io/Templater/user-functions/script-user-functions.html
+[script-gist]:
+	https://gist.github.com/AntonNiklasson/977ab4feb7c520dc668f4d7c263785ac
