@@ -12,7 +12,7 @@
 	--surface-secondary: #eee;
 	--border: #e0e0e0;
 	--border-muted: #ededed;
-	--accent: #db00a4;
+	--accent: #00aee7;
 
 	font-family: "Inter", sans-serif;
 	font-size: 16px;
@@ -33,7 +33,7 @@
 		--surface-secondary: #333;
 		--border: #444;
 		--border-muted: #222;
-		--accent: #ff00b3;
+		--accent: #6ac8fc;
 	}
 }
 
@@ -62,17 +62,17 @@ h5,
 h6 {
 	color: var(--text);
 	line-height: 1.2;
-	letter-spacing: -0.05em;
-	font-weight: 600;
+	font-weight: 500;
+	transition: color 250ms;
 }
 h1 {
-	font-size: 1.9em;
-}
-h2 {
 	font-size: 1.7em;
 }
+h2 {
+	font-size: 1.5em;
+}
 h3 {
-	font-size: 1.45em;
+	font-size: 1.4em;
 }
 h4 {
 	font-size: 1.3em;
@@ -85,11 +85,12 @@ h6 {
 }
 
 a {
-	color: var(--text-link);
+	color: var(--text);
+	text-decoration: underline;
 	transition: all 120ms;
 }
 a:hover {
-	color: var(--text);
+	color: var(--accent);
 }
 
 strong,
@@ -142,12 +143,24 @@ main {
 .prose h6 {
 	margin: 1.2rem 0;
 }
+
 .prose p > code {
+	display: inline-block;
+	padding: 4px;
+	border: 1px solid var(--border-muted);
+	border-radius: 4px;
 	font-size: 0.8em;
 }
-.prose > pre {
+.prose pre:has(code) {
 	margin-block: 1.2rem;
+	padding: 1em;
+	border-radius: 4px;
+	width: 95%;
+	font-size: 0.8em;
+	margin-inline: auto;
+	tab-size: 2;
 }
+
 .prose ul,
 .prose ol {
 	list-style-position: outside;

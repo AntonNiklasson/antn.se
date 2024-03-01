@@ -4,58 +4,67 @@ import FormattedDate from "../components/Date.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 const raw = await getCollection("blog");
-const posts = raw.sort((a, b) => {
-  const x = new Date(a.data.date);
-  const y = new Date(b.data.date);
-  return y.valueOf() - x.valueOf();
-});
+const posts = raw
+	.sort((a, b) => {
+		const x = new Date(a.data.date);
+		const y = new Date(b.data.date);
+		return y.valueOf() - x.valueOf();
+	})
+	.slice(0, 6);
 ---
 
 <PageLayout>
-  <section>
-    <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/${post.slug}`}>
-              <div class="post">
-                <h2 class="title" transition:name={`post-title-${post.id}`}>
-                  {post.data.title}
-                </h2>
-                <FormattedDate date={post.data.date} />
-              </div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+	<section>
+		<h3 class="copy-title">Last few notes:</h3>
+
+		<ul>
+			{
+				posts.map((post) => (
+					<li>
+						<div class="post">
+							<h2
+								class="title"
+								transition:name={`post-title-${post.id}`}
+							>
+								<a href={`/${post.slug}`}>{post.data.title}</a>
+							</h2>
+							<FormattedDate date={post.data.date} />
+						</div>
+					</li>
+				))
+			}
+		</ul>
+
+		<a href="/notes">See all notes →</a>
+	</section>
 </PageLayout>
 
 <style>
-  ul {
-    list-style: none;
-  }
+	section {
+		display: flex;
+		flex-flow: column;
+		gap: 64px;
+	}
 
-  .post {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    margin-block: 1rem;
-    border-bottom: 1px solid var(--border);
-    padding-block: 1rem;
-  }
+	.copy-title {
+		text-transform: uppercase;
+		font-size: 0.9em;
+		color: var(--text-muted);
+	}
 
-  .title {
-    color: var(--text);
-  }
+	ul {
+		list-style: none;
+	}
 
-  a {
-    text-decoration: none;
-    transition: all 120ms;
-  }
-  a:hover .title {
-    color: var(--accent);
-  }
+	.post {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+		padding: 24px 0;
+
+		a {
+			text-decoration: none;
+		}
+	}
 </style>
