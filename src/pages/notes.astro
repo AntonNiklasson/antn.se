@@ -4,19 +4,15 @@ import FormattedDate from "../components/Date.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 const raw = await getCollection("blog");
-const posts = raw
-	.sort((a, b) => {
-		const x = new Date(a.data.date);
-		const y = new Date(b.data.date);
-		return y.valueOf() - x.valueOf();
-	})
-	.slice(0, 6);
+const posts = raw.sort((a, b) => {
+	const x = new Date(a.data.date);
+	const y = new Date(b.data.date);
+	return y.valueOf() - x.valueOf();
+});
 ---
 
 <PageLayout>
 	<section>
-		<h3 class="copy-title">Last few notes:</h3>
-
 		<ul>
 			{
 				posts.map((post) => (
@@ -44,12 +40,6 @@ const posts = raw
 		display: flex;
 		flex-flow: column;
 		gap: 64px;
-	}
-
-	.copy-title {
-		text-transform: uppercase;
-		font-size: 0.9em;
-		color: var(--text-muted);
 	}
 
 	ul {
