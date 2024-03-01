@@ -62,11 +62,16 @@ function html({ title, date }) {
 }
 
 function getPostMeta(pathname) {
-	const path = `src/content/blog/${pathname}index.mdx`;
-	const file = fs.readFileSync(path);
-	const meta = parseFrontmatter(file).data;
+	try {
+		const path = `src/content/blog/${pathname}index.mdx`;
+		const file = fs.readFileSync(path);
+		const meta = parseFrontmatter(file).data;
 
-	return meta;
+		return meta;
+	} catch (error) {
+		// Non-post pages will return null here
+		return null;
+	}
 }
 
 export async function generateOGImages(dir, pages) {
@@ -77,14 +82,13 @@ export async function generateOGImages(dir, pages) {
 	const interBoldFont = fs.readFileSync(`public/Inter-Bold.ttf`);
 
 	for (const { pathname } of pages) {
-		// Skip the / page.
-		if (pathname === "") continue;
+		const meta = getPostMeta(pathname);
 
-		const { title, date } = getPostMeta(pathname);
+		if (meta === null) continue;
 
-		console.log(`Generating cover for post "${title}"`);
+		console.log(`Generating cover for post "${meta.title}"`);
 
-		const svg = await satori(html({ title, date }), {
+		const svg = await satori(html(meta), {
 			width,
 			height,
 			fonts: [
@@ -109,7 +113,7 @@ export async function generateOGImages(dir, pages) {
 				value: width,
 			},
 		});
-		const image = await renderer.render().asPng();
+		const image = renderer.render().asPng();
 
 		fs.writeFileSync(`${dir.pathname}${pathname}cover.png`, image);
 	}
