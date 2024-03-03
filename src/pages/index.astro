@@ -22,10 +22,7 @@ const posts = raw
 				posts.map((post) => (
 					<li>
 						<div class="post">
-							<h2
-								class="title"
-								transition:name={`post-title-${post.id}`}
-							>
+							<h2>
 								<a href={`/${post.slug}`}>{post.data.title}</a>
 							</h2>
 							<FormattedDate date={post.data.date} />

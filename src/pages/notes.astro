@@ -18,10 +18,7 @@ const posts = raw.sort((a, b) => {
 				posts.map((post) => (
 					<li>
 						<div class="post">
-							<h2
-								class="title"
-								transition:name={`post-title-${post.id}`}
-							>
+							<h2 class="title">
 								<a href={`/${post.slug}`}>{post.data.title}</a>
 							</h2>
 							<FormattedDate date={post.data.date} />
