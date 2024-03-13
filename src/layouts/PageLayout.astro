@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions, fade } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 
@@ -38,7 +38,7 @@ const { title, summary, image } = Astro.props;
 		<ViewTransitions />
 	</head>
 
-	<body>
+	<body transition:animate="none">
 		<header>
 			<h2>
 				<a href="/">anton&nbsp;niklass<span class="cursor">o</span>n</a>
@@ -59,7 +59,7 @@ const { title, summary, image } = Astro.props;
 			</nav>
 		</header>
 
-		<main>
+		<main transition:animate={fade({ duration: "500ms" })}>
 			<slot />
 		</main>
 

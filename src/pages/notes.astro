@@ -28,7 +28,10 @@ const groupedByYear = groupBy(sorted, (post): number => {
 						<ul>
 							{posts.map((post) => (
 								<li>
-									<h2>
+									<h2
+										transition:animate="fade"
+										transition:name={`post_title_${post.id}`}
+									>
 										<a href={`/${post.slug}`}>
 											{post.data.title}
 										</a>
