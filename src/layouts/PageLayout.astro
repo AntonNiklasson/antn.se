@@ -35,7 +35,7 @@ const { title, summary, image } = Astro.props;
 			gtag("js", new Date());
 			gtag("config", "G-XMNWG25QKL");
 		</script>
-		<ViewTransitions />
+		<ViewTransitions fallback="swap" />
 	</head>
 
 	<body transition:animate="none">
@@ -59,7 +59,7 @@ const { title, summary, image } = Astro.props;
 			</nav>
 		</header>
 
-		<main transition:animate={fade({ duration: "500ms" })}>
+		<main transition:animate={fade({ duration: "400ms" })}>
 			<slot />
 		</main>
 
