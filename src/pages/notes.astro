@@ -15,10 +15,6 @@ const groupedByYear = groupBy(sorted, (post): number => {
 	const published = new Date(post.data.date);
 	return published.getFullYear();
 });
-
-console.log({
-	groupedByYear,
-});
 ---
 
 <PageLayout>
