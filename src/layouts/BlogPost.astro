@@ -5,7 +5,7 @@ import PageLayout from "./PageLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
-const { id, title, date } = Astro.props;
+const { id, title, date, lastUpdate } = Astro.props;
 const slug = id.split("/")[0];
 const image = `/${slug}/cover.png`;
 ---
@@ -23,7 +23,23 @@ const image = `/${slug}/cover.png`;
 				<h1 transition:name={`post_title_${id}`}>
 					{title}
 				</h1>
-				<Date date={date} />
+
+				{
+					lastUpdate ? (
+						<>
+							<div class="dates-container">
+								<span>
+									Published: <Date date={date} />
+								</span>
+								<span>
+									Last updated: <Date date={lastUpdate} />
+								</span>
+							</div>
+						</>
+					) : (
+						<Date date={date} />
+					)
+				}
 			</hgroup>
 		</header>
 
@@ -75,6 +91,13 @@ const image = `/${slug}/cover.png`;
 			display: flex;
 			flex-direction: column;
 			gap: 8px;
+
+			.dates-container {
+				display: flex;
+				gap: 1rem;
+				font-size: 0.875rem;
+				font-weight: 600;
+			}
 		}
 
 		.edit-link {
