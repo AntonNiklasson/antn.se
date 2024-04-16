@@ -1,18 +1,15 @@
 import path from "path";
+import { slugify, today } from "./utils";
 
 const [, , title] = Bun.argv;
 
-function slugify(title: string): string {
-	return title.toLowerCase().replaceAll(" ", "-");
-}
-
-function today() {
-	return new Date().toISOString().slice(0, 10);
+if (!title || !title.length) {
+	console.error('Missing title. Call it like this: `new-post "lorem ipsum"`');
+	process.exit();
 }
 
 const postsDir = "./src/content/blog";
 const slug = slugify(title);
-const date = new Date();
 const content = `---
 title: ${title}
 date: ${today()}
