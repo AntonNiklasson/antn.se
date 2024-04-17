@@ -15,24 +15,30 @@ const posts = raw
 
 <PageLayout>
 	<section>
-		<h3 class="copy-title">Last few notes:</h3>
+		<p>hi there,</p>
+		<p>
+			I'm currently working at <a href="https://sanalabs.com">Sana</a> as
+			a frontend engineer. I enjoy developer tooling, polished interfaces,
+			testing strategies and minimalism.
+		</p>
+	</section>
+	<section>
+		<h2>notes</h2>
 
-		<ul>
+		<div class="post-grid">
 			{
 				posts.map((post) => (
-					<li>
-						<div class="post">
-							<h2>
-								<a href={`/${post.slug}`}>{post.data.title}</a>
-							</h2>
-							<FormattedDate date={post.data.date} />
-						</div>
-					</li>
+					<div class="post">
+						<h3>
+							<a href={`/${post.slug}`}>{post.data.title}</a>
+						</h3>
+						<FormattedDate date={post.data.date} />
+					</div>
 				))
 			}
-		</ul>
+		</div>
 
-		<a href="/notes">See all notes →</a>
+		<a href="/notes">all notes →</a>
 	</section>
 </PageLayout>
 
@@ -40,17 +46,20 @@ const posts = raw
 	section {
 		display: flex;
 		flex-flow: column;
-		gap: 64px;
+		gap: 16px;
+		margin-block: 64px;
+
+		hgroup {
+			p {
+				color: var(--text-muted);
+			}
+		}
 	}
 
-	.copy-title {
-		text-transform: uppercase;
-		font-size: 0.9em;
-		color: var(--text-muted);
-	}
-
-	ul {
-		list-style: none;
+	.post-grid {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 32px;
 	}
 
 	.post {
@@ -58,7 +67,9 @@ const posts = raw
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 4px;
-		padding: 24px 0;
+		transition: all 200ms;
+		cursor: pointer;
+		border: 1px solid transparent;
 
 		a {
 			text-decoration: none;

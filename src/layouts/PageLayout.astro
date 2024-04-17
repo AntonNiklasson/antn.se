@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions, fade } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 
@@ -40,14 +40,13 @@ const { title, summary, image } = Astro.props;
 
 	<body transition:animate="none">
 		<header>
-			<h2>
-				<a href="/">anton&nbsp;niklass<span class="cursor">o</span>n</a>
-			</h2>
+			<h1>
+				<a href="/">anton&nbsp;niklasso<span class="cursor"></span>n</a>
+			</h1>
 
 			<nav>
-				<a href="https://cv.antn.se" target="_blank">resume</a>
 				<a href="https://x.com/antonniklasson" target="_blank"
-					>x/twitter</a
+					>twitter</a
 				>
 				<a href="https://github.com/antonniklasson" target="_blank"
 					>github</a
@@ -69,9 +68,7 @@ const { title, summary, image } = Astro.props;
 			main {
 				max-width: 40rem;
 				width: 100%;
-				padding: 2rem;
-				padding-top: 7rem;
-				margin: 0 auto;
+				margin: 64px auto;
 			}
 
 			header {
@@ -84,70 +81,64 @@ const { title, summary, image } = Astro.props;
 				padding: 1rem;
 				background: var(--surface);
 				box-shadow: 0 0 4px var(--border);
+
+				h1 {
+					a {
+						color: inherit;
+						text-decoration: none;
+						font-size: 1.8rem;
+					}
+
+					.cursor {
+						border-right: 3px solid transparent;
+						margin-inline: -1.5px;
+						animation: cursor-blink 500ms alternate infinite linear;
+					}
+				}
+
+				nav {
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					gap: 1rem;
+					flex: 1;
+					font-weight: 400;
+
+					a {
+						color: var(--text-muted);
+						position: relative;
+						text-decoration: none;
+
+						&:hover {
+							color: var(--text);
+							scale: 1.09;
+							animation: 300ms buzz linear;
+						}
+					}
+				}
 			}
 
-			h2 a {
-				color: inherit;
-				text-decoration: none;
-				font-size: 1.8rem;
-			}
-			h2 .cursor {
-				background: var(--text);
-				color: var(--surface);
-
-				animation: fade 600ms alternate infinite;
-			}
-
-			nav {
-				display: flex;
-				align-items: center;
-				justify-content: flex-end;
-				gap: 1rem;
-				flex: 1;
-			}
-
-			nav a {
-				display: inline-block;
-				text-decoration: none;
-				font-size: 0.875rem;
-				color: var(--text);
-				transition: all 120ms;
-				background-image: linear-gradient(transparent, transparent);
-			}
-
-			nav a:hover {
-				text-fill-color: transparent;
-				animation: gradient-flow 7s infinite linear;
-				background-image: linear-gradient(
-					45deg,
-					purple,
-					crimson,
-					pink,
-					purple
-				);
-				background-size: 300%;
-				background-clip: text;
-				-webkit-background-clip: text;
-				-moz-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				-moz-text-fill-color: transparent;
-			}
-
-			@keyframes gradient-flow {
-				0% {
-					background-position: 0%;
+			@keyframes buzz {
+				30% {
+					filter: blur(1px);
+					translate: 2px 0;
+					text-shadow: 1px 1px 1px pink;
+				}
+				60% {
+					filter: blur(2px);
+					rotate: -1deg;
+					translate: 1px 1px;
 				}
 				100% {
-					background-position: 300%;
+					filter: none;
+					text-shadow: none;
+					translate: 0 0;
 				}
 			}
 
-			@keyframes fade {
-				from {
-					filter: none;
-				}
+			@keyframes cursor-blink {
 				to {
-					filter: invert();
+					border-color: var(--accent);
 				}
 			}
 		</style>

@@ -1,12 +1,6 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
 :root {
-	--text: black;
-	--text-muted: #666;
+	--text: #444;
+	--text-muted: #888;
 	--text-link: #ff9e27;
 	--surface: white;
 	--surface-secondary: #eee;
@@ -57,31 +51,31 @@ body {
 h1,
 h2,
 h3,
-h4,
 h5,
+h4,
 h6 {
 	color: var(--text);
 	line-height: 1.2;
-	font-weight: 500;
+	font-weight: 300;
 	transition: color 250ms;
 }
 h1 {
 	font-size: 1.7em;
 }
 h2 {
-	font-size: 1.5em;
+	font-size: 1.6em;
 }
 h3 {
-	font-size: 1.4em;
-}
-h4 {
-	font-size: 1.3em;
-}
-h5 {
 	font-size: 1.2em;
 }
+h4 {
+	font-size: 1.13em;
+}
+h5 {
+	font-size: 1.09em;
+}
 h6 {
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 a {
