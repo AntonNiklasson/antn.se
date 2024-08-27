@@ -9,7 +9,7 @@
 	--accent: #00aee7;
 
 	font-family: "Inter", sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 @supports (font-variation-settings: normal) {
@@ -60,22 +60,22 @@ h6 {
 	transition: color 250ms;
 }
 h1 {
-	font-size: 1.7em;
+	font-size: 1.5em;
 }
 h2 {
-	font-size: 1.6em;
+	font-size: 1.3em;
 }
 h3 {
 	font-size: 1.2em;
 }
 h4 {
-	font-size: 1.13em;
+	font-size: 1.1em;
 }
 h5 {
-	font-size: 1.09em;
+	font-size: 1em;
 }
 h6 {
-	font-size: 1em;
+	font-size: 0.9em;
 }
 
 a {

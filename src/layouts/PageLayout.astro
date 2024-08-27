@@ -41,12 +41,12 @@ const { title, summary, image } = Astro.props;
 	<body transition:animate="none">
 		<header>
 			<h1>
-				<a href="/">anton&nbsp;niklasso<span class="cursor"></span>n</a>
+				<a href="/">anton niklasson</a>
 			</h1>
 
 			<nav>
 				<a href="https://x.com/antonniklasson" target="_blank"
-					>twitter</a
+					>twixxer</a
 				>
 				<a href="https://github.com/antonniklasson" target="_blank"
 					>github</a
@@ -80,19 +80,12 @@ const { title, summary, image } = Astro.props;
 				align-items: center;
 				padding: 1rem;
 				background: var(--surface);
-				box-shadow: 0 0 4px var(--border);
 
 				h1 {
 					a {
 						color: inherit;
 						text-decoration: none;
-						font-size: 1.8rem;
-					}
-
-					.cursor {
-						border-right: 3px solid transparent;
-						margin-inline: -1.5px;
-						animation: cursor-blink 500ms alternate infinite linear;
+						font-size: 1.2rem;
 					}
 				}
 
@@ -100,7 +93,7 @@ const { title, summary, image } = Astro.props;
 					display: flex;
 					align-items: center;
 					justify-content: flex-end;
-					gap: 1rem;
+					gap: 2rem;
 					flex: 1;
 					font-weight: 400;
 
@@ -112,7 +105,7 @@ const { title, summary, image } = Astro.props;
 						&:hover {
 							color: var(--text);
 							scale: 1.09;
-							animation: 300ms buzz linear;
+							animation: 200ms buzz linear;
 						}
 					}
 				}
@@ -124,21 +117,10 @@ const { title, summary, image } = Astro.props;
 					translate: 2px 0;
 					text-shadow: 1px 1px 1px pink;
 				}
-				60% {
-					filter: blur(2px);
-					rotate: -1deg;
-					translate: 1px 1px;
-				}
 				100% {
 					filter: none;
 					text-shadow: none;
 					translate: 0 0;
-				}
-			}
-
-			@keyframes cursor-blink {
-				to {
-					border-color: var(--accent);
 				}
 			}
 		</style>
