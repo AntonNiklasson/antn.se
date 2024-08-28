@@ -26,8 +26,8 @@ const groupedByYear = groupBy(sorted, (post): number => {
 					<section>
 						<h3>{year}</h3>
 						<ul>
-							{posts.map((post) => (
-								<li>
+							{posts.map((post, index) => (
+								<li style={`--index: ${index};`}>
 									<h2
 										transition:animate="fade"
 										transition:name={`post_title_${post.id}`}
@@ -62,11 +62,29 @@ const groupedByYear = groupBy(sorted, (post): number => {
 			display: flex;
 			flex-direction: column;
 			gap: 2rem;
-			margin: 0.5rem;
+			margin: 1rem;
 			padding: 0;
 			padding-left: 1rem;
-			border-left: 2px solid var(--border-muted);
 			list-style: none;
+			position: relative;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1px;
+				height: 0;
+				background: var(--border-muted);
+				transition-property: height;
+				transition-duration: 220ms;
+				transition-timing-function: ease-out;
+			}
+			&:hover {
+				&:after {
+					height: 100%;
+				}
+			}
 
 			li {
 				display: flex;
