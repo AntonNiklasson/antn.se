@@ -11,120 +11,37 @@ const image = `/${slug}/cover.png`;
 ---
 
 <PageLayout title={title} image={image}>
-	<article>
-		<header>
-			<a
-				class="edit-link"
-				href={`https://github.com/AntonNiklasson/antn.se/edit/main/src/content/blog/${slug}/index.mdx`}
-				>Edit note</a
-			>
+	<article class="relative space-y-8">
+		<header class="space-y-4">
+			<h1 class="text-2xl">
+				{title}
+			</h1>
 
-			<hgroup>
-				<h1>
-					{title}
-				</h1>
+			<div class="flex justify-between">
+				<div class="space-x-4">
+					<span>
+						Published: <Date date={date} />
+					</span>
 
-				{
-					lastUpdate ? (
-						<>
-							<div class="dates-container">
-								<span>
-									Published: <Date date={date} />
-								</span>
-								<span>
-									Last updated: <Date date={lastUpdate} />
-								</span>
-							</div>
-						</>
-					) : (
-						<Date date={date} />
-					)
-				}
-			</hgroup>
+					{
+						lastUpdate && (
+							<span>
+								Last updated: <Date date={lastUpdate} />
+							</span>
+						)
+					}
+				</div>
+
+				<a
+					class="text-blue"
+					href={`https://github.com/AntonNiklasson/antn.se/edit/main/src/content/blog/${slug}/index.mdx`}
+					>Edit note</a
+				>
+			</div>
 		</header>
 
 		<div class="prose">
 			<slot />
 		</div>
-
-		<footer>
-			<div class="socials">
-				Socials:
-
-				<nav>
-					<a href="https://x.com/antonniklasson" target="_blank"
-						>x/twitter</a
-					>
-					<a href="https://github.com/antonniklasson" target="_blank"
-						>github</a
-					>
-					<a
-						href="https://www.linkedin.com/in/antonniklasson"
-						target="_blank">linkedin</a
-					>
-				</nav>
-			</div>
-
-			<div class="edit">
-				<a
-					class="edit-link"
-					href={`https://github.com/AntonNiklasson/antn.se/edit/main/src/content/blog/${slug}/index.mdx`}
-					>Edit note</a
-				>
-			</div>
-		</footer>
 	</article>
 </PageLayout>
-
-<style>
-	article {
-		padding: 2rem 0;
-	}
-
-	header {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-bottom: 3rem;
-
-		hgroup {
-			display: flex;
-			flex-direction: column;
-			gap: 8px;
-
-			.dates-container {
-				display: flex;
-				gap: 1rem;
-				font-size: 0.875rem;
-				font-weight: 600;
-			}
-		}
-
-		.edit-link {
-			align-self: flex-end;
-		}
-	}
-
-	footer {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 4rem;
-		padding-top: 1rem;
-		border-top: 1px solid var(--border-muted);
-		font-size: 0.875rem;
-		color: var(--text-muted);
-
-		.socials {
-			display: flex;
-			gap: 8px;
-
-			nav {
-				list-style: none;
-			}
-		}
-	}
-
-	.edit-link {
-		font-size: 0.875rem;
-	}
-</style>

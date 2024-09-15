@@ -14,64 +14,35 @@ const posts = raw
 ---
 
 <PageLayout>
-	<section>
-		<p>Hello,</p>
-		<p>
-			I'm currently working at <a href="https://sanalabs.com">Sana</a> as
-			a frontend engineer. I enjoy developer tooling, polished interfaces,
-			testing strategies, photography and minimalism.
-		</p>
-		<p>Here's a few ideas I found worth sharing:</p>
+	<section class="space-y-10">
+		<div class="space-y-4">
+			<p>hi there!</p>
+			<p>
+				I'm currently working at <a
+					class="text-green-600"
+					href="https://sanalabs.com">Sana</a
+				>
+				 as a software engineer. I enjoy developer tooling, polished
+				interfaces, testing strategies, photography and minimalism.
+			</p>
+			<p>Here's a few ideas I found worth sharing:</p>
+		</div>
 
-		<div class="post-grid">
+		<div class="space-y-8 pl-4">
 			{
 				posts.map((post) => (
-					<div class="post">
-						<h3>
-							<a href={`/${post.slug}`}>{post.data.title}</a>
-						</h3>
-						<FormattedDate date={post.data.date} />
+					<div class="group">
+						<a href={`/${post.slug}`} class="block">
+							<h3 class="text-lg text-gray-500 group-hover:text-black">
+								{post.data.title}
+							</h3>
+							<FormattedDate date={post.data.date} />
+						</a>
 					</div>
 				))
 			}
 		</div>
 
-		<a href="/notes">all notes →</a>
+		<a class="block" href="/notes">see all notes →</a>
 	</section>
 </PageLayout>
-
-<style>
-	section {
-		display: flex;
-		flex-flow: column;
-		gap: 16px;
-		margin-block: 64px;
-
-		hgroup {
-			p {
-				color: var(--text-muted);
-			}
-		}
-	}
-
-	.post-grid {
-		display: flex;
-		flex-flow: column nowrap;
-		gap: 32px;
-		margin-block: 2rem;
-	}
-
-	.post {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 4px;
-		transition: all 200ms;
-		cursor: pointer;
-		border: 1px solid transparent;
-
-		a {
-			text-decoration: none;
-		}
-	}
-</style>
