@@ -18,85 +18,34 @@ const groupedByYear = groupBy(sorted, (post): number => {
 ---
 
 <PageLayout>
-	{
-		Object.entries(groupedByYear)
-			.reverse()
-			.map(([year, posts]) => {
-				return (
-					<section>
-						<h3>{year}</h3>
-						<ul>
-							{posts.map((post, index) => (
-								<li style={`--index: ${index};`}>
-									<h2
-										transition:animate="fade"
-										transition:name={`post_title_${post.id}`}
-									>
-										<a href={`/${post.slug}`}>
-											{post.data.title}
-										</a>
-									</h2>
-									<FormattedDate date={post.data.date} />
-								</li>
-							))}
-						</ul>
-					</section>
-				);
-			})
-	}
+	<div class="space-y-8">
+		{
+			Object.entries(groupedByYear)
+				.reverse()
+				.map(([year, posts]) => {
+					return (
+						<>
+							<section>
+								<h3 class="text-lg">{year}</h3>
+
+								<ul class="relative p-4 space-y-4 before:block before:absolute before:top-4 before:left-1 before:transition-all before:w-[2px] before:h-0 hover:before:h-[calc(90%-16px)] before:duration-500 before:ease-in-out before:bg-gray-300">
+									{posts.map((post) => (
+										<li>
+											<a
+												class="block transition rounded p-2 hover:translate-x-2"
+												href={`/${post.slug}`}>
+												<h2 class="text-gray-700 text-base">
+													{post.data.title}
+												</h2>
+												<FormattedDate date={post.data.date} />
+											</a>
+										</li>
+									))}
+								</ul>
+							</section>
+						</>
+					);
+				})
+		}
+	</div>
 </PageLayout>
-
-<style>
-	section {
-		display: flex;
-		flex-flow: column;
-		margin-bottom: 2rem;
-
-		> h3 {
-			color: var(--text-muted);
-			font-weight: bold;
-			font-size: 1rem;
-		}
-
-		ul {
-			display: flex;
-			flex-direction: column;
-			gap: 2rem;
-			margin: 1rem;
-			padding: 0;
-			padding-left: 1rem;
-			list-style: none;
-			position: relative;
-
-			&:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 1px;
-				height: 0;
-				background: var(--border-muted);
-				transition-property: height;
-				transition-duration: 220ms;
-				transition-timing-function: ease-out;
-			}
-			&:hover {
-				&:after {
-					height: 100%;
-				}
-			}
-
-			li {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				gap: 4px;
-				padding: 0.5rem 1rem;
-
-				a {
-					text-decoration: none;
-				}
-			}
-		}
-	}
-</style>
