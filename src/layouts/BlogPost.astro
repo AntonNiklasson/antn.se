@@ -18,16 +18,18 @@ const image = `/${slug}/cover.png`;
 			</h1>
 
 			<div class="flex justify-between">
-				<div class="space-x-4">
-					<span>
-						Published: <Date date={date} />
-					</span>
+				<div class="flex flex-row space-x-8">
+					<div class="flex flex-col">
+						<span class="text-sm font-bold text-gray-400"> published</span>
+						<Date date={date} />
+					</div>
 
 					{
 						lastUpdate && (
-							<span>
-								Last updated: <Date date={lastUpdate} />
-							</span>
+							<div class="flex flex-col">
+								<span class="text-sm font-bold text-gray-400">last updated</span>
+								<Date date={lastUpdate} />
+							</div>
 						)
 					}
 				</div>

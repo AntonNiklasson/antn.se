@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import FormattedDate from "../components/Date.astro";
+import DateComponent from "../components/Date.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 const raw = await getCollection("blog");
@@ -18,12 +18,11 @@ const posts = raw
 		<div class="space-y-4">
 			<p>hi there!</p>
 			<p>
-				I'm currently working at <a
-					class="text-green-600"
-					href="https://sanalabs.com">Sana</a
+				I'm currently working at <a class="text-green-600" href="https://sanalabs.com"
+					>Sana</a
 				>
-				 as a software engineer. I enjoy developer tooling, polished
-				interfaces, testing strategies, photography and minimalism.
+				 as a software engineer. I enjoy developer tooling, polished interfaces, testing
+				strategies, photography and minimalism.
 			</p>
 			<p>Here's a few ideas I found worth sharing:</p>
 		</div>
@@ -32,11 +31,11 @@ const posts = raw
 			{
 				posts.map((post) => (
 					<div class="group">
-						<a href={`/${post.slug}`} class="block">
-							<h3 class="text-lg text-gray-500 group-hover:text-black">
+						<a href={`/${post.slug}`} class="block hover:translate-x-2 transition">
+							<h3 class="text-lg  text-black group-hover:text-gray-500 transition">
 								{post.data.title}
 							</h3>
-							<FormattedDate date={post.data.date} />
+							<DateComponent date={post.data.date} />
 						</a>
 					</div>
 				))

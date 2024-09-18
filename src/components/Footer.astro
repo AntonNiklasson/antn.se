@@ -2,28 +2,17 @@
 const today = new Date();
 ---
 
-<footer>
+<footer
+	class="fixed
+  right-0
+  bottom-0
+  mt-20
+  mx-auto
+  max-w-[960px]
+  p-4
+  text-[rgb(var(--gray))]
+  text-right
+  text-sm
+  w-max">
 	&copy; {today.getFullYear()} Anton Niklasson. All rights reserved.
 </footer>
-<style>
-	footer {
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		margin: 5rem auto 0 auto;
-		width: 100%;
-		max-width: 960px;
-		padding: 1rem;
-		color: rgb(var(--gray));
-		text-align: right;
-		font-size: 0.8rem;
-		width: max-content;
-		translate: 80%;
-		transition: all 140ms;
-		transition-timing-function: ease-in-out;
-
-		&:hover {
-			translate: 0%;
-		}
-	}
-</style>
