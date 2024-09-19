@@ -12,6 +12,9 @@
 		"test": "vitest",
 		"make:post": "bun run scripts/new-post/index.ts"
 	},
+	"engines": {
+		"node": "20.x"
+	},
 	"dependencies": {
 		"@astrojs/mdx": "^2.2.0",
 		"@astrojs/partytown": "^2.0.4",
