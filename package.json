@@ -12,6 +12,7 @@
 		"test": "vitest",
 		"make:post": "bun run scripts/new-post/index.ts"
 	},
+	"packageManager": "pnpm@9.11.0",
 	"engines": {
 		"node": "20.x"
 	},
