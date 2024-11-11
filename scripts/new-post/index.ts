@@ -1,7 +1,7 @@
 import path from "path";
 import { slugify, today } from "./utils";
 
-const [, , title] = Bun.argv;
+const [, , ...title] = Bun.argv;
 
 if (!title || !title.length) {
 	console.error('Missing title. Call it like this: `new-post "lorem ipsum"`');
@@ -9,7 +9,7 @@ if (!title || !title.length) {
 }
 
 const postsDir = "./src/content/blog";
-const slug = slugify(title);
+const slug = slugify(title.join(" "));
 const content = `---
 title: ${title}
 date: ${today()}
