@@ -1,0 +1,62 @@
+---
+title: The two modes of product engineering
+date: 2024-11-12
+---
+
+One of the most important skill for a product engineer is to be able to switch
+between _launch mode_ and _stability mode_.
+
+This idea has crystalized in my head over the last few years of working on
+digital products in different environments. Engineers that are able to flip
+between these two will be able to output huge amounts of value no matter the
+context.
+
+This is how I would explain the two modes:
+
+Launch mode is all about moving fast and getting an _minimum viable product_
+into your user's hands. The goal of this phase is get the flywheel of learning
+and measuring in motion, not perfecting all the details. Anything you run into
+that would slow you down, and perhaps derail you from delivering as fast as
+possible on that target should be avoided at all costs.
+
+Stability mode is about building a foundation for growth. This is the time for
+refactors, integration tests and upstream contributions to the design system.
+The goal of this phase is about setting the project up for _long-term success_.
+
+The different goals should affect the daily priorities and trade-offs. It should
+guide internal discussions about scalability and maintainability. And it should
+always help you decide what details are important. Or perhaps more importantly:
+what is _not_ important.
+
+I have tried to come up with principles that can help you get into the right
+mindset.
+
+In launch mode:
+
+-   Ask yourself _what can I get away with?_. Copy-paste code, hard-code some
+    number, ignore test coverage.
+-   Acknowledge side-quests and take note of things that you would like get back
+    to at some point. But do not lose track of the tight core flows that makes
+    for the MVP, keep pushing.
+-   Make small changes in a safe space. This likely means all code is released
+    behind a feature flag. Keep batches small and focused.
+-   Question the scope. Prioritize ruthlessly to make sure what you work on is
+    _critical_ for the core flows to make sense
+
+When in stability mode, this is flipped up-side-down:
+
+-   Prioritize code quality and refactor the shared logic.
+-   Invest in automated quality assurance
+-   Continue to iterate, but stop guessing. Listen to the users using the
+    feature.
+-   Focus on raising the bar, in every aspect you can think of.
+
+If everyone involved in builing the product understands this core idea, and
+practice this every single day, you will be successful. You will be able to move
+fast and _launch_. Course correct if you have to, as you start learning. And
+once you stumble upon something that sticks, you will be able to exploit that
+and polish it into something that your users will enjoy for years to come.
+
+I have found that sharing this idea and clearly communcating what my intentions
+are in a project is a very effective way of strengthening the team spirit and
+finding a shared vision.
