@@ -33,16 +33,10 @@ const image = `/${slug}/cover.png`;
 						)
 					}
 				</div>
-
-				<a
-					class="text-blue"
-					href={`https://github.com/AntonNiklasson/antn.se/edit/main/src/content/blog/${slug}/index.mdx`}
-					>Edit note</a
-				>
 			</div>
 		</header>
 
-		<div class="prose">
+		<div class="prose prose-sm lg:prose-md prose-headings:font-normal">
 			<slot />
 		</div>
 	</article>
