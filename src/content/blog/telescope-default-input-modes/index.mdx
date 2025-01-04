@@ -1,0 +1,46 @@
+---
+title: Default input modes in telescope pickers
+date: 2025-01-04
+---
+
+I have been using Neovim as my main editor for about a year now. I got started
+with LazyVim, which is a great distribution that really helped me get up to
+speed faster. It comes with a lot of great plugins and settings out of the box,
+one of which is (or was) [telescope][telescope-repo]. Since I started using
+LazyVim they actually [moved to fzf-lua as the default driver for
+pickers][lazyvim-changelog]. But I am still using telescope via [LazyVim's
+extras][telesceop-extras] though.
+
+For some of the pickers I use, I usually do not filter the list down by typing.
+I bring up the picker, escape out of insert mode and start navigating the list
+with `j` and `k`. I found a nice little optimiziation for these: I can just
+default the mode to `normal` instead. This makes my life a tiny bit better.
+
+Since I am using LazyVim, the package configuration is really easy. I can just
+specify a few overwrites, and still use all the detailed configuration that
+comes with the distro.
+
+These are the picker settings I have right now:
+
+```lua
+  return {
+      "nvim-telescope/telescope.nvim",
+      opts = {
+          pickers = {
+              buffers = {
+                  initial_mode = "normal",
+              },
+              lsp_references = {
+                  initial_mode = "normal",
+              },
+              lsp_definitions = {
+                  initial_mode = "normal",
+              },
+          },
+      },
+  },
+```
+
+[lazyvim-changelog]: https://www.lazyvim.org/news#14x
+[telescope-repo]: https://github.com/nvim-telescope/telescope.nvim
+[telesceop-extras]: https://www.lazyvim.org/extras/editor/telescope
