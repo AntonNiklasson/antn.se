@@ -1,7 +1,5 @@
 type Key = string | number;
-type Getter<TItem extends object, TReturn extends Key> = (
-	item: TItem,
-) => TReturn;
+type Getter<TItem extends object, TReturn extends Key> = (item: TItem) => TReturn;
 
 export function groupBy<Item extends object, Id extends Key>(
 	list: Item[],

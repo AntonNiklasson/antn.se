@@ -8,8 +8,8 @@ following courses:
 
 -   [TNM048](http://webstaff.itn.liu.se/~jimjo/courses/TNM048/): Information
     Visualization
--   [TDDD57](https://www.ida.liu.se/~TDDD57/index.sv.shtml): Physical Interaction
-    and Game Development
+-   [TDDD57](https://www.ida.liu.se/~TDDD57/index.sv.shtml): Physical
+    Interaction and Game Development
 -   [TDDD27](https://www.ida.liu.se/~TDDD27/index.en.shtml): Advanced Web
     Programming
 -   [TDDD04](https://www.ida.liu.se/~TDDD04/): Software Testing
