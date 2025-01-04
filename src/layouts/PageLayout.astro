@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
 import { fade } from "astro:transitions";
 
 type Props = {
@@ -26,8 +25,7 @@ const { title, summary, image } = Astro.props;
 		<script
 			type="text/partytown"
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-XMNWG25QKL"
-		></script>
+			src="https://www.googletagmanager.com/gtag/js?id=G-XMNWG25QKL"></script>
 		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
@@ -41,8 +39,7 @@ const { title, summary, image } = Astro.props;
 
 	<body transition:animate="none">
 		<header
-			class="z-50 backdrop-blur-md bg-white p-4 fixed top-0 w-full flex flex-row justify-between border-b"
-		>
+			class="z-50 backdrop-blur-md bg-white p-4 fixed top-0 w-full flex flex-row justify-between border-b">
 			<h1>
 				<a href="/">anton niklasson</a>
 			</h1>
@@ -68,11 +65,8 @@ const { title, summary, image } = Astro.props;
 
 		<main
 			transition:animate={fade({ duration: "0.4s" })}
-			class="max-w-[40rem] w-full mx-auto my-32"
-		>
+			class="max-w-[40rem] w-full mx-auto my-32">
 			<slot />
 		</main>
-
-		<Footer />
 	</body>
 </html>
