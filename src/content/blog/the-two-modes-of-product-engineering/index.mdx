@@ -1,10 +1,10 @@
 ---
 title: The two modes of product engineering
 date: 2024-11-12
-lastUpdate: 2024-12-15
+lastUpdate: 2025-01-08
 ---
 
-One of the most important skill for a software engineer working on a product is
+One of the most important skills for a software engineer working on a product is
 to be able to switch between _launch mode_ and _stability mode_.
 
 This idea has crystalized in my head over the last few years of working on
@@ -13,95 +13,90 @@ precise calls on when and how to move between these two modes will be successful
 in whatever context they work in.
 
 The idea is that product development, or rather _feature development_, moves in
-cycles. But not cycles of intensity, as I have heard many many times. But rather
-in cycles between _launch mode_ and _stability mode_. The product teams that are
-able to align on this idea will be able to collectively navigate uncertainty,
-user feedback and long-term maintenance.
+cycles. But not cycles of _intensity_, as I have heard many times. But rather in
+cycles of _priorities_. Early on in feature development, the goal is to better
+understand your user's needs. This is launch mode. After the first _usable_
+version is out in public, you start learning and understanding. Building a solid
+foundation for long-term success becomes more important. This is when you switch
+gears to _stability mode_. The product teams that are able to align on this
+approach will be able to collectively navigate uncertainty, user feedback and
+long-term maintenance.
 
-This idea is pretty abstract, I do not have a specific set of rules that will
-work for all teams out there. But I do think that the core idea is universally
-applicable. You have to decide when to make the switch between the modes, and
-what level of polish is expected in an MVP in your product.
+This idea is almost philosophical, it is definitely not a one-size-fits-all. But
+I do think that the core idea is universally applicable. Each individual team
+should decide on what their minimum viable product should look like. What is
+important here is not exactly what you build in the different phases. But rather
+that the whole team communicates and aligns on what you are trying to achieve.
 
 The different modes should affect the daily priorities and trade-offs. It should
 guide internal discussions about scalability and maintainability. And it should
-always be a factor in helping you decide what to work. Or perhaps more
-importantly: what **not** to work on.
+always be a factor in helping you decide what to work on _this week_. Or perhaps
+more importantly: what _not_ to work on.
 
 ## Launch mode
 
 Launch mode is all about moving fast and getting _something_ into the hands of
-your users. The goal of this phase is get the flywheel of learning and measuring
-in motion, not nailing every single detail. I try to think of it as getting a
-first usable iteration out as quickly as possible, and then figuring out a
-direction of improvements. Try to keep a short-term perspective here. Nothing is
-for certain yet, and any assumptions you make might as well be invalidated
-tomorrow. Trust the process of iteration, embrace uncertainty.
+your users. The goal of this phase is to build just enough to start learning. It
+is not about perfection. I try to think of it as getting a first usable artifact
+out as quickly as possible, and then just figuring out a direction for further
+improvements.
 
-These are guidelines or soft principles I try to adhere to while in launch mode:
+These are guidelines I try to adhere to while in launch mode:
 
--   Constantly ask: **what can I get away with?**. Copy-paste code, hard-code
-    some number, actively look for shortcuts
--   **Complete the core flow.** Do not spend time on improving the CI pipelines
-    or the design system. Take note when things pop up along the way, but do not
-    lose track of completing the core.
--   **Prioritize ruthlessly** Make sure what you work on is _critical_ for the
-    core flows to make sense. It is better to add things back in once you
-    complete the core, then to delay the release of the core to include details
-    that might not be important.
+-   **Prioritize ruthlessly** -- Make sure what you work on is _critical_ for
+    the core flows. It is better to add things back in once you complete the
+    core, then to delay the release of the core to include details that might
+    not be important.
+-   **Pay attention to future improvements** -- You will likely run into things
+    that seem important. I call these _side-quests_. Refactors, contributing a
+    new component to the design-system, or improving the test infrastructure.
+    Write things down for upcoming stability work, but do not shift focus away
+    from launching.
+-   **Do not overplan** -- It is natural to fall into the trap of planning to
+    far into the future. Stay humble and remember that what your are working on
+    right now is an experiment. You build this to learn, what comes later
+    depends on what you learn.
 
 ## Stability mode
 
 Stability mode is about building a foundation for long-term success and growth.
-This is where you invest in the things you know are important for the long-term.
-Things like deep test coverage, introducing abstractions to make to improve
-reusability, and other optimizations. The key here is uncertainty is hopefully
-lower, so this work will payoff in the long run.
+This is where you invest for the long-term: focus on the details and make sure
+everything is at the level of polish that you want. Launch mode was about moving
+fast in order to start learning -- _you make it work_. Stability mode is more
+about taking two steps back and building a solid foundation -- _you make it
+great_.
 
-One area with a large ROI (return of investment) in most projects is finding
-ways to prevent and/or detect regressions in the system. Any improvmements you
-do to assure the quality and integrity of the system will pay off over time.
-Engineers can be more or less confident in making changes to a system, and
-anything that helps is worth a lot. This could be in shape of static code
-analysis, integration tests or increased observability. Anything that makes it
-less daunting to change the system while it is running.
+These are values I stick to in stability mode:
 
-Another important area to invest in while in stability mode is _technical debt_.
-This is where you rethink some of the previous choices you made. Make sure you
-set yourself up for success over time, and make the system easier to maintain.
-This is different for every product and team of course, but the basic idea is to
-continuously check on the various parts of your running engine. Are all the
-parts optimized and performing at their expected capacity?
+-   **Up the craft** -- Focus on raising the bar, in every possible aspect you
+    can think of. In launch mode, you might glance over details in favor of
+    speed. This is the opposite of that, make the details count.
+-   **Make it enjoyable** -- Prioritize code quality, readability and
+    maintainability. Get rid of friction in the developer experience and make it
+    easier for your future self to make changes.
+-   **Automate quality assurance** -- Invest in automated quality assurance.
+    Make it harder to accidentaly break the system.
+-   **Stop guessing** -- Learn from the people actually using the feature you
+    are building. Invest into observability, various types of logging, adress
+    feedback from user testing.
+-   **Solve it once** -- For each of the bugs and that are eventually reported,
+    solve it in a way that also prevents it from happening again.
 
-These are values I try to stick to while in stability mode:
-
--   Prioritize code quality, readability and reusability
--   Invest in automated quality assurance. Make it harder to accidentaly break
-    the system.
--   Continue to iterate, but stop guessing. Listen to the users using the
-    feature. Invest in product logging, and try to collect the hard facts.
--   Focus on raising the bar, in every aspect you can think of. Polish the
-    details, make it pretty
--   For bugs that are eventually surfaced, invest in preventing it from ever
-    happening again.
-
-## When do we switch?
+## When do you switch?
 
 One of the key metrics that can help you decide what mode to go for is
-uncertainty. What do you actually know about the user and how they will use this
-feature? If uncertainty is high, you should probably spend time in launch mode.
-This will help you get something measurable out, and start collecting data and
-understanding. On the other hand, if you already know what to build, and how it
-will be used, you might aswell make it great from the beginning. I really want
-to stress this, if you are certain that what you are building is right, let it
-take time and get it right from the beginning. You can still build iteratively,
-but do it for the right reasons. Avoid taking shortcuts for a cool demo, instead
-iterate with stability in mind right away.
+_uncertainty_. What do you actually know about the user and how they will use
+this feature? If uncertainty is high, you should probably spend more time in
+launch mode. This will help you get something measurable out and start
+collecting data. On the other hand if you know that this feature will be a
+long-lived thing, spend time on stability and make sure the base for the future
+is solid. If you never get to stability mode, and always put launching something
+as the top priority, you accumulate tech debt and the system will be harder and
+harder to work with. Launch mode can be costly, but it is the best we can do
+when uncertainty is high.
 
----
-
-I want all the teams I work in to adopt this mindset. If everyone involved in
-builing the product understands this core idea, and act accordingly every single
-day, you have a higher chance of success. You will be able to move fast and
-_launch features_ as a proper team. I also find it a lot easier to produce great
-work as an engineer when we all trust this process.
+The most important thing in my opinion is making sure everyone working on the
+project are aligned. If a developer works as in stability mode while the project
+lead expects rapid progress towards a first launch the team is set up for
+disappointment and friction. Move as a single unit, and agree on what is
+important _right now_.
