@@ -39,5 +39,10 @@ const image = `/${slug}/cover.png`;
 		<div class="prose prose-sm lg:prose-md prose-headings:font-normal">
 			<slot />
 		</div>
-	</article>
+  </article>
+
+  <footer class="text-sm font-bold text-gray-600 mt-24 pt-4 border-t flex justify-between">
+    <a href="/notes">Browse all notes</a>
+    <a href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}>Edit this note</a>
+  </footer>
 </PageLayout>
