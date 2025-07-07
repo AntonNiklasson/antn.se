@@ -37,17 +37,16 @@ const { title, summary, image } = Astro.props;
 		<ViewTransitions />
 	</head>
 
-	<body transition:animate="none">
-		<header
-			class="z-50 shadow backdrop-blur-md bg-white p-4 fixed top-0 w-full flex flex-row justify-between border-b text-lg">
-			<h1>
-				<a href="/">anton niklasson</a>
-			</h1>
+	<body transition:animate="none" class="relativew-full mx-auto">
+		<header class="shadow sticky top-0 bg-white z-50 backdrop-blur-md bg-white py-4 text-lg">
+			<div class="max-w-[65ch] mx-auto">
+				<h1 class="text-right">
+					<a href="/">anton niklasson</a>
+				</h1>
+			</div>
 		</header>
 
-		<main
-			transition:animate={fade({ duration: "0.4s" })}
-			class="max-w-[40rem] w-full mx-auto my-32 p-4">
+		<main transition:animate={fade({ duration: "0.4s" })} class="max-w-[65ch] mx-auto my-32">
 			<slot />
 		</main>
 	</body>
