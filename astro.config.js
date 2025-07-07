@@ -9,7 +9,7 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://antn.se",
-	output: "hybrid",
+	output: "server",
 	adapter: vercel(),
 	integrations: [
 		sitemap(),
