@@ -1,12 +1,45 @@
 ---
+import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
-import { Content } from "../content/page-content/index.mdx";
+
+const raw = await getCollection("blog");
+const recentPosts = raw
+	.sort((a, b) => {
+		const x = new Date(a.data.date);
+		const y = new Date(b.data.date);
+		return y.valueOf() - x.valueOf();
+	})
+	.slice(0, 5);
 ---
 
 <PageLayout>
 	<section class="space-y-10">
-		<div class="space-y-4 prose prose-sm">
-			<Content />
+		<nav class="space-y-4 prose prose-sm">
+			<a href="#">github</a>
+			<a href="#">linkedin</a>
+		</nav>
+
+		<div class="prose prose-sm text-gray-700">
+			<p>I'm a software engineer at Sana Labs in Stockholm with a background in consulting and product development. I'm passionate about building scalable systems and creating productive engineering cultures. Currently focused on AI-powered learning tools and exploring how teams can work more effectively at scale.</p>
 		</div>
+
+		<div class="space-y-4">
+			<h3 class="text-lg">Recent notes</h3>
+
+			<ul class="space-y-2 ml-6" style="list-style-type: square;">
+				{
+					recentPosts.map((post) => (
+						<li>
+							<a href={`/${post.slug}`} class="text-gray-700 hover:text-gray-900">
+								{post.data.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+		<p class="text-sm text-gray-500">
+			<a href="/notes">View all notes →</a>
+		</p>
 	</section>
 </PageLayout>
