@@ -4,12 +4,13 @@ import BaseHead from "../components/BaseHead.astro";
 import { fade } from "astro:transitions";
 
 type Props = {
-	title?: string;
-	summary?: string;
-	image?: string;
+    title?: string;
+    summary?: string;
+    image?: string;
+    expandHeader?: boolean;
 };
 
-const { title, summary, image } = Astro.props;
+const { title, summary, image, expandHeader = false } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -37,17 +38,64 @@ const { title, summary, image } = Astro.props;
 		<ViewTransitions />
 	</head>
 
-	<body transition:animate="none" class="relativew-full mx-auto">
-		<header class="shadow sticky top-0 bg-white z-50 backdrop-blur-md bg-white py-4 text-lg">
-			<div class="max-w-[65ch] mx-auto">
-				<h1 class="text-right">
-					<a href="/">anton niklasson</a>
-				</h1>
-			</div>
-		</header>
+    <body transition:animate="none" class="relative w-full mx-auto">
+        <header
+            id="site-header"
+            class="group sticky top-0 bg-white z-50 backdrop-blur-md text-lg transition-all duration-300 py-3 shadow data-[expanded=true]:py-6 data-[expanded=true]:shadow-none"
+            data-expanded={expandHeader ? "true" : undefined}
+        >
+            <div class="max-w-[65ch] mx-auto px-4 sm:px-0 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <h1 class="text-left">
+                    <a href="/" class="flex items-center gap-3">
+                        <img id="site-avatar" src="/anton.jpg" alt="Anton Niklasson" class="rounded-full border border-gray-200 object-cover transition-all duration-300 w-8 h-8 group-data-[expanded=true]:w-12 group-data-[expanded=true]:h-12" />
+                        <span id="site-name" class="transition-all duration-300 leading-none text-lg group-data-[expanded=true]:text-3xl">anton niklasson</span>
+                    </a>
+                </h1>
 
-		<main transition:animate={fade({ duration: "0.4s" })} class="max-w-[65ch] mx-auto my-32">
+                <nav class="flex items-center gap-3 mt-1 sm:mt-0">
+                    <a
+                        href="https://github.com/antonniklasson"
+                        target="_blank"
+                        rel="me noopener noreferrer"
+                        class="p-1 rounded text-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                        title="GitHub"
+                        aria-label="GitHub"
+                    >
+                    github
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/antonniklasson"
+                        target="_blank"
+                        rel="me noopener noreferrer"
+                        class="p-1 rounded text-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                        title="LinkedIn"
+                        aria-label="LinkedIn"
+                    >
+                    linkedin
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main transition:animate={fade({ duration: "0.4s" })} class="max-w-[65ch] mx-auto my-12 sm:my-16 px-4 sm:px-0">
 			<slot />
 		</main>
+        {expandHeader && (
+            <script>
+                const header = document.getElementById('site-header');
+                const onScroll = () => {
+                    if (!header) {
+                        return;
+                    }
+
+                    const expanded = window.scrollY <= 10;
+
+                    if (expanded) header.setAttribute('data-expanded', 'true');
+                    else header.removeAttribute('data-expanded');
+                };
+                onScroll();
+                window.addEventListener('scroll', onScroll, { passive: true });
+            </script>
+        )}
 	</body>
 </html>
