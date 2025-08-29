@@ -5,60 +5,72 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Development
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build
+- `pnpm dev` - Start development server on port 3000
+- `pnpm build` - Build for production (server output for Vercel)
+- `pnpm preview` - Preview production build locally
 - `pnpm test` - Run tests with Vitest
 - `pnpm check` - Check code formatting with Prettier
 - `pnpm format` - Format code with Prettier
 
 ### Content Management
-- `pnpm make:post` - Create new blog post (requires title argument)
-- Example: `bun run scripts/new-post/index.ts "My New Post"`
+- `pnpm make:post "Title Here"` - Create new blog post with slug generation
+- Uses Bun runtime: `bun run scripts/new-post/index.ts "Post Title"`
+- Creates MDX file at `src/content/blog/[slug]/index.mdx`
 
 ## Architecture
 
-This is an Astro-based personal blog and notes website with the following key components:
+Astro-based personal website with server-side rendering deployed to Vercel.
 
-### Content Structure
-- **Blog posts**: Located in `src/content/blog/` as MDX files with frontmatter
-- **Content schema**: Defined in `src/content/config.ts` with Zod validation
-- **Page content**: Static content in `src/content/page-content/index.mdx`
+### Content System
+- **Blog posts**: MDX files in `src/content/blog/[slug]/index.mdx`
+- **Schema validation**: Zod schema in `src/content/config.ts` defines:
+  - `title` (required string)
+  - `date` (required date)
+  - `summary` (optional string)
+  - `lastUpdate` (optional date)
+  - `hero` (optional string)
+- **Dynamic routing**: `[slug].astro` handles individual blog posts
+- **Static paths**: Generated at build time via `getStaticPaths()`
+
+### Page Structure
+- `/` - Home page with recent posts and contact form
+- `/notes` - Full blog listing
+- `/[slug]` - Individual blog posts
+- `/feed.xml` and `/rss.xml` - RSS feeds
+- `/api/contact` - Contact form endpoint with Resend integration
 
 ### Key Features
-- **Automatic OG image generation**: Custom Astro plugin generates cover images for blog posts using Satori
-- **Content collections**: Uses Astro's content collections for type-safe blog post management
-- **View transitions**: Smooth page transitions using Astro's ViewTransitions
-- **RSS feed**: Generated at `/feed.xml` and `/rss.xml`
+- **OG Image Generation**: `scripts/generate-post-covers/index.js` creates 1200x630 PNG covers using Satori during build
+- **Contact Form**: Server-side API with rate limiting (3 requests/15min) and honeypot spam protection
+- **GitHub Integration**: Blog posts link to source files for editing
+- **Analytics**: Google Analytics via Partytown web worker
 
-### Layout System
-- **PageLayout**: Base layout with header, navigation, and Google Analytics
-- **BlogPost**: Specialized layout for blog posts with date display and GitHub edit links
-- **BaseHead**: Common head elements and meta tags
+### Layout Components
+- **PageLayout**: Base layout with optional `expandHeader` prop
+- **BlogPost**: Wraps MDX content with metadata display
+- **BaseHead**: Meta tags and common head elements
+- **ContactForm**: Form component posting to `/api/contact`
 
-### Build Process
-- **Post covers**: Automatically generated during build using `generatePostCovers()` plugin
-- **Static generation**: All pages are statically generated at build time
-- **Deployment**: Configured for Vercel with `vercel.json`
+### Build Configuration
+- **Output**: Server-side rendering (`output: "server"`)
+- **Adapter**: Vercel deployment adapter
+- **Integrations**: MDX, Sitemap, Tailwind, Partytown
+- **Custom plugin**: `generatePostCovers()` runs on `astro:build:done` hook
 
-### Development Tools
-- **Package manager**: pnpm (specified in `packageManager` field)
-- **Node version**: 20.x (specified in `engines`)
-- **TypeScript**: Strict configuration extending Astro's strict tsconfig
-- **Prettier**: Configured with custom settings for tabs, 100-char width, and special MDX formatting
+### Testing Strategy
+- **Framework**: Vitest with co-located test files
+- **Pattern**: `*.test.ts` files alongside source
+- **Example**: `src/utils/group-by.test.ts` tests utility functions
 
-### Testing
-- **Framework**: Vitest for unit tests
-- **Location**: Tests are co-located with source files (e.g., `src/utils/group-by.test.ts`)
+### Code Style
+- **Prettier config**:
+  - Tab indentation (width 4)
+  - 100 character line width
+  - MDX files: 80 char width with prose wrap
+  - Bracket same line
+- **TypeScript**: Extends `astro/tsconfigs/strict` with `strictNullChecks`
 
-### Styling
-- **Framework**: Tailwind CSS with typography plugin
-- **Global styles**: Located in `src/styles/global.css`
-- **Responsive**: Mobile-first approach with prose styling for content
-
-## Notes
-
-- Blog posts are automatically linked to GitHub for editing via footer links
-- The site uses Swedish locale for date formatting in OG images
-- Custom post creation script handles slug generation and frontmatter setup
-- All blog posts require a date field and support optional summary, hero image, and lastUpdate fields
+### Environment Variables
+Required for production (accessed via `src/lib/env.ts`):
+- `RESEND_API_KEY` - For contact form email sending
+- `CONTACT_EMAIL` - Recipient for contact form submissions
