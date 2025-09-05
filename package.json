@@ -52,7 +52,8 @@
 		"useTabs": true,
 		"bracketSameLine": true,
 		"plugins": [
-			"prettier-plugin-astro"
+			"prettier-plugin-astro",
+			"prettier-plugin-tailwindcss"
 		],
 		"overrides": [
 			{
@@ -66,5 +67,8 @@
 				}
 			}
 		]
+	},
+	"devDependencies": {
+		"prettier-plugin-tailwindcss": "^0.6.14"
 	}
 }

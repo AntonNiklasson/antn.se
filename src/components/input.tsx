@@ -12,8 +12,8 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline }) => {
 	const Component = multiline ? "textarea" : "input";
 
 	return (
-		<div className="flex flex-col space-y-2 text-gray-400 focus-within:text-blue-800">
-			<label htmlFor={id} className="text-sm">
+		<div className="flex flex-col space-y-1 text-gray-500 focus-within:text-blue-700">
+			<label htmlFor={id} className="text-sm font-bold">
 				{label}:
 			</label>
 			<Component
@@ -21,8 +21,8 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline }) => {
 				name={id}
 				placeholder={placeholder}
 				className={twMerge(
-					"p-4 border rounded-xl border-gray-300 text-sm focus:outline-none focus:border-blue-700",
-					multiline && "border resize-none h-32",
+					"rounded-xl border border-gray-300 p-2 text-sm focus:border-blue-700 focus:outline-none",
+					multiline && "h-32 resize-none border",
 				)}
 			/>
 		</div>

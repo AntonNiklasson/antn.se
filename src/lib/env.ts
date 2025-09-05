@@ -23,4 +23,3 @@ export function validateEnv(): Env {
 
 // Validate environment variables immediately
 export const env = validateEnv();
-

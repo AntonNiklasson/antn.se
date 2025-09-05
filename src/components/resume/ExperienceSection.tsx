@@ -53,7 +53,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 
 	return (
 		<section>
-			<header className="flex flex-row justify-between items-center mb-8">
+			<header className="mb-8 flex flex-row items-center justify-between">
 				<h2 className="text-xl font-semibold text-gray-900">Experience</h2>
 				<ModeSwitch />
 			</header>
@@ -66,14 +66,14 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 					return (
 						<article key={index} className="overflow-hidden">
 							<header className="">
-								<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-									<div className="flex flex-row space-x-3 items-end">
-										<h3 className="text-lg font-medium text-gray-900 flex flex-row cursor-pointer hover:text-gray-700">
+								<div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+									<div className="flex flex-row items-end space-x-3">
+										<h3 className="flex cursor-pointer flex-row text-lg font-medium text-gray-900 hover:text-gray-700">
 											{exp.organization}
 										</h3>
 										<h4 className="text-gray-400">{exp.title}</h4>
 									</div>
-									<div className="text-xs text-gray-400 font-bold">
+									<div className="text-xs font-bold text-gray-400">
 										{formattedStart} – {formattedEnd}
 									</div>
 								</div>
@@ -82,7 +82,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 							<AnimatePresence initial={false}>
 								{mode === "long" && (
 									<motion.div
-										className="prose prose-sm text-gray-700 max-w-none"
+										className="prose prose-sm max-w-none text-gray-700"
 										transition={{
 											ease: "easeInOut",
 										}}

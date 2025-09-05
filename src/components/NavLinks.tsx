@@ -16,7 +16,9 @@ export default function NavLinks({ links, currentPath }: Props) {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
 	return (
-		<nav className="flex items-center gap-4" onMouseLeave={() => setHoveredIndex(null)}>
+		<nav
+			className="flex cursor-none items-center gap-4"
+			onMouseLeave={() => setHoveredIndex(null)}>
 			{links.map((link, index) => {
 				const isExternal = link.url.startsWith("http");
 				const active =
@@ -30,19 +32,17 @@ export default function NavLinks({ links, currentPath }: Props) {
 						key={link.url}
 						href={link.url}
 						className={twMerge(
-							"relative rounded text-sm font-semibold text-gray-400 hover:text-gray-700 transition",
+							"relative rounded text-sm font-semibold text-gray-400 transition hover:text-gray-700",
 							active && "text-gray-700",
 						)}
 						onMouseEnter={() => setHoveredIndex(index)}>
 						{link.label}
 						{showDot && (
 							<motion.span
-								className="h-[3px] absolute -bottom-2 bg-blue-400"
+								className="absolute -bottom-2 left-[10%] h-[3px] w-[80%] rounded bg-gradient-to-r from-blue-200 to-blue-300"
 								layoutId="nav-dot"
 								initial={false}
 								style={{
-									width: "50%",
-									left: "25%",
 									transformOrigin: "center",
 								}}
 								transition={{

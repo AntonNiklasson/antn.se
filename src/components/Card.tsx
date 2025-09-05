@@ -9,7 +9,7 @@ type Props = {
 export const Card: FC<Props> = ({ title }) => {
 	return (
 		<motion.div
-			className="w-full aspect-square flex flex-col justify-end bg-white p-4 rounded-lg border shadow-sm text-gray-500 text-sm font-bold hover:shadow-lg transition-shadow cursor-grab"
+			className="flex aspect-square w-full cursor-grab flex-col justify-end rounded-lg border bg-white p-4 text-sm font-bold text-gray-500 shadow-sm transition-shadow hover:shadow-lg"
 			drag>
 			<span>{title}</span>
 		</motion.div>
