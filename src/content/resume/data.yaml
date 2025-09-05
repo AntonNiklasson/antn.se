@@ -1,0 +1,253 @@
+intro: |
+    I have a broad experience in software development, product engineering and helping teams deliver under pressure. I really enjoy crafting delightful interfaces, all the way from data loading to subtle micro-interactions.
+
+    I will continuously seek to improve the team and the environment that I am a part of. Everything from deployment infrastructure and testing strategies to agile software development and a teams well-being are interesting areas for me to focus on.
+
+experiences:
+    - title: Personalizing Learning
+      organization: Sana Labs
+      time:
+          from:
+              month: 4
+              year: 2021
+      description: |
+          Building AI-powered learning tools that personalize education at scale. Working on core platform features and infrastructure to support millions of learners worldwide.
+
+          Leading migration from monolith to microservices architecture, implementing real-time collaboration features serving 10k+ concurrent users, and reducing deployment time by 70% through CI/CD improvements.
+      tech:
+          - typescript
+          - react
+          - node.js
+          - postgresql
+          - graphql
+          - kotlin
+
+    - title: Frontend Engineering
+      organization: Milkywire
+      logo: milkywire.jpg
+      time:
+          from:
+              month: 9
+              year: 2020
+          to:
+              month: 2
+              year: 2021
+      description: |
+          I was part of a small team working hard to improve the experience for Milkywire's impacters on the platform. We developed a financial dashboard, improved the internal bookkeeping system and iterated on the content creation flow.
+
+          I implemented features and solved bugs in the entire tech stack. From UI and UX in React Native, to database design and backend integrations.
+      tech:
+          - react native
+          - react
+          - fastify
+          - postgres
+          - node.js
+          - TDD
+
+    - title: Personalization
+      organization: Klarna
+      logo: klarna.png
+      time:
+          from:
+              month: 12
+              year: 2019
+          to:
+              month: 9
+              year: 2020
+      description: |
+          I was part of a cross-functional team working on providing inspiration, recommendation and fresh content to millions of users.
+          We built tools for collecting user interests and profiles, an editorial content management system and solutions for other teams to present matching content to each user.
+
+          My contributions consisted of system architecture, API integrations, creating the editorial internal tool from scratch, various research and development, and collaborating with other teams.
+      tech:
+          - react
+          - node.js
+          - sequelize
+          - postgres
+          - jest
+
+    - title: Insights and Visualization
+      organization: Klarna
+      logo: klarna.png
+      time:
+          from:
+              month: 06
+              year: 2019
+          to:
+              month: 12
+              year: 2019
+      description: |
+          I was part of a team that worked on financial insights such as spending trends, weekly reports, and other experimental features. Our mission was to enlighten, educate and visualise interesting data in each persons personal finance.
+
+          My contributions included UI and UX work for both native apps and the web, setting up A/B-tests, backend integrations, and queue system publishing and optimisations.
+      tech:
+          - react
+          - react native
+          - storybook
+          - node.js
+          - postgres
+          - jest
+          - visual regression testing
+
+    - title: Frontend Architecture
+      organization: Creuna
+      logo: creuna.png
+      time:
+          from:
+              month: 10
+              year: 2018
+          to:
+              month: 06
+              year: 2019
+      description: |
+          As a part of multiple different teams I contributed to design systems, frontend architecture, server-rendered React apps, API-integrations, and internal tools for government organizations and larger corporations.
+      tech:
+          - react
+          - node.js
+          - storybook
+          - fractal
+          - styled-components
+          - next.js
+          - server-side rendering
+          - jest
+          - docker-compose
+
+    - title: Frontend Engineering
+      organization: Bonnier News
+      logo: bonniernews.png
+      time:
+          from:
+              month: 6
+              year: 2017
+          to:
+              month: 9
+              year: 2018
+      description: |
+          Part of the team that built Bonnier News new publishing platform. My contribution included frontend development, backend integrations, design systems, agile work and technical interviews.
+
+          Our main focus was to replace older tools with a more usable and unobtrusive suite of systems for optimizing the journalism produced Bonnier News.
+      tech:
+          - react
+          - node.js
+          - emotion
+          - redux
+          - elasticsearch
+          - tdd
+          - docker
+          - webpack
+
+    - title: Frontend Engineering
+      organization: Accedo
+      logo: accedo.png
+      time:
+          from:
+              month: 1
+              year: 2017
+          to:
+              month: 6
+              year: 2017
+      description: |
+          I was part of a distributed cross-platform team that developed the various applications for MBC Shahid, a huge player within the arabic media market.
+
+          The main challenges included making conscious decisions on the frontend to adapt to their massive scale, while at the same time delivering a modern and feature-rich platform.
+      tech:
+          - react
+          - redux
+          - css modules
+          - jest
+
+    - title: App Development
+      organization: Accedo
+      logo: accedo.png
+      time:
+          from:
+              month: 8
+              year: 2016
+          to:
+              month: 1
+              year: 2017
+      description: |
+          Developed a Chromecast receiver application from scratch with the main goal of being as quick and responsive as possible. Many of the popular streaming platforms suffered from longer startup times on the Chromecast. The technical solution was successful due to offloading the client with a server-rendered React application in combination with an aggressive response caching strategy.
+      tech:
+          - react
+          - redux
+          - server-side rendering
+          - jest
+          - node.js
+          - chromecast
+          - webpack
+
+    - title: Evaluating React Native
+      organization: Accedo
+      logo: accedo.png
+      time:
+          from:
+              month: 2
+              year: 2016
+          to:
+              month: 8
+              year: 2016
+      description: |
+          As part of a larger suite of white-label products I contributed to the development of a prototype for a video streaming application in React Native.
+
+          The intention of the project was to figure out how to apply React Native in a larger software organization and pre-existing products.
+      tech:
+          - react
+          - redux
+          - react native
+          - android
+          - ios
+
+    - title: Cross-platform game development
+      organization: Attentec
+      logo: attentec.jpg
+      time:
+          from:
+              month: 6
+              year: 2015
+          to:
+              month: 9
+              year: 2015
+      description: |
+          Developed a realtime multiplayer racing game for Windows Phone, Android, iOS using Lua. The game is played over a local wifi network utilizing UDP sockets, custom built level generation and client-side interpolations.
+      tech:
+          - lua
+          - tdd
+          - sockets
+
+    - title: WebGL Explorations
+      organization: Per & Per
+      logo: 2xper.png
+      time:
+          from:
+              month: 6
+              year: 2014
+          to:
+              month: 9
+              year: 2014
+      description: |
+          Per&Per developed a series of tools and products for helping monitoring, growing, buying and selling land. The work was mainly focused around various data layers, visualization and maps.
+
+          I was doing research and developed prototypes focused on web-based visualizations.
+      tech:
+          - javascript
+          - protobuf
+          - mocha
+          - gulp
+          - open street map
+          - leaflet
+          - mapbox
+
+educations:
+    - title: Ms.C. Information Technology
+      school: Linköping University
+      time:
+          from: 2011
+          to: 2016
+
+    - title: Natural Science Program
+      school: Nynäshamn High School
+      time:
+          from: 2006
+          to: 2009
+

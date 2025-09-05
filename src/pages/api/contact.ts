@@ -19,18 +19,18 @@ function checkRateLimit(ip: string): boolean {
 	const now = Date.now();
 	const windowMs = 15 * 60 * 1000; // 15 minutes
 	const maxRequests = 3; // 3 requests per window
-	
+
 	const record = rateLimiter.get(ip);
-	
+
 	if (!record || now > record.resetTime) {
 		rateLimiter.set(ip, { count: 1, resetTime: now + windowMs });
 		return true;
 	}
-	
+
 	if (record.count >= maxRequests) {
 		return false;
 	}
-	
+
 	record.count++;
 	return true;
 }
@@ -40,6 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
 		// Rate limiting
 		const ip = getRateLimitKey(request);
 		if (!checkRateLimit(ip)) {
+			console.error(`Rate limit exceeded for IP: ${ip}`);
 			return new Response(
 				JSON.stringify({ message: "Too many requests. Please try again later." }),
 				{ status: 429, headers: { "Content-Type": "application/json" } },
@@ -48,12 +49,13 @@ export const POST: APIRoute = async ({ request }) => {
 
 		const formData = await request.formData();
 		const name = formData.get("name") as string;
-		const email = formData.get("email") as string;
+		const contact = formData.get("contact") as string;
 		const message = formData.get("message") as string;
 		const honeypot = formData.get("website") as string; // Honeypot field
 
 		// Honeypot check - if filled, it's likely a bot
 		if (honeypot) {
+			console.warn(`Spam detected from IP: ${ip}, honeypot value: ${honeypot}`);
 			return new Response(JSON.stringify({ message: "Spam detected" }), {
 				status: 400,
 				headers: { "Content-Type": "application/json" },
@@ -61,7 +63,12 @@ export const POST: APIRoute = async ({ request }) => {
 		}
 
 		// Basic validation and sanitization
-		if (!name?.trim() || !email?.trim() || !message?.trim()) {
+		if (!name?.trim() || !contact?.trim() || !message?.trim()) {
+			console.warn(`Validation failed - missing required fields from IP: ${ip}`, {
+				hasName: !!name?.trim(),
+				hasContact: !!contact?.trim(),
+				hasMessage: !!message?.trim(),
+			});
 			return new Response(JSON.stringify({ message: "All fields are required" }), {
 				status: 400,
 				headers: { "Content-Type": "application/json" },
@@ -69,17 +76,13 @@ export const POST: APIRoute = async ({ request }) => {
 		}
 
 		// Length validation
-		if (name.length > 100 || email.length > 100 || message.length > 1000) {
-			return new Response(JSON.stringify({ message: "Input too long" }), {
-				status: 400,
-				headers: { "Content-Type": "application/json" },
+		if (name.length > 100 || contact.length > 100 || message.length > 1000) {
+			console.warn(`Validation failed - input too long from IP: ${ip}`, {
+				nameLength: name.length,
+				contactLength: contact.length,
+				messageLength: message.length,
 			});
-		}
-
-		// Email validation
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!emailRegex.test(email)) {
-			return new Response(JSON.stringify({ message: "Please enter a valid email address" }), {
+			return new Response(JSON.stringify({ message: "Input too long" }), {
 				status: 400,
 				headers: { "Content-Type": "application/json" },
 			});
@@ -95,7 +98,7 @@ export const POST: APIRoute = async ({ request }) => {
 					<h2>antn.se - contact form</h2>
 					<div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
 						<p><strong>Name:</strong> ${name}</p>
-						<p><strong>Email:</strong> ${email}</p>
+						<p><strong>Contact:</strong> ${contact}</p>
 						<p><strong>Message:</strong></p>
 						<p style="background: white; padding: 15px; border-radius: 4px; margin: 10px 0;">${message}</p>
 					</div>
@@ -107,6 +110,11 @@ export const POST: APIRoute = async ({ request }) => {
 		});
 
 		if (error) {
+			console.error(`Failed to send email from IP: ${ip}`, {
+				error: error.message,
+				name: name.substring(0, 20) + "...",
+				contact: contact.substring(0, 20) + "...",
+			});
 			return new Response(
 				JSON.stringify({ message: "Failed to send email", error: error.message }),
 				{
@@ -121,6 +129,10 @@ export const POST: APIRoute = async ({ request }) => {
 			headers: { "Content-Type": "application/json" },
 		});
 	} catch (error) {
+		console.error("Unexpected error in contact form:", {
+			error: error instanceof Error ? error.message : String(error),
+			stack: error instanceof Error ? error.stack : undefined,
+		});
 		return new Response(JSON.stringify({ message: "Internal server error" }), {
 			status: 500,
 			headers: { "Content-Type": "application/json" },

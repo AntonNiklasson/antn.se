@@ -1,0 +1,54 @@
+---
+import { getEntry } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import Resume from "../components/resume/Resume";
+
+const data = await getEntry("resume", "data");
+---
+
+<PageLayout title="Resume" summary={data.intro}>
+	<Resume data={data.data} client:load />
+
+	<!-- Print-specific styles and animation -->
+	<style>
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-10px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		:global(.animate-fadeIn) {
+			animation: fadeIn 0.3s ease-in-out;
+		}
+
+		@media print {
+			:global(body) {
+				font-size: 11pt;
+			}
+
+			:global(header) {
+				display: none !important;
+			}
+
+			:global(main) {
+				margin: 0 !important;
+				padding: 0 !important;
+				max-width: 100% !important;
+			}
+
+			section {
+				page-break-inside: avoid;
+			}
+
+			article {
+				page-break-inside: avoid;
+			}
+		}
+	</style>
+</PageLayout>
+

@@ -32,11 +32,9 @@ const groupedByYear = groupBy(sorted, (post): number => {
 									{posts.map((post) => (
 										<li>
 											<a
-												class="block transition rounded p-2 hover:translate-x-2"
+												class="block transition rounded p-2 text-gray-500 hover:text-gray-700"
 												href={`/${post.slug}`}>
-												<h2 class="text-gray-700 text-base">
-													{post.data.title}
-												</h2>
+												<h2 class="text-lg">{post.data.title}</h2>
 												<FormattedDate date={post.data.date} />
 											</a>
 										</li>

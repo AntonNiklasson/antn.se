@@ -5,6 +5,7 @@ import { generatePostCovers } from "./scripts/generate-post-covers";
 import partytown from "@astrojs/partytown";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
 	integrations: [
 		sitemap(),
 		mdx(),
+		react(),
 		generatePostCovers(),
 		partytown({
 			config: {

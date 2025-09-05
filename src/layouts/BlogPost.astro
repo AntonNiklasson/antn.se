@@ -18,16 +18,15 @@ const image = `/${slug}/cover.png`;
 			</h1>
 
 			<div class="flex justify-between">
-				<div class="flex flex-row space-x-8">
-					<div class="flex flex-col">
-						<span class="text-sm font-bold text-gray-400"> published</span>
+				<div class="flex flex-col space-y-1">
+					<div class="flex flex-row space-x-1">
 						<Date date={date} />
 					</div>
 
 					{
 						lastUpdate && (
-							<div class="flex flex-col">
-								<span class="text-sm font-bold text-gray-400">updated</span>
+							<div class="flex flex-row space-x-1">
+								<span class="text-sm text-gray-400">updated:</span>
 								<Date date={lastUpdate} />
 							</div>
 						)
@@ -39,10 +38,13 @@ const image = `/${slug}/cover.png`;
 		<div class="prose prose-sm lg:prose-md prose-headings:font-normal">
 			<slot />
 		</div>
-  </article>
+	</article>
 
-  <footer class="text-sm font-bold text-gray-600 mt-24 pt-4 border-t flex justify-between">
-    <a href="/notes">Browse all notes</a>
-    <a href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}>Edit this note</a>
-  </footer>
+	<footer class="text-sm font-bold text-gray-600 mt-24 pt-4 border-t flex justify-between">
+		<a href="/notes">Browse all notes</a>
+		<a
+			href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}
+			>Edit this note</a
+		>
+	</footer>
 </PageLayout>

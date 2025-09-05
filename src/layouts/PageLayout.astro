@@ -2,19 +2,44 @@
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import { fade } from "astro:transitions";
+import NavLinks from "../components/NavLinks";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
-    title?: string;
-    summary?: string;
-    image?: string;
-    expandHeader?: boolean;
+	title?: string;
+	summary?: string;
+	image?: string;
+	hugeHeader?: boolean;
 };
 
-const { title, summary, image, expandHeader = false } = Astro.props as Props;
+const { title, summary, image, hugeHeader } = Astro.props as Props;
+
+const links = [
+	{
+		label: "notes",
+		url: "/notes",
+	},
+	{
+		label: "resume",
+		url: "/resume",
+	},
+	{
+		label: "contact",
+		url: "/contact",
+	},
+	{
+		label: "linkedin",
+		url: "https://www.linkedin.com/in/antonniklasson",
+	},
+	{
+		label: "github",
+		url: "https://github.com/antonniklasson",
+	},
+];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
 	<head>
 		<BaseHead
 			title={`${title ?? "anton niklasson"} | antn.se`}
@@ -38,64 +63,29 @@ const { title, summary, image, expandHeader = false } = Astro.props as Props;
 		<ViewTransitions />
 	</head>
 
-    <body transition:animate="none" class="relative w-full mx-auto">
-        <header
-            id="site-header"
-            class="group sticky top-0 bg-white z-50 backdrop-blur-md text-lg transition-all duration-300 py-3 shadow data-[expanded=true]:py-6 data-[expanded=true]:shadow-none"
-            data-expanded={expandHeader ? "true" : undefined}
-        >
-            <div class="max-w-[65ch] mx-auto px-4 sm:px-0 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <h1 class="text-left">
-                    <a href="/" class="flex items-center gap-3">
-                        <img id="site-avatar" src="/anton.jpg" alt="Anton Niklasson" class="rounded-full border border-gray-200 object-cover transition-all duration-300 w-8 h-8 group-data-[expanded=true]:w-12 group-data-[expanded=true]:h-12" />
-                        <span id="site-name" class="transition-all duration-300 leading-none text-lg group-data-[expanded=true]:text-3xl">anton niklasson</span>
-                    </a>
-                </h1>
+	<body transition:animate="none" class="min-h-full relative w-full my-0 mx-auto">
+		<header
+			transition:name="fade"
+			id="site-header"
+			class={twMerge(
+				"group bg-white justify-start items-stretch z-50 transition py-3 data-[expanded=true]:py-6 data-[expanded=true]:shadow-none",
+				hugeHeader ? "absolute inset-0 pt-8" : "sticky top-0 ",
+			)}>
+			<div
+				class="max-w-[65ch] mx-auto px-4 sm:px-0 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+				<h1 class="text-left text-2xl">
+					<a href="/" class="flex items-center gap-3"> anton niklasson </a>
+				</h1>
 
-                <nav class="flex items-center gap-3 mt-1 sm:mt-0">
-                    <a
-                        href="https://github.com/antonniklasson"
-                        target="_blank"
-                        rel="me noopener noreferrer"
-                        class="p-1 rounded text-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
-                        title="GitHub"
-                        aria-label="GitHub"
-                    >
-                    github
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/antonniklasson"
-                        target="_blank"
-                        rel="me noopener noreferrer"
-                        class="p-1 rounded text-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
-                        title="LinkedIn"
-                        aria-label="LinkedIn"
-                    >
-                    linkedin
-                    </a>
-                </nav>
-            </div>
-        </header>
+				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />
+			</div>
 
-        <main transition:animate={fade({ duration: "0.4s" })} class="max-w-[65ch] mx-auto my-12 sm:my-16 px-4 sm:px-0">
+			<span class="absolute top-full w-full h-6 bg-gradient-to-b from-white to-transparent"
+			></span>
+		</header>
+
+		<main transition:animate="fade" class="max-w-[65ch] mx-auto my-12 sm:my-16 px-4 sm:px-0">
 			<slot />
 		</main>
-        {expandHeader && (
-            <script>
-                const header = document.getElementById('site-header');
-                const onScroll = () => {
-                    if (!header) {
-                        return;
-                    }
-
-                    const expanded = window.scrollY <= 10;
-
-                    if (expanded) header.setAttribute('data-expanded', 'true');
-                    else header.removeAttribute('data-expanded');
-                };
-                onScroll();
-                window.addEventListener('scroll', onScroll, { passive: true });
-            </script>
-        )}
 	</body>
 </html>
