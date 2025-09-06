@@ -14,6 +14,7 @@ export function ModeSwitch() {
 
 				return (
 					<button
+						key={mode}
 						className={twMerge(
 							"border bg-gray-100 px-4 py-1 text-sm font-semibold text-gray-400 transition hover:text-gray-500",
 							active && "bg-white text-gray-600 shadow",

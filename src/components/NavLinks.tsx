@@ -39,7 +39,7 @@ export default function NavLinks({ links, currentPath }: Props) {
 						{link.label}
 						{showDot && (
 							<motion.span
-								className="absolute -bottom-2 left-[10%] h-[3px] w-[80%] rounded bg-gradient-to-r from-blue-200 to-blue-300"
+								className="absolute -bottom-2 left-[10%] h-[3px] w-[80%] rounded bg-linear-to-r from-blue-200 to-blue-300"
 								layoutId="nav-dot"
 								initial={false}
 								style={{

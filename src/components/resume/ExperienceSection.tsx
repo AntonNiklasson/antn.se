@@ -67,7 +67,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 						<article key={index} className="overflow-hidden">
 							<header className="">
 								<div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-									<div className="flex flex-row items-end space-x-3">
+									<div className="gapt'-3 flex flex-row items-end">
 										<h3 className="flex cursor-pointer flex-row text-lg font-medium text-gray-900 hover:text-gray-700">
 											{exp.organization}
 										</h3>

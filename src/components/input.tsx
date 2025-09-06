@@ -21,7 +21,7 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline }) => {
 				name={id}
 				placeholder={placeholder}
 				className={twMerge(
-					"rounded-xl border border-gray-300 p-2 text-sm focus:border-blue-700 focus:outline-none",
+					"rounded-xl border border-gray-300 p-2 text-sm focus:border-blue-700 focus:outline-hidden",
 					multiline && "h-32 resize-none border",
 				)}
 			/>

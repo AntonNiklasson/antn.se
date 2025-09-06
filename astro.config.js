@@ -3,9 +3,9 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import { generatePostCovers } from "./scripts/generate-post-covers";
 import partytown from "@astrojs/partytown";
-import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
+import tailwind from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +22,8 @@ export default defineConfig({
 				forward: ["dataLayer.push"],
 			},
 		}),
-		tailwind(),
 	],
+	vite: {
+		plugins: [tailwind()],
+	},
 });
