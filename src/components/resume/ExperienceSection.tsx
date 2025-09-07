@@ -4,7 +4,6 @@ import { useAtomValue } from "jotai";
 import { modeAtom } from "./atoms";
 import { ModeSwitch } from "./ModeSwitch";
 import { AnimatePresence, motion } from "motion/react";
-import { twMerge } from "tailwind-merge";
 
 interface ExperienceSectionProps {
 	experiences: Experience[];
@@ -66,9 +65,9 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 					return (
 						<article key={index} className="overflow-hidden">
 							<header className="">
-								<div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-									<div className="gapt'-3 flex flex-row items-end">
-										<h3 className="flex cursor-pointer flex-row text-lg font-medium text-gray-900 hover:text-gray-700">
+								<div className="flex flex-row items-center justify-between gap-1">
+									<div className="flex flex-row items-center gap-2">
+										<h3 className="flex flex-row text-lg font-medium text-gray-900 hover:text-gray-700">
 											{exp.organization}
 										</h3>
 										<h4 className="text-gray-400">{exp.title}</h4>
