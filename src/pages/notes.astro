@@ -18,29 +18,28 @@ const groupedByYear = groupBy(sorted, (post): number => {
 ---
 
 <PageLayout>
-	<div class="space-y-8">
+	<div class="space-y-16">
 		{
 			Object.entries(groupedByYear)
 				.reverse()
 				.map(([year, posts]) => {
 					return (
 						<>
-							<section>
-								<h3 class="text-lg">{year}</h3>
+							<section class="space-y-4">
+								<h3 class="text-md font-bold text-gray-400">{year}</h3>
 
-								<ul class="group relative space-y-4 p-4">
+								<ul class="relative space-y-4 pl-2">
 									{posts.map((post) => (
 										<li>
 											<a
-												class="block rounded p-2 text-gray-500 transition hover:text-gray-700"
+												class="block rounded text-gray-500 transition hover:text-gray-700"
 												href={`/${post.slug}`}>
-												<h2 class="text-lg">{post.data.title}</h2>
+												<h2 class="text-md">{post.data.title}</h2>
+
 												<FormattedDate date={post.data.date} />
 											</a>
 										</li>
 									))}
-
-									<span class="absolute top-4 left-1 block h-0 w-[2px] bg-gray-300 transition-all duration-500 ease-in-out group-hover:h-[calc(90%-16px)]" />
 								</ul>
 							</section>
 						</>

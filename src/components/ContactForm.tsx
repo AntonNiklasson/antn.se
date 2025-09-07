@@ -47,7 +47,7 @@ export default function ContactForm() {
 	return (
 		<div className="space-y-16">
 			<form onSubmit={handleSubmit} className="space-y-16">
-				<Input id="name" label="Name" placeholder="Who are you?" />
+				<Input id="name" label="Name" autofocus placeholder="Who are you?" />
 				<Input id="contact" label="Contact" placeholder="How can I get back to you?" />
 				<Input id="message" label="Message" multiline />
 
