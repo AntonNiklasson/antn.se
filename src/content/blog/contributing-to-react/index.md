@@ -1,5 +1,5 @@
 ---
-title: Contributing to React - Part 1
+title: Contributing to React
 date: 2016-05-02
 ---
 
