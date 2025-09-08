@@ -4,6 +4,7 @@ import { useAtomValue } from "jotai";
 import { modeAtom } from "./atoms";
 import { ModeSwitch } from "./ModeSwitch";
 import { AnimatePresence, motion } from "motion/react";
+import ReactMarkdown from "react-markdown";
 
 interface ExperienceSectionProps {
 	experiences: Experience[];
@@ -53,7 +54,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 	return (
 		<section>
 			<header className="mb-8 flex flex-row items-center justify-between">
-				<h2 className="text-xl font-semibold text-gray-900">Experience</h2>
+				<h2 className="text-xl font-semibold text-gray-800">Experience</h2>
 				<ModeSwitch />
 			</header>
 
@@ -63,10 +64,10 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 					const formattedEnd = exp.time.to ? formatDate(exp.time.to) : "";
 
 					return (
-						<article key={index} className="overflow-hidden">
+						<article key={index} className="space-y-2 overflow-hidden">
 							<header className="">
-								<div className="flex flex-row items-center justify-between gap-1">
-									<div className="flex flex-row items-center gap-2">
+								<div className="flex flex-row items-center justify-between">
+									<div className="flex flex-col md:flex-row md:items-center md:gap-2">
 										<h3 className="flex flex-row text-lg font-medium text-gray-900 hover:text-gray-700">
 											{exp.organization}
 										</h3>
@@ -89,11 +90,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 										initial="closed_before"
 										animate="open"
 										exit="closed_after">
-										{exp.description && (
-											<p className="mb-3 whitespace-pre-line">
-												{exp.description}
-											</p>
-										)}
+										<ReactMarkdown>{exp.description}</ReactMarkdown>
 									</motion.div>
 								)}
 							</AnimatePresence>
