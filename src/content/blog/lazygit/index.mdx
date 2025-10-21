@@ -1,0 +1,91 @@
+---
+title: Lazygit
+date: 2025-10-21
+summary: A terminal UI for git that changed how I interact with version control
+---
+
+I have been using git from the command line for years now. I know the common
+commands by heart, and I can usually get by without thinking too much about it.
+But there is something about the friction of typing out commands that has
+always bothered me. Not in a way that made me actively look for a solution, but
+I knew there was room for improvement.
+
+A few months ago I came across [Lazygit](https://github.com/jesseduffield/lazygit),
+and it immediately clicked. It is a terminal UI for git commands, and it fits
+perfectly into my workflow. I still get to stay in the terminal, but I am not
+typing out commands all the time anymore.
+
+## What it actually is
+
+Lazygit is a wrapper for git that replaces the command line interface with an
+interactive UI. You navigate with your keyboard, see everything in panels, and
+perform actions with single key presses. No more `git add .`, `git commit -m`,
+`git push origin main`. It is all just there, visible and ready.
+
+The interface is split into different panels: files, branches, commits, stash.
+You switch between them with numbers or tab, and each panel has its own set of
+actions. It is completely keyboard-driven, which is important to me. I do not
+have to reach for the mouse, ever.
+
+## What I use it for
+
+I launch Lazygit whenever I want to commit something. That is basically the
+entry point for me. I used to run `git status` to see what has changed, then
+stage files with `git add`, write a commit message, and push. With Lazygit I
+just see everything right away.
+
+Staging files is just pressing space on a file. Unstaging is the same key.
+Committing is `c`. The whole flow is just faster, and I can see what I am doing
+without having to run status checks all the time.
+
+I also use it for more complex operations that I would usually have to look up.
+Things like interactive rebasing, cherry-picking, or managing worktrees. The UI
+guides me through it, so I do not have to remember the exact commands or flags.
+It is all just available in the interface.
+
+## The learning curve
+
+I expected it to take some time to learn all the shortcuts, but it is actually
+very intuitive. The commands are displayed at the bottom of the screen, so you
+can always see what is available in the current context. You learn by using it.
+
+There is a built-in help menu with `?` that shows all available commands for
+the current view. I found myself using that a lot in the beginning, but after a
+week or so I had internalized most of the shortcuts I need daily.
+
+## Where it fits in
+
+I still use git commands directly sometimes. For quick one-liners or when I am
+already in the terminal doing something else, it is faster to just type
+`git pull` than to launch Lazygit. But for anything that involves multiple
+steps, or when I need to see the state of the repository, I reach for Lazygit.
+
+I have been thinking about this lately, how the tools we use shape our workflow.
+Lazygit made me more comfortable with git operations I used to avoid because
+they felt too manual or error-prone. Rebasing, for example. I do it all the
+time now, because it is just easier. The UI makes it clear what is happening,
+and I can see the result immediately.
+
+## What I like about it
+
+The fact that it is completely keyboard-driven is huge for me. I hate context
+switching between keyboard and mouse. Everything is at my fingertips, and I can
+move through the interface without thinking about it.
+
+The visual feedback is also great. I can see staged vs unstaged changes, the
+commit history, branches, all at once. It gives me a better mental model of the
+repository state than running commands and reading text output.
+
+And it is fast. There is no loading time, no UI lag. It is just there when I
+need it, and it gets out of the way when I am done.
+
+## Final thoughts
+
+I am not someone who changes tools often. I usually stick with what works, even
+if there are better options out there. But Lazygit was an obvious improvement,
+so I adopted it pretty quickly.
+
+If you spend time working with git, especially if you are in the terminal a
+lot, I would recommend trying it out. It is not about replacing your knowledge
+of git commands, it is about making the common operations faster and more
+comfortable. And that adds up over time.
