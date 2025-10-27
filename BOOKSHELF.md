@@ -2,7 +2,7 @@
 
 ## Overview
 
-The bookshelf feature allows you to track books you've read and maintain notes/highlights from your reading. It's built as a separate content collection from blog posts, using the same MDX-based approach.
+The bookshelf feature allows you to maintain a collection of books with notes and highlights from your reading. It's built as a separate content collection from blog posts, using the same MDX-based approach.
 
 ## Directory Structure
 
@@ -22,7 +22,6 @@ Books use the following frontmatter schema (defined in `src/content/config.ts`):
 ---
 title: "Book Title"              # Required
 author: "Author Name"            # Required
-dateFinished: 2025-01-15        # Required - date you finished reading
 isbn: "9780735211292"           # Optional - for API lookups
 cover: "https://..."            # Optional - URL to cover image
 goodreadsUrl: "https://..."     # Optional - link to Goodreads page
@@ -117,7 +116,7 @@ If you need more social features, Hardcover has a developer-friendly GraphQL API
 
 ## Pages
 
-- `/books` - Lists all books grouped by year finished
+- `/books` - Lists all books (sorted alphabetically by title)
 - `/books/[slug]` - Individual book page with your notes
 
 ## Layout Components

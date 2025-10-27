@@ -4,10 +4,6 @@ function slugify(title: string): string {
 	return title.toLowerCase().replaceAll(" ", "-");
 }
 
-function today() {
-	return new Date().toISOString().slice(0, 10);
-}
-
 const [, , ...titleParts] = Bun.argv;
 
 if (!titleParts || !titleParts.length) {
@@ -21,7 +17,6 @@ const slug = slugify(title);
 const content = `---
 title: ${title}
 author: Author Name
-dateFinished: ${today()}
 isbn: ""
 cover: ""
 goodreadsUrl: ""

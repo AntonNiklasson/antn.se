@@ -30,7 +30,7 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 - **Books**: MDX files in `src/content/books/[slug]/index.mdx` (separate from blog posts)
 - **Schema validation**: Zod schemas in `src/content/config.ts`
   - Blog schema: `title`, `date`, `summary`, `lastUpdate`, `hero`
-  - Books schema: `title`, `author`, `dateFinished`, `isbn`, `cover`, `goodreadsUrl`, `rating`
+  - Books schema: `title`, `author`, `isbn`, `cover`, `goodreadsUrl`, `rating`
 - **Dynamic routing**: Blog posts via `[slug].astro`, books via `books/[slug].astro`
 - **Static paths**: Generated at build time via `getStaticPaths()`
 
@@ -38,7 +38,7 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 - `/` - Home page with recent posts and contact form
 - `/notes` - Full blog listing
 - `/[slug]` - Individual blog posts
-- `/books` - Book listing page grouped by year
+- `/books` - Book listing page (sorted alphabetically)
 - `/books/[slug]` - Individual book pages with reading notes
 - `/feed.xml` and `/rss.xml` - RSS feeds
 - `/api/contact` - Contact form endpoint with Resend integration

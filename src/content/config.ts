@@ -56,7 +56,6 @@ const books = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		author: z.string(),
-		dateFinished: z.coerce.date(),
 		isbn: z.string().optional(),
 		cover: z.string().optional(),
 		goodreadsUrl: z.string().url().optional(),
