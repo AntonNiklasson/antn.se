@@ -117,13 +117,13 @@ If you need more social features, Hardcover has a developer-friendly GraphQL API
 
 ## Pages
 
-- `/bookshelf` - Lists all books grouped by year finished
+- `/books` - Lists all books grouped by year finished
 - `/books/[slug]` - Individual book page with your notes
 
 ## Layout Components
 
 - `src/layouts/Book.astro` - Layout for individual book pages
-- `src/pages/bookshelf.astro` - Listing page
+- `src/pages/books.astro` - Listing page
 - `src/pages/books/[slug].astro` - Dynamic route for books
 
 ## Future Enhancements

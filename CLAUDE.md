@@ -38,7 +38,7 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 - `/` - Home page with recent posts and contact form
 - `/notes` - Full blog listing
 - `/[slug]` - Individual blog posts
-- `/bookshelf` - Book listing page grouped by year
+- `/books` - Book listing page grouped by year
 - `/books/[slug]` - Individual book pages with reading notes
 - `/feed.xml` and `/rss.xml` - RSS feeds
 - `/api/contact` - Contact form endpoint with Resend integration
