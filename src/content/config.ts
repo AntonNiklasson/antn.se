@@ -52,7 +52,19 @@ const resume = defineCollection({
 	schema: resumeSchema,
 });
 
-export const collections = { blog, resume };
+const books = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		author: z.string(),
+		dateFinished: z.coerce.date(),
+		isbn: z.string().optional(),
+		cover: z.string().optional(),
+		goodreadsUrl: z.string().url().optional(),
+		rating: z.number().min(1).max(5).optional(),
+	}),
+});
+
+export const collections = { blog, resume, books };
 
 // Export inferred types
 export type ResumeData = z.infer<typeof resumeSchema>;

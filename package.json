@@ -10,7 +10,8 @@
 		"check": "prettier --check ./src",
 		"format": "prettier --write ./src",
 		"test": "vitest",
-		"make:post": "bun run scripts/new-post/index.ts"
+		"make:post": "bun run scripts/new-post/index.ts",
+		"make:book": "bun run scripts/new-book/index.ts"
 	},
 	"packageManager": "pnpm@9.11.0",
 	"engines": {

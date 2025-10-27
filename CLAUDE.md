@@ -16,6 +16,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm make:post "Title Here"` - Create new blog post with slug generation
 - Uses Bun runtime: `bun run scripts/new-post/index.ts "Post Title"`
 - Creates MDX file at `src/content/blog/[slug]/index.mdx`
+- `pnpm make:book "Book Title"` - Create new book entry for bookshelf
+- Uses Bun runtime: `bun run scripts/new-book/index.ts "Book Title"`
+- Creates MDX file at `src/content/books/[slug]/index.mdx`
+- See `BOOKSHELF.md` for detailed bookshelf documentation
 
 ## Architecture
 
@@ -23,19 +27,19 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 
 ### Content System
 - **Blog posts**: MDX files in `src/content/blog/[slug]/index.mdx`
-- **Schema validation**: Zod schema in `src/content/config.ts` defines:
-  - `title` (required string)
-  - `date` (required date)
-  - `summary` (optional string)
-  - `lastUpdate` (optional date)
-  - `hero` (optional string)
-- **Dynamic routing**: `[slug].astro` handles individual blog posts
+- **Books**: MDX files in `src/content/books/[slug]/index.mdx` (separate from blog posts)
+- **Schema validation**: Zod schemas in `src/content/config.ts`
+  - Blog schema: `title`, `date`, `summary`, `lastUpdate`, `hero`
+  - Books schema: `title`, `author`, `dateFinished`, `isbn`, `cover`, `goodreadsUrl`, `rating`
+- **Dynamic routing**: Blog posts via `[slug].astro`, books via `books/[slug].astro`
 - **Static paths**: Generated at build time via `getStaticPaths()`
 
 ### Page Structure
 - `/` - Home page with recent posts and contact form
 - `/notes` - Full blog listing
 - `/[slug]` - Individual blog posts
+- `/bookshelf` - Book listing page grouped by year
+- `/books/[slug]` - Individual book pages with reading notes
 - `/feed.xml` and `/rss.xml` - RSS feeds
 - `/api/contact` - Contact form endpoint with Resend integration
 
@@ -47,7 +51,8 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 
 ### Layout Components
 - **PageLayout**: Base layout with optional `expandHeader` prop
-- **BlogPost**: Wraps MDX content with metadata display
+- **BlogPost**: Wraps MDX content with metadata display for blog posts
+- **Book**: Wraps MDX content with metadata display for books (cover, author, rating, etc.)
 - **BaseHead**: Meta tags and common head elements
 - **ContactForm**: Form component posting to `/api/contact`
 

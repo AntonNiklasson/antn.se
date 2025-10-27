@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Book from "../../layouts/Book.astro";
+
+export async function getStaticPaths() {
+	const books = await getCollection("books");
+	return books.map((book) => ({
+		params: { slug: book.slug },
+	}));
+}
+
+const slug = Astro.params.slug!;
+const allBooks = await getCollection("books");
+const book = allBooks.find((b) => b.slug === slug);
+if (!book) {
+	throw new Error(`Book not found: ${slug}`);
+}
+
+const { Content } = await book.render();
+---
+
+<Book id={book.id} {...book.data}>
+	<Content />
+</Book>
