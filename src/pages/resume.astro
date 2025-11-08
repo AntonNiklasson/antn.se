@@ -41,11 +41,11 @@ const data = await getEntry("resume", "data");
 				max-width: 100% !important;
 			}
 
-			section {
+			:global(section) {
 				page-break-inside: avoid;
 			}
 
-			article {
+			:global(article) {
 				page-break-inside: avoid;
 			}
 		}

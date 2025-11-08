@@ -1,7 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
-import { fade } from "astro:transitions";
 import NavLinks from "../components/NavLinks";
 import { twMerge } from "tailwind-merge";
 
@@ -74,11 +73,7 @@ const links = [
 			<div
 				class="mx-auto flex max-w-[65ch] flex-col items-start gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-0">
 				<h1 class="text-xl font-extrabold">
-					<a
-						href="/"
-						class="flex items-center gap-3 bg-linear-to-r from-fuchsia-700 to-rose-500 bg-clip-text text-transparent transition"
-						>anton niklasson.</a
-					>
+					<a href="/" class="flex items-center gap-3 transition">anton niklasson.</a>
 				</h1>
 
 				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />

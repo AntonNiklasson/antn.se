@@ -1,5 +1,3 @@
-import { motion } from "motion/react";
-import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Link = {
@@ -13,19 +11,14 @@ type Props = {
 };
 
 export default function NavLinks({ links, currentPath }: Props) {
-	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
 	return (
-		<nav
-			className="flex cursor-none items-center gap-4"
-			onMouseLeave={() => setHoveredIndex(null)}>
-			{links.map((link, index) => {
+		<nav className="flex cursor-none items-center gap-4">
+			{links.map((link) => {
 				const isExternal = link.url.startsWith("http");
 				const active =
 					!isExternal &&
 					(currentPath === link.url ||
 						(link.url !== "/" && currentPath.startsWith(link.url)));
-				const showDot = hoveredIndex === index || (hoveredIndex === null && active);
 
 				return (
 					<a
@@ -34,26 +27,8 @@ export default function NavLinks({ links, currentPath }: Props) {
 						className={twMerge(
 							"relative rounded text-sm font-semibold text-gray-400 transition hover:text-gray-700",
 							active && "text-gray-700",
-						)}
-						onMouseEnter={() => setHoveredIndex(index)}>
+						)}>
 						{link.label}
-						{showDot && (
-							<motion.span
-								className="absolute -bottom-2 left-[10%] h-[4px] w-[80%] rounded bg-linear-to-r from-fuchsia-700 to-rose-500"
-								layoutId="nav-dot"
-								initial={false}
-								style={{
-									transformOrigin: "center",
-								}}
-								transition={{
-									type: "spring",
-									damping: 10,
-									stiffness: 100,
-									mass: 0.5,
-									velocity: 100,
-								}}
-							/>
-						)}
 					</a>
 				);
 			})}

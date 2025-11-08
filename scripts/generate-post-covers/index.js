@@ -1,3 +1,4 @@
+import fs from "fs";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import parseFrontmatter from "gray-matter";
@@ -124,7 +125,7 @@ function getPostMeta(pathname) {
 		const meta = parseFrontmatter(file).data;
 
 		return meta;
-	} catch (error) {
+	} catch {
 		// Non-post pages will return null here
 		return null;
 	}
