@@ -2,6 +2,8 @@
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import NavLinks from "../components/NavLinks";
+import { DarkModeInitializer } from "../components/theme/DarkModeInitializer";
+import { DarkModeToggle } from "../components/theme/DarkModeToggle";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
@@ -46,6 +48,8 @@ const links = [
 			image={image}
 		/>
 
+		<DarkModeInitializer client:only="react" />
+
 		<!-- Google tag (gtag.js) -->
 		<script
 			type="text/partytown"
@@ -67,7 +71,7 @@ const links = [
 			transition:name="fade"
 			id="site-header"
 			class={twMerge(
-				"group bg-white justify-start items-stretch z-50 transition py-5 data-[expanded=true]:py-6 data-[expanded=true]:shadow-none",
+				"group bg-bg-primary justify-start items-stretch z-50 transition py-5 data-[expanded=true]:py-6 data-[expanded=true]:shadow-none",
 				hugeHeader ? "absolute inset-0 pt-8" : "sticky top-0 ",
 			)}>
 			<div
@@ -79,12 +83,14 @@ const links = [
 				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />
 			</div>
 
-			<span class="absolute top-full h-6 w-full bg-linear-to-b from-white to-transparent"
+			<span class="from-bg-primary absolute top-full h-6 w-full bg-linear-to-b to-transparent"
 			></span>
 		</header>
 
 		<main transition:animate="fade" class="mx-auto my-12 max-w-[65ch] px-4 sm:my-16 sm:px-0">
 			<slot />
 		</main>
+
+		<DarkModeToggle client:load />
 	</body>
 </html>

@@ -11,8 +11,8 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 	const { experiences } = data;
 
 	return (
-		<div className="space-y-20">
-			<header className="prose">
+		<div className="space-y-16">
+			<header className="prose prose-neutral">
 				<ReactMarkdown>{data.intro}</ReactMarkdown>
 			</header>
 

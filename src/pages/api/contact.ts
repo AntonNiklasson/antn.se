@@ -96,13 +96,13 @@ export const POST: APIRoute = async ({ request }) => {
 			html: `
 				<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
 					<h2>antn.se - contact form</h2>
-					<div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+					<div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
 						<p><strong>Name:</strong> ${name}</p>
 						<p><strong>Contact:</strong> ${contact}</p>
 						<p><strong>Message:</strong></p>
 						<p style="background: white; padding: 15px; border-radius: 4px; margin: 10px 0;">${message}</p>
 					</div>
-					<p style="color: #666; font-size: 14px;">
+					<p style="color: #6b7280; font-size: 14px;">
 						Submitted at: ${new Date().toLocaleString()}
 					</p>
 				</div>

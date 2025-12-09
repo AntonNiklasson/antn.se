@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Input } from "./input";
 import { Button } from "./button";
+import { twMerge } from "tailwind-merge";
 
 export default function ContactForm() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [status, setStatus] = useState<{
-		type: "success" | "error" | null;
+		type: "success" | "error" | "idle";
 		message: string;
-	}>({ type: null, message: "" });
+	}>({ type: "error", message: "something wrent wrong" });
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		setIsSubmitting(true);
-		setStatus({ type: null, message: "" });
+		setStatus({ type: "idle", message: "" });
 
 		try {
 			const formData = new FormData(e.currentTarget);
@@ -21,8 +22,6 @@ export default function ContactForm() {
 				method: "POST",
 				body: formData,
 			});
-
-			console.log(response);
 
 			if (response.ok) {
 				setStatus({
@@ -46,7 +45,7 @@ export default function ContactForm() {
 
 	return (
 		<div className="space-y-16">
-			<form onSubmit={handleSubmit} className="space-y-16">
+			<form onSubmit={handleSubmit} className="space-y-8">
 				<Input id="name" label="Name" autofocus placeholder="Who are you?" />
 				<Input id="contact" label="Contact" placeholder="How can I get back to you?" />
 				<Input id="message" label="Message" multiline />
@@ -60,13 +59,12 @@ export default function ContactForm() {
 				<Button label="Send" disabled={isSubmitting} />
 			</form>
 
-			{status.type && (
+			{status.type !== "idle" && (
 				<div
-					className={
-						status.type === "success"
-							? "text-sm text-green-600"
-							: "text-sm text-red-600"
-					}>
+					className={twMerge(
+						"font-bold",
+						status.type === "success" ? "text-success text-sm" : "text-error text-sm",
+					)}>
 					{status.message}
 				</div>
 			)}

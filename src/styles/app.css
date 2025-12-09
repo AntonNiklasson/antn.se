@@ -1,3 +1,62 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.theme-dark, .theme-dark *));
+
+@theme {
+	/** tokens **/
+	--color-fg-primary: var(--color-black);
+	--color-fg-secondary: var(--color-gray-700);
+	--color-fg-muted: var(--color-gray-500);
+	--color-fg-disabled: var(--color-gray-400);
+	--color-fg-inverse: var(--color-white);
+	--color-bg-primary: var(--color-white);
+	--color-bg-secondary: var(--color-gray-100);
+	--color-bg-elevated: var(--color-white);
+	--color-border-default: var(--color-gray-300);
+	--color-border-muted: var(--color-gray-200);
+	--color-success: var(--color-green-600);
+	--color-error: var(--color-red-600);
+	--color-accent-primary: #713f12;
+
+	--text-xs: 11px; /* micro */
+	--text-xs--line-height: 1.3;
+	--text-sm: 12px; /* small */
+	--text-sm--line-height: 1.4;
+	--text-base: 14px; /* regular */
+	--text-base--line-height: 1.5;
+	--text-lg: 16px; /* large */
+	--text-lg--line-height: 1.6;
+	--text-xl: 18px; /* xlarge */
+	--text-xl--line-height: 1.6;
+	--text-2xl: 24px; /* xxlarge */
+	--text-2xl--line-height: 1.4;
+	--text-3xl: 34px; /* xxxlarge */
+	--text-3xl--line-height: 1.15;
+}
+
+html.theme-dark {
+	/** dark mode **/
+	--color-fg-primary: var(--color-white);
+	--color-fg-secondary: var(--color-stone-300);
+	--color-fg-muted: var(--color-stone-600);
+	--color-fg-disabled: var(--color-lime-600);
+	--color-fg-inverse: var(--color-black);
+
+	--color-bg-primary: var(--color-black);
+	--color-bg-secondary: var(--color-gray-900);
+	--color-bg-elevated: var(--color-gray-800);
+
+	--color-border-default: var(--color-gray-700);
+	--color-border-muted: var(--color-gray-800);
+
+	--color-success: var(--color-green-500);
+	--color-error: var(--color-red-500);
+	--color-accent-primary: #facc15;
+}
+
+html,
+body {
+	background: var(--color-bg-primary);
+	color: var(--color-fg-primary);
+}

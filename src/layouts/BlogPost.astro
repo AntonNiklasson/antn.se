@@ -20,13 +20,14 @@ const image = `/${slug}/cover.png`;
 			<div class="flex justify-between">
 				<div class="flex flex-col space-y-1">
 					<div class="flex flex-row space-x-1">
+						{lastUpdate && <span class="text-fg-muted text-sm">created:</span>}
 						<Date date={date} />
 					</div>
 
 					{
 						lastUpdate && (
 							<div class="flex flex-row space-x-1">
-								<span class="text-sm text-gray-400">updated:</span>
+								<span class="text-fg-muted text-sm">updated:</span>
 								<Date date={lastUpdate} />
 							</div>
 						)
@@ -35,12 +36,12 @@ const image = `/${slug}/cover.png`;
 			</div>
 		</header>
 
-		<div class="lg:prose-md prose prose-sm prose-headings:font-normal">
+		<div class="lg:prose-md prose-neutral prose-sm prose-headings:font-normal">
 			<slot />
 		</div>
 	</article>
 
-	<footer class="mt-24 flex justify-between border-t pt-4 text-sm font-bold text-gray-600">
+	<footer class="text-fg-secondary mt-24 flex justify-between border-t pt-4 text-sm font-bold">
 		<a href="/notes">Browse all notes</a>
 		<a
 			href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}
