@@ -4,16 +4,24 @@ intro: |
     I will continuously seek to improve the team and the environment that I am a part of. Everything from deployment infrastructure and testing strategies to agile software development and a teams well-being are interesting areas for me to focus on.
 
 experiences:
-    - title: Personalizing Learning
+    - title: Staff Engineer
       organization: Sana Labs
+      logo: sana.svg
       time:
           from:
               month: 4
               year: 2021
       description: |
-          Building AI-powered learning tools that personalize education at scale. Working on core platform features and infrastructure to support millions of learners worldwide.
+          Sana is building an AI-powered learning platform that helps organizations create, share and track knowledge. The platform combines course creation, live sessions, and AI assistants to deliver personalized learning experiences.
 
-          Leading migration from monolith to microservices architecture, implementing real-time collaboration features serving 10k+ concurrent users, and reducing deployment time by 70% through CI/CD improvements.
+          I joined as one of the first frontend engineers and have since grown into a Staff Engineer role, leading technical initiatives across the engineering organization. My work spans from hands-on feature development to architectural decisions and cross-team collaboration.
+
+          Key contributions include:
+          - Architecting and implementing the real-time collaboration system for live sessions, handling 10k+ concurrent users
+          - Leading the frontend platform team, establishing patterns for testing, state management and component architecture
+          - Driving adoption of TypeScript and GraphQL across the frontend codebase
+          - Building internal tooling to improve developer experience and reduce deployment friction
+          - Mentoring engineers and contributing to hiring processes
       tech:
           - typescript
           - react
@@ -24,7 +32,7 @@ experiences:
 
     - title: Frontend Engineering
       organization: Milkywire
-      logo: milkywire.jpg
+      logo: milkywire.svg
       time:
           from:
               month: 9
@@ -46,7 +54,7 @@ experiences:
 
     - title: Personalization
       organization: Klarna
-      logo: klarna.png
+      logo: klarna.svg
       time:
           from:
               month: 12
@@ -68,7 +76,7 @@ experiences:
 
     - title: Insights and Visualization
       organization: Klarna
-      logo: klarna.png
+      logo: klarna.svg
       time:
           from:
               month: 06
@@ -91,7 +99,7 @@ experiences:
 
     - title: Frontend Architecture
       organization: Creuna
-      logo: creuna.png
+      logo: creuna.svg
       time:
           from:
               month: 10
@@ -114,7 +122,7 @@ experiences:
 
     - title: Frontend Engineering
       organization: Bonnier News
-      logo: bonniernews.png
+      logo: bonniernews.svg
       time:
           from:
               month: 6
@@ -138,7 +146,7 @@ experiences:
 
     - title: Frontend Engineering
       organization: Accedo
-      logo: accedo.png
+      logo: accedo.svg
       time:
           from:
               month: 1
@@ -158,7 +166,7 @@ experiences:
 
     - title: App Development
       organization: Accedo
-      logo: accedo.png
+      logo: accedo.svg
       time:
           from:
               month: 8
@@ -179,7 +187,7 @@ experiences:
 
     - title: Evaluating React Native
       organization: Accedo
-      logo: accedo.png
+      logo: accedo.svg
       time:
           from:
               month: 2
@@ -200,7 +208,7 @@ experiences:
 
     - title: Cross-platform game development
       organization: Attentec
-      logo: attentec.jpg
+      logo: attentec.svg
       time:
           from:
               month: 6
@@ -217,7 +225,7 @@ experiences:
 
     - title: WebGL Explorations
       organization: Per & Per
-      logo: 2xper.png
+      logo: 2xper.svg
       time:
           from:
               month: 6

@@ -7,6 +7,14 @@ const data = await getEntry("resume", "data");
 ---
 
 <PageLayout title="Resume" summary={data.intro}>
+	<!-- Print header with contact info -->
+	<header class="print-header mb-8 hidden print:block">
+		<h1 class="text-2xl font-bold text-gray-900">Anton Niklasson</h1>
+		<p class="text-sm text-gray-600">
+			antn.se &bull; linkedin.com/in/antonniklasson &bull; github.com/antonniklasson
+		</p>
+	</header>
+
 	<Resume data={data.data} client:load />
 
 	<!-- Print-specific styles and animation -->
@@ -27,11 +35,30 @@ const data = await getEntry("resume", "data");
 		}
 
 		@media print {
-			:global(body) {
-				font-size: 11pt;
+			@page {
+				margin: 1.5cm 1.5cm 2cm 1.5cm;
+				size: A4;
 			}
 
-			:global(header) {
+			:global(html) {
+				font-size: 10pt;
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+
+			:global(body) {
+				font-size: 10pt;
+				line-height: 1.4;
+			}
+
+			/* Hide site header */
+			:global(#site-header) {
+				display: none !important;
+			}
+
+			/* Hide mode switch */
+			:global([class*="ModeSwitch"]),
+			:global(button:has(+ button)) {
 				display: none !important;
 			}
 
@@ -41,12 +68,59 @@ const data = await getEntry("resume", "data");
 				max-width: 100% !important;
 			}
 
+			/* Reduce spacing for print */
+			:global(.space-y-20) {
+				gap: 1.5rem !important;
+			}
+
+			:global(.space-y-16) {
+				gap: 1rem !important;
+			}
+
+			:global(.space-y-2) {
+				gap: 0.25rem !important;
+			}
+
+			/* Ensure descriptions are visible in print */
+			:global(.prose) {
+				max-width: none !important;
+			}
+
+			:global(.prose p) {
+				margin-top: 0.25em !important;
+				margin-bottom: 0.25em !important;
+			}
+
+			:global(.prose ul) {
+				margin-top: 0.25em !important;
+				margin-bottom: 0.25em !important;
+				padding-left: 1.25em !important;
+			}
+
+			:global(.prose li) {
+				margin-top: 0.1em !important;
+				margin-bottom: 0.1em !important;
+			}
+
+			/* Page break handling */
 			section {
 				page-break-inside: avoid;
 			}
 
 			article {
 				page-break-inside: avoid;
+			}
+
+			/* Ensure h2 headers stay with content */
+			h2 {
+				page-break-after: avoid;
+			}
+
+			/* Hide animations in print */
+			:global([style*="opacity"]) {
+				opacity: 1 !important;
+				height: auto !important;
+				filter: none !important;
 			}
 		}
 	</style>

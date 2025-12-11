@@ -6,7 +6,7 @@ export function ModeSwitch() {
 	const [currentMode, setMode] = useAtom(modeAtom);
 
 	return (
-		<div className="rounded-lg">
+		<div className="rounded-lg print:hidden">
 			{modes.map((mode, index) => {
 				const first = index === 0;
 				const last = index === modes.length - 1;
