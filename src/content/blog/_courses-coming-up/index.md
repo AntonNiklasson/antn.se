@@ -6,14 +6,14 @@ date: 2015-01-18
 I am focusing a lot on code during the first half of 2015. I am attending the
 following courses:
 
--   [TNM048](http://webstaff.itn.liu.se/~jimjo/courses/TNM048/): Information
-    Visualization
--   [TDDD57](https://www.ida.liu.se/~TDDD57/index.sv.shtml): Physical
-    Interaction and Game Development
--   [TDDD27](https://www.ida.liu.se/~TDDD27/index.en.shtml): Advanced Web
-    Programming
--   [TDDD04](https://www.ida.liu.se/~TDDD04/): Software Testing
--   A Demola project ([what?](http://eastsweden.demola.net/about))
+- [TNM048](http://webstaff.itn.liu.se/~jimjo/courses/TNM048/): Information
+  Visualization
+- [TDDD57](https://www.ida.liu.se/~TDDD57/index.sv.shtml): Physical Interaction
+  and Game Development
+- [TDDD27](https://www.ida.liu.se/~TDDD27/index.en.shtml): Advanced Web
+  Programming
+- [TDDD04](https://www.ida.liu.se/~TDDD04/): Software Testing
+- A Demola project ([what?](http://eastsweden.demola.net/about))
 
 I have really high hopes for each and everyone of these. I know for sure that
 most of them are based on projects, which fits me really nicely.
