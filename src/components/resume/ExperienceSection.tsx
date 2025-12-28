@@ -68,14 +68,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 							<header className="">
 								<div className="flex flex-row items-center justify-between">
 									<div className="flex flex-col md:flex-row md:items-center md:gap-2">
-										<h3 className="flex flex-row items-center gap-2 text-lg font-medium text-gray-900 hover:text-gray-700">
-											{exp.logo && (
-												<img
-													src={`/logos/${exp.logo}`}
-													alt={`${exp.organization} logo`}
-													className="h-6 w-6 rounded print:h-5 print:w-5"
-												/>
-											)}
+										<h3 className="text-lg font-medium text-gray-900">
 											{exp.organization}
 										</h3>
 										<h4 className="text-gray-400">{exp.title}</h4>
