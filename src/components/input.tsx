@@ -16,14 +16,14 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline, autofocus 
 		<div className="group flex flex-col items-start space-y-2">
 			<label
 				htmlFor={id}
-				className="from-indigo-600 to-blue-600 bg-clip-text text-xs font-bold transition group-focus-within:bg-gradient-to-r group-focus-within:text-transparent">
+				className="text-xs font-bold text-gray-500 transition group-focus-within:text-gray-900">
 				{label}:
 			</label>
 			<div
 				className={twMerge(
-					"flex w-full bg-gray-300 from-indigo-600 to-fuchsia-400 transition",
-					multiline && "mt-2 pl-[2px] group-focus-within:bg-gradient-to-b",
-					!multiline && "pb-[2px] group-focus-within:bg-gradient-to-r",
+					"flex w-full bg-gray-300 transition group-focus-within:bg-gray-900",
+					multiline && "mt-2 pl-[2px]",
+					!multiline && "pb-[2px]",
 				)}>
 				<Component
 					id={id}
