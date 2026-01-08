@@ -11,9 +11,11 @@ experiences:
               month: 4
               year: 2021
       description: |
-          Building AI-powered learning tools that personalize education at scale. Working on core platform features and infrastructure to support millions of learners worldwide.
-
-          Leading migration from monolith to microservices architecture, implementing real-time collaboration features serving 10k+ concurrent users, and reducing deployment time by 70% through CI/CD improvements.
+          Building super intelligence for work.
+      contributions:
+          - Implemented automated end-to-end tests to enable continuous deployment
+          - Built out foundations for a pragmatic design system
+          - Implemented and advocated for design tokens across a large product and multiple teams
       tech:
           - typescript
           - react
@@ -33,9 +35,11 @@ experiences:
               month: 2
               year: 2021
       description: |
-          I was part of a small team working hard to improve the experience for Milkywire's impacters on the platform. We developed a financial dashboard, improved the internal bookkeeping system and iterated on the content creation flow.
-
-          I implemented features and solved bugs in the entire tech stack. From UI and UX in React Native, to database design and backend integrations.
+          Part of a small team improving the experience for impacters on the platform, working across the entire tech stack.
+      contributions:
+          - Developed a financial dashboard for impacters
+          - Improved internal bookkeeping system
+          - Iterated on the content creation flow
       tech:
           - react native
           - react
@@ -55,10 +59,11 @@ experiences:
               month: 9
               year: 2020
       description: |
-          I was part of a cross-functional team working on providing inspiration, recommendation and fresh content to millions of users.
-          We built tools for collecting user interests and profiles, an editorial content management system and solutions for other teams to present matching content to each user.
-
-          My contributions consisted of system architecture, API integrations, creating the editorial internal tool from scratch, various research and development, and collaborating with other teams.
+          Part of a cross-functional team providing inspiration, recommendation and fresh content to millions of users.
+      contributions:
+          - Built editorial content management system from scratch
+          - Created tools for collecting user interests and profiles
+          - Designed system architecture for content matching across teams
       tech:
           - react
           - node.js
@@ -77,9 +82,11 @@ experiences:
               month: 12
               year: 2019
       description: |
-          I was part of a team that worked on financial insights such as spending trends, weekly reports, and other experimental features. Our mission was to enlighten, educate and visualise interesting data in each persons personal finance.
-
-          My contributions included UI and UX work for both native apps and the web, setting up A/B-tests, backend integrations, and queue system publishing and optimisations.
+          Part of a team building financial insights like spending trends and weekly reports to help users understand their personal finance.
+      contributions:
+          - Built UI for both native apps and web
+          - Set up A/B testing infrastructure
+          - Optimized queue system publishing
       tech:
           - react
           - react native
@@ -123,9 +130,11 @@ experiences:
               month: 9
               year: 2018
       description: |
-          Part of the team that built Bonnier News new publishing platform. My contribution included frontend development, backend integrations, design systems, agile work and technical interviews.
-
-          Our main focus was to replace older tools with a more usable and unobtrusive suite of systems for optimizing the journalism produced Bonnier News.
+          Part of the team building a new publishing platform to replace older tools with a more usable suite of systems for journalism.
+      contributions:
+          - Built core frontend for the new publishing platform
+          - Contributed to the design system
+          - Conducted technical interviews
       tech:
           - react
           - node.js
@@ -167,7 +176,11 @@ experiences:
               month: 1
               year: 2017
       description: |
-          Developed a Chromecast receiver application from scratch with the main goal of being as quick and responsive as possible. Many of the popular streaming platforms suffered from longer startup times on the Chromecast. The technical solution was successful due to offloading the client with a server-rendered React application in combination with an aggressive response caching strategy.
+          Built a Chromecast receiver application from scratch, focused on minimizing startup time compared to other streaming platforms.
+      contributions:
+          - Developed Chromecast receiver application from scratch
+          - Implemented server-rendered React for fast startup
+          - Designed aggressive response caching strategy
       tech:
           - react
           - redux
@@ -209,7 +222,11 @@ experiences:
               month: 9
               year: 2015
       description: |
-          Developed a realtime multiplayer racing game for Windows Phone, Android, iOS using Lua. The game is played over a local wifi network utilizing UDP sockets, custom built level generation and client-side interpolations.
+          Developed a realtime multiplayer racing game for Windows Phone, Android, and iOS using Lua.
+      contributions:
+          - Built UDP networking for local wifi multiplayer
+          - Implemented custom level generation
+          - Developed client-side interpolation for smooth gameplay
       tech:
           - lua
           - tdd

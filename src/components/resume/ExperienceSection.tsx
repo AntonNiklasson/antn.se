@@ -91,6 +91,16 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 										animate="open"
 										exit="closed_after">
 										<ReactMarkdown>{exp.description}</ReactMarkdown>
+										{exp.contributions && exp.contributions.length > 0 && (
+											<>
+												<p>Meaningful contributions include:</p>
+												<ul>
+													{exp.contributions.map((contribution, i) => (
+														<li key={i}>{contribution}</li>
+													))}
+												</ul>
+											</>
+										)}
 									</motion.div>
 								)}
 							</AnimatePresence>
