@@ -30,6 +30,7 @@ const resumeSchema = z.object({
 					.optional(),
 			}),
 			description: z.string().optional(),
+			contributions: z.array(z.string()).optional(),
 			tech: z.array(z.string()).optional(),
 		}),
 	),
