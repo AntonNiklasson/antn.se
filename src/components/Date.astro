@@ -1,28 +1,17 @@
 ---
 interface Props {
 	date: Date;
+	showYear?: boolean;
 }
 
-const { date } = Astro.props;
+const { date, showYear = false } = Astro.props;
 const d = new Date(date);
 
-function getOrdinalSuffix(day: number): string {
-	if (day > 3 && day < 21) return "th";
-	switch (day % 10) {
-		case 1:
-			return "st";
-		case 2:
-			return "nd";
-		case 3:
-			return "rd";
-		default:
-			return "th";
-	}
-}
-
+const month = d.toLocaleDateString("en-US", { month: "long" });
 const day = d.getDate();
-const month = d.toLocaleDateString("en-GB", { month: "long" });
-const formatted = `${day}${getOrdinalSuffix(day)} ${month}`;
+const year = d.getFullYear();
+
+const formatted = showYear ? `${month} ${day}, ${year}` : `${month} ${day}`;
 ---
 
 <time class="semibold text-sm text-gray-500" datetime={d.toISOString()}>
