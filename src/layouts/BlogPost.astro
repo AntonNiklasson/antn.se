@@ -20,14 +20,14 @@ const image = `/${slug}/cover.png`;
 			<div class="flex justify-between">
 				<div class="flex flex-col space-y-1">
 					<div class="flex flex-row space-x-1">
-						<Date date={date} />
+						<Date date={date} showYear />
 					</div>
 
 					{
 						lastUpdate && (
 							<div class="flex flex-row space-x-1">
 								<span class="text-sm text-gray-400">updated:</span>
-								<Date date={lastUpdate} />
+								<Date date={lastUpdate} showYear />
 							</div>
 						)
 					}
