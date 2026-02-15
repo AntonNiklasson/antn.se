@@ -3,6 +3,29 @@ title: Smooth Worktrees
 date: 2026-02-15
 ---
 
-<!-- Add your content from Obsidian here -->
+I’ve gradually started using git worktrees more and more over last couple of months. If you’re not familiar, it’s basically just creating a new folder on your machine for each local branch that you want to work on. It’s similar to having a bunch of different clones of the same repo, but a little more efficient.
 
+I tend to spin up a new worktrees quite often. If a bug pops up, I kick off an agent in a clean worktree. Or if I want to do some research and planning in the background, while working on something else. 
 
+I do this often enough that it was worth spending a bit of time making the flow just right for me. So I vibe coded a little utility for it. Here’s what it does:
+
+Code block showing help here
+
+wt new takes one or two arguments: one for the worktree name, and an optional branch name. The worktree name is then used as the tmux window title, so usually something brief. Branch names are usually more descriptive though, since I tend to go through a few over the hours or days that I work on a feature. 
+
+The switch command just lists out all existing worktrees in a fzf picker. I pick one, and it either focuses that if it’s already open, or it sets up a new tmux window for me. 
+
+I have the window setup in a particular way: I want Claude launched for me, neovim and a plain terminal. 
+
+Screenshot here
+
+On top of all this, I found that I often also want to copy a few files over to the new worktree, and perhaps even run a few commands. A good example is .envrc and pnpm build. This makes sure everything is ready to go. I this with a little utility me and Claude came up with: .worktree-setup. This is a file I have in my global gitignore, so I will never share it with anyone. It is a file that has two sections: files/folders, and commands
+
+It might look like this:
+
+`.envrc`
+
+`$ direnv allow` 
+`$ pnpm build` 
+
+I set this up in a repo once, and then all worktrees are ready for action as soon as I’m thrown into them. 
