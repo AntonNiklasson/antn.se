@@ -12,35 +12,31 @@ const image = `/${slug}/cover.png`;
 
 <PageLayout title={title} image={image}>
 	<article class="relative space-y-8">
-		<header class="space-y-4">
+		<header class="space-y-4 text-center">
 			<h1 class="text-2xl">
 				{title}
 			</h1>
 
-			<div class="flex justify-between">
-				<div class="flex flex-col space-y-1">
-					<div class="flex flex-row space-x-1">
-						<Date date={date} showYear />
-					</div>
+			<div class="flex flex-col space-y-3">
+				<Date date={date} showYear />
 
-					{
-						lastUpdate && (
-							<div class="flex flex-row space-x-1">
-								<span class="text-sm text-gray-400">updated:</span>
-								<Date date={lastUpdate} showYear />
-							</div>
-						)
-					}
-				</div>
+				{
+					lastUpdate && (
+						<p class="flex flex-col items-center text-xs text-gray-500">
+							<span>updated</span>
+							<Date date={lastUpdate} showYear />
+						</p>
+					)
+				}
 			</div>
 		</header>
 
-		<div class="lg:prose-md prose prose-sm prose-headings:font-normal">
+		<div class="lg:prose-md prose prose-sm prose-headings:font-normal mx-auto">
 			<slot />
 		</div>
 	</article>
 
-	<footer class="mt-24 flex justify-between border-t pt-4 text-sm font-bold text-gray-600">
+	<footer class="mt-24 flex justify-between pt-4 text-xs text-gray-600">
 		<a href="/notes">Browse all notes</a>
 		<a
 			href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}
