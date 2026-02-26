@@ -1,24 +1,24 @@
 import { twMerge } from "tailwind-merge";
 
-type Link = {
-	label: string;
-	url: string;
-};
+const links = [
+	{ label: "notes", url: "/" },
+	{ label: "resume", url: "/resume" },
+	{ label: "contact", url: "/contact" },
+	{ label: "linkedin", url: "https://www.linkedin.com/in/antonniklasson" },
+	{ label: "github", url: "https://github.com/antonniklasson" },
+];
 
 type Props = {
-	links: Link[];
 	currentPath: string;
 };
 
-export default function NavLinks({ links, currentPath }: Props) {
+export default function NavLinks({ currentPath }: Props) {
 	return (
 		<nav className="flex items-center gap-4">
 			{links.map((link) => {
 				const isExternal = link.url.startsWith("http");
 				const active =
-					!isExternal &&
-					(currentPath === link.url ||
-						(link.url !== "/" && currentPath.startsWith(link.url)));
+					!isExternal && (currentPath === link.url || (link.url !== "/" && currentPath.startsWith(link.url)));
 
 				return (
 					<a
