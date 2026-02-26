@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+	--color-foreground: var(--color-gray-800);
+}
+
 html,
 body {
 	overflow-x: hidden;
 	touch-action: pan-x pan-y;
+	color: var(--color-foreground);
 }
-
