@@ -33,8 +33,7 @@ Astro-based personal website with server-side rendering deployed to Vercel.
 - **Static paths**: Generated at build time via `getStaticPaths()`
 
 ### Page Structure
-- `/` - Home page with recent posts and contact form
-- `/notes` - Full blog listing
+- `/` - Home page with blog listing grouped by year
 - `/[slug]` - Individual blog posts
 - `/feed.xml` and `/rss.xml` - RSS feeds
 - `/api/contact` - Contact form endpoint with Resend integration

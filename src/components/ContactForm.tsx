@@ -61,12 +61,7 @@ export default function ContactForm() {
 			</form>
 
 			{status.type && (
-				<div
-					className={
-						status.type === "success"
-							? "text-sm text-green-600"
-							: "text-sm text-red-600"
-					}>
+				<div className={status.type === "success" ? "text-sm text-green-600" : "text-sm text-red-600"}>
 					{status.message}
 				</div>
 			)}

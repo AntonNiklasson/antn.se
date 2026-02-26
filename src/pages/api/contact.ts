@@ -41,10 +41,10 @@ export const POST: APIRoute = async ({ request }) => {
 		const ip = getRateLimitKey(request);
 		if (!checkRateLimit(ip)) {
 			console.error(`Rate limit exceeded for IP: ${ip}`);
-			return new Response(
-				JSON.stringify({ message: "Too many requests. Please try again later." }),
-				{ status: 429, headers: { "Content-Type": "application/json" } },
-			);
+			return new Response(JSON.stringify({ message: "Too many requests. Please try again later." }), {
+				status: 429,
+				headers: { "Content-Type": "application/json" },
+			});
 		}
 
 		const formData = await request.formData();
@@ -115,13 +115,10 @@ export const POST: APIRoute = async ({ request }) => {
 				name: name.substring(0, 20) + "...",
 				contact: contact.substring(0, 20) + "...",
 			});
-			return new Response(
-				JSON.stringify({ message: "Failed to send email", error: error.message }),
-				{
-					status: 500,
-					headers: { "Content-Type": "application/json" },
-				},
-			);
+			return new Response(JSON.stringify({ message: "Failed to send email", error: error.message }), {
+				status: 500,
+				headers: { "Content-Type": "application/json" },
+			});
 		}
 
 		return new Response(JSON.stringify({ message: "Email sent successfully", id: data?.id }), {
