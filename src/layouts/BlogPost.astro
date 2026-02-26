@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Date from "../components/Date.astro";
 import PageLayout from "./PageLayout.astro";
+import { formatDate } from "../utils/format-date";
 
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
@@ -17,14 +17,18 @@ const image = `/${slug}/cover.png`;
 				{title}
 			</h1>
 
-			<div class="flex flex-col space-y-3">
-				<Date date={date} showYear />
+			<div class="flex flex-row space-x-8 justify-center">
+				<time class="semibold text-sm text-gray-500" datetime={date.toISOString()}>
+					{formatDate(date, true)}
+				</time>
 
 				{
 					lastUpdate && (
-						<p class="flex flex-col items-center text-xs text-gray-500">
-							<span>updated</span>
-							<Date date={lastUpdate} showYear />
+						<p class="flex flex-row items-center">
+							<span class="text-sm">updated</span>
+							<time class="semibold text-sm text-gray-500" datetime={lastUpdate.toISOString()}>
+								{formatDate(lastUpdate, true)}
+							</time>
 						</p>
 					)
 				}
@@ -35,12 +39,4 @@ const image = `/${slug}/cover.png`;
 			<slot />
 		</div>
 	</article>
-
-	<footer class="mt-24 flex justify-between pt-4 text-xs text-gray-600">
-		<a href="/notes">Browse all notes</a>
-		<a
-			href={`https://github.com/AntonNiklasson/antn.se/tree/main/src/content/blog/${slug}/index.mdx`}
-			>Edit this note</a
-		>
-	</footer>
 </PageLayout>
