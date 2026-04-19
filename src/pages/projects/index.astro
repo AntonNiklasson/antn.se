@@ -1,0 +1,93 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import { groupBy } from "../../utils/group-by";
+
+const raw = await getCollection("projects");
+const sorted = raw.sort((a, b) => {
+	const x = a.data.date ? new Date(a.data.date).valueOf() : 0;
+	const y = b.data.date ? new Date(b.data.date).valueOf() : 0;
+	return y - x;
+});
+
+const groupedByCategory = groupBy(sorted, (project) => project.data.category);
+
+const categoryOrder: Array<keyof typeof groupedByCategory> = [
+	"app",
+	"tool",
+	"library",
+	"site",
+	"experiment",
+];
+
+const categoryLabels: Record<string, string> = {
+	app: "apps",
+	tool: "tools",
+	library: "libraries",
+	site: "sites",
+	experiment: "experiments",
+};
+---
+
+<PageLayout
+	title="Projects"
+	summary="A collection of tools, apps and experiments I've built.">
+	<div class="space-y-16">
+		{
+			categoryOrder
+				.filter((category) => groupedByCategory[category]?.length)
+				.map((category) => {
+					const projects = groupedByCategory[category];
+					return (
+						<section>
+							<h3 class="text-sm font-bold text-gray-500 pb-4">
+								{categoryLabels[category] ?? category}
+							</h3>
+
+							<ul class="ml-0 space-y-6">
+								{projects.map((project) => (
+									<li>
+										<a
+											class="group flex gap-4 items-start text-gray-500 transition hover:text-gray-700"
+											href={`/projects/${project.slug}`}>
+											{project.data.screenshot && (
+												<img
+													src={project.data.screenshot}
+													alt=""
+													class="w-20 h-20 rounded object-cover flex-shrink-0 border border-gray-200"
+												/>
+											)}
+
+											<div class="flex-1 min-w-0">
+												<h2 class="text-sm text-gray-800 group-hover:text-gray-900">
+													{project.data.title}
+												</h2>
+												{project.data.summary && (
+													<p class="text-sm text-gray-500 mt-1">
+														{project.data.summary}
+													</p>
+												)}
+
+												<div class="flex gap-3 mt-2 text-xs text-gray-400">
+													{project.data.repo && (
+														<span class="inline-flex items-center gap-1">
+															code
+														</span>
+													)}
+													{project.data.link && (
+														<span class="inline-flex items-center gap-1">
+															live
+														</span>
+													)}
+												</div>
+											</div>
+										</a>
+									</li>
+								))}
+							</ul>
+						</section>
+					);
+				})
+		}
+	</div>
+</PageLayout>

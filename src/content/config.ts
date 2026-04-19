@@ -10,6 +10,19 @@ const blog = defineCollection({
 	}),
 });
 
+const projects = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		summary: z.string().optional(),
+		category: z.enum(["tool", "app", "library", "experiment", "site"]),
+		repo: z.string().url().optional(),
+		link: z.string().url().optional(),
+		screenshot: z.string().optional(),
+		date: z.coerce.date().optional(),
+		featured: z.boolean().optional(),
+	}),
+});
+
 const resumeSchema = z.object({
 	intro: z.string(),
 	experiences: z.array(
@@ -53,7 +66,7 @@ const resume = defineCollection({
 	schema: resumeSchema,
 });
 
-export const collections = { blog, resume };
+export const collections = { blog, projects, resume };
 
 // Export inferred types
 export type ResumeData = z.infer<typeof resumeSchema>;

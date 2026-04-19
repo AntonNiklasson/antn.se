@@ -2,6 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 const links = [
 	{ label: "notes", url: "/" },
+	{ label: "projects", url: "/projects" },
 	{ label: "resume", url: "/resume" },
 	{ label: "contact", url: "/contact" },
 	{ label: "linkedin", url: "https://www.linkedin.com/in/antonniklasson" },

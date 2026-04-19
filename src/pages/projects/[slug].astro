@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+	}));
+}
+
+const slug = Astro.params.slug!;
+const projects = await getCollection("projects");
+const project = projects.find((p) => p.slug === slug);
+if (!project) {
+	throw new Error(`Project not found: ${slug}`);
+}
+
+const { Content } = await project.render();
+const { title, summary, category, repo, link, screenshot } = project.data;
+---
+
+<PageLayout title={title} summary={summary} image={screenshot}>
+	<article class="relative space-y-8">
+		<header class="space-y-4">
+			<p class="text-sm font-bold text-gray-500 uppercase tracking-wide">
+				{category}
+			</p>
+			<h1 class="text-2xl">{title}</h1>
+			{summary && <p class="text-gray-600">{summary}</p>}
+
+			{
+				(repo || link) && (
+					<div class="flex gap-4 text-sm">
+						{link && (
+							<a
+								href={link}
+								target="_blank"
+								rel="noreferrer noopener"
+								class="text-gray-700 underline hover:text-gray-900">
+								Visit site
+							</a>
+						)}
+						{repo && (
+							<a
+								href={repo}
+								target="_blank"
+								rel="noreferrer noopener"
+								class="text-gray-700 underline hover:text-gray-900">
+								Source on GitHub
+							</a>
+						)}
+					</div>
+				)
+			}
+		</header>
+
+		{
+			screenshot && (
+				<img
+					src={screenshot}
+					alt={title}
+					class="w-full rounded border border-gray-200"
+				/>
+			)
+		}
+
+		<div class="lg:prose-md prose prose-sm prose-headings:font-normal mx-auto">
+			<Content />
+		</div>
+	</article>
+</PageLayout>
