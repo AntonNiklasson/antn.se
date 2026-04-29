@@ -11,7 +11,7 @@ export const Button: FC<Props> = ({ label, submit, disabled }) => {
     <button
       type={submit ? "submit" : undefined}
       disabled={disabled}
-      className="rounded border-2 border-gray-300 bg-transparent px-6 py-2 text-xs text-gray-400 uppercase transition hover:border-fuchsia-700 hover:text-fuchsia-700 hover:shadow focus:border-fuchsia-700 focus:text-fuchsia-700 focus:outline-hidden">
+      className="rounded border-2 border-border bg-transparent px-6 py-2 text-xs text-subtle uppercase transition hover:border-fuchsia-700 hover:text-fuchsia-700 hover:shadow focus:border-fuchsia-700 focus:text-fuchsia-700 focus:outline-hidden">
       {label}
     </button>
   );

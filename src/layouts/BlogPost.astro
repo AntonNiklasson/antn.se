@@ -18,7 +18,7 @@ const image = `/${slug}/cover.png`;
 			</h1>
 
 			<div class="flex flex-row space-x-8 justify-center">
-				<time class="semibold text-sm text-gray-500" datetime={date.toISOString()}>
+				<time class="semibold text-sm text-muted" datetime={date.toISOString()}>
 					{formatDate(date, true)}
 				</time>
 
@@ -26,7 +26,7 @@ const image = `/${slug}/cover.png`;
 					lastUpdate && (
 						<p class="flex flex-row items-center">
 							<span class="text-sm">updated</span>
-							<time class="semibold text-sm text-gray-500" datetime={lastUpdate.toISOString()}>
+							<time class="semibold text-sm text-muted" datetime={lastUpdate.toISOString()}>
 								{formatDate(lastUpdate, true)}
 							</time>
 						</p>
@@ -35,7 +35,7 @@ const image = `/${slug}/cover.png`;
 			</div>
 		</header>
 
-		<div class="lg:prose-md prose prose-sm prose-headings:font-normal mx-auto">
+		<div class="lg:prose-md prose prose-sm prose-headings:font-normal dark:prose-invert mx-auto">
 			<slot />
 		</div>
 	</article>

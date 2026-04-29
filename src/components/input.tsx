@@ -14,12 +14,12 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline, autofocus 
 
   return (
     <div className="group flex flex-col items-start space-y-2">
-      <label htmlFor={id} className="text-xs font-bold text-gray-500 transition group-focus-within:text-gray-900">
+      <label htmlFor={id} className="text-xs font-bold text-muted transition group-focus-within:text-heading">
         {label}:
       </label>
       <div
         className={twMerge(
-          "flex w-full bg-gray-300 transition group-focus-within:bg-gray-900",
+          "flex w-full bg-border transition group-focus-within:bg-heading",
           multiline && "mt-2 pl-[1px]",
           !multiline && "pb-[1px]",
         )}>
@@ -29,7 +29,7 @@ export const Input: FC<Props> = ({ id, label, placeholder, multiline, autofocus 
           placeholder={placeholder}
           autoFocus={autofocus}
           className={twMerge(
-            "h-full w-full bg-white p-2 text-sm font-semibold transition focus:outline-hidden",
+            "h-full w-full bg-background p-2 text-sm font-semibold transition focus:outline-hidden",
             !multiline && "",
             multiline && "h-32 resize-none",
           )}

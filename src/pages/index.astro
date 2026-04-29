@@ -26,16 +26,16 @@ const groupedByYear = groupBy(sorted, (post): number => {
 					return (
 						<>
 							<section>
-								<h3 class="text-sm font-bold text-gray-500 pb-4">{year}</h3>
+								<h3 class="text-md pb-4">{year}</h3>
 
 								<ul class="ml-4 space-y-4">
 									{posts.map((post) => (
 										<li>
 											<a
-												class="block text-gray-500 transition hover:text-gray-700"
+												class="block text-muted transition hover:text-foreground"
 												href={`/${post.slug}`}>
-												<h2 class="text-sm text-gray-800">{post.data.title}</h2>
-												<time class="semibold text-sm text-gray-500" datetime={post.data.date.toISOString()}>
+												<h2 class="text-sm text-foreground">{post.data.title}</h2>
+												<time class="semibold text-xs text-muted" datetime={post.data.date.toISOString()}>
 													{formatDate(post.data.date)}
 												</time>
 											</a>

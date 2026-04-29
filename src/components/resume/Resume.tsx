@@ -12,7 +12,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 
 	return (
 		<div className="space-y-20">
-			<header className="prose">
+			<header className="prose dark:prose-invert">
 				<ReactMarkdown>{data.intro}</ReactMarkdown>
 			</header>
 
