@@ -1,0 +1,72 @@
+---
+title: Building a keyboard-driven GitHub dashboard
+date: 2026-04-29
+summary: A keyboard-driven dashboard for staying on top of GitHub PRs, reviews, and notifications. Supports github.com and GitHub Enterprise side by side.
+---
+
+I built a dashboard to track my GitHub pull requests, reviews, and notifications without leaving the keyboard. It's a browser-based app with vim-like bindings that syncs data from both github.com and GitHub Enterprise.
+
+## Why
+
+I live in three places on GitHub:
+
+1. Pull requests I've opened
+2. PRs waiting for my review
+3. Notifications I haven't dismissed
+
+Switching between these views in GitHub's UI requires clicking, waiting, scrolling. I wanted a single view where I could scan everything and act immediately.
+
+## What it does
+
+The dashboard shows three columns:
+
+- **Authored** – PRs you've opened
+- **Reviewing** – PRs assigned for your review
+- **Notifications** – unread notifications
+
+You navigate with `j`/`k`, switch columns with `h`/`l`, and act on PRs directly:
+
+| Key | Action |
+|---|---|
+| `o` | Open PR in browser |
+| `d` | Toggle draft state |
+| `a` | Approve PR |
+| `c` | Close PR |
+| `m` | Toggle auto-merge |
+| `.` | Action menu (more options) |
+
+Pressing `Enter` opens a detail panel with the PR description, comments, and files changed. Everything is navigable without a mouse.
+
+## Architecture
+
+It's a TypeScript monorepo with two packages:
+
+- `server` – Express server that syncs with GitHub APIs and caches to disk
+- `web` – React frontend with a custom keyboard handling layer
+
+```
+┌─────────┐      ┌──────────┐      ┌─────────────┐
+│ Browser │◄────►│  Server  │◄────►│ github.com  │
+│  (web)  │ 10s  │ (cache)  │ 30s  │     +       │
+└─────────┘      └──────────┘      │    GHE      │
+                                   └─────────────┘
+```
+
+The server syncs every 30 seconds and serves stale data to the browser. This keeps the UI snappy and prevents hitting API rate limits when multiple tabs are open.
+
+## Tech stack
+
+- **Frontend**: React, Tailwind, shadcn/ui components
+- **Backend**: Express, Octokit, disk-based cache
+- **Build**: pnpm workspaces, Vite, TypeScript
+- **Linting**: oxlint, oxfmt (fast Rust-based tools)
+
+## GitHub Enterprise support
+
+I work with both github.com and an internal GitHub Enterprise instance. The dashboard supports both simultaneously with tab switching. Each instance has its own token and base URL in the config.
+
+## Try it
+
+The code is on [GitHub](https://github.com/AntonNiklasson/github-dashboard). It's a personal tool—no releases, no hosted version. Clone it, add your token, and run `pnpm dev`.
+
+I've been using it daily for a few months. The keyboard flow stuck immediately. I open it, scan the three columns, and handle everything without context switching.
