@@ -63,18 +63,18 @@ const links = [
 		<ViewTransitions />
 	</head>
 
-	<body transition:animate="none" class="relative mx-auto my-0 min-h-full w-full">
+	<body transition:animate="none" class="relative mx-auto my-0 min-h-full w-full bg-background">
 		<header
 			transition:name="fade"
 			id="site-header"
 			class={twMerge(
-				"group bg-white justify-start items-stretch z-50 transition py-5 data-[expanded=true]:py-6 data-[expanded=true]:shadow-none",
+				"group bg-background justify-start items-stretch z-50 transition py-5 data-[expanded=true]:py-6 data-[expanded=true]:shadow-none",
 				hugeHeader ? "absolute inset-0 pt-8" : "sticky top-0 ",
 			)}>
 			<div
 				class="mx-auto flex max-w-[65ch] flex-col items-start gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-0">
 				<h1 class="text-xl font-extrabold">
-					<a href="/" class="flex items-center gap-3 text-gray-900 transition"
+					<a href="/" class="flex items-center gap-3 text-heading transition"
 						>anton niklasson.</a
 					>
 				</h1>
@@ -82,7 +82,7 @@ const links = [
 				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />
 			</div>
 
-			<span class="absolute top-full h-6 w-full bg-linear-to-b from-white to-transparent"
+			<span class="absolute top-full h-6 w-full bg-linear-to-b from-background to-transparent"
 			></span>
 		</header>
 

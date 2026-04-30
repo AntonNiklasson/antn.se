@@ -25,8 +25,8 @@ export default function NavLinks({ currentPath }: Props) {
 						key={link.url}
 						href={link.url}
 						className={twMerge(
-							"text-sm font-semibold text-gray-400 transition hover:text-gray-900",
-							active && "text-gray-900",
+							"text-sm font-semibold text-subtle transition hover:text-heading",
+							active && "text-heading",
 						)}>
 						{link.label}
 					</a>
