@@ -1,0 +1,45 @@
+---
+title: My Inboxes
+date: 2024-03-21
+lastUpdate: 2024-04-08
+topics: [tooling]
+---
+
+I have a long list of various inboxes that I care about. Some are more important
+than others. I want to reserve my time and energy to what is actually important
+in life, and cut out as much as possible of everything else. All in the spirit
+of [embracing intentionality][intentionality]. This list
+helps me be a bit more aware, which hopefully leads to more control and
+intentional behaviour.
+
+Here is an unordered list of inboxes I care about right now:
+
+- Email
+- Messenger
+- iMessage
+- Obsidian: daily notes, new fleeting notes
+- LinkedIn messages
+- Instagram DM
+- X: the feed itself, bookmarked and liked tweets
+- Github notifications
+- Slack
+- Notes I take in Apple Notes
+- Todoist inbox and today's schedule
+- Day One journal entries
+- Physical mail
+- Kivra (digitized mail)
+- Discord communities
+- Readwise Reader, both my library and the feed
+- Youtube: all channels I subscribe to, and all videos I capture in "Watch
+  later"
+- Calendar invites
+- WhatsApp
+
+I am not trying to cut everything out, I just want to fine-tune and minimise a
+bit. Awareness is the first step.
+
+My _ambition_ for these vary from ~realtime to ~monthly. What is interesting
+here though are the ones that are high on time spent, but low on importance. I
+want to dial those back a bit.
+
+[intentionality]: https://antn.se/embrace-intentionality

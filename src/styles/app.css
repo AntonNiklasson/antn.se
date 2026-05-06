@@ -35,6 +35,10 @@
 	}
 }
 
+.wiki-link-bracket {
+	color: var(--color-subtle);
+}
+
 html,
 body {
 	overflow-x: hidden;

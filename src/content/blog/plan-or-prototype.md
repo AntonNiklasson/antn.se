@@ -1,0 +1,33 @@
+---
+title: Plan or prototype
+date: 2026-02-25
+topics: [product]
+---
+
+My day-to-day has shifted a lot in the last few months. I barely write any code
+anymore, I mostly just instruct agents.
+
+The agents are incredible at producing the code, so my job is now to make sure
+what they build is actually making the products better in some way. If we are
+not careful, we end up building just for the sake of building. Planning is more
+important than ever.
+
+Another thing agents are pretty good at is exploration and building prototypes.
+I can turn a messy idea into a working protoype in a matter of minutes. We
+should lean into that more, prototyping is very cheap.
+
+Given that, I will tackle upcoming problems in one of two ways:
+
+1. **Plan:** make sure the intention, execution and validation are defined and
+   agreed upon before moving to implementation
+2. **Prototype:** build multiple prototypes in order to use the comparison for
+   learning more about characteristics of the solutions and what works
+
+There is not much room in between these two approaches. My most productive
+collaboration with agents happens when I have a clear sense of which mode I am
+in. I tend to struggle with scope creep, messy context and awkward detours when
+I am floating in the middle.
+
+If you lack context for a detailed plan, consider building a couple of
+prototypes. On the other hand, if you have a clear end-goal in mind, make sure
+you spend that extra effort planning out the work.

@@ -3,10 +3,13 @@ import type { CollectionEntry } from "astro:content";
 import PageLayout from "./PageLayout.astro";
 import { formatDate } from "../utils/format-date";
 
-type Props = CollectionEntry<"blog">["data"] & { id: string };
+type Props = CollectionEntry<"blog">["data"] & {
+	id: string;
+	related?: CollectionEntry<"blog">[];
+};
 
-const { id, title, date, lastUpdate } = Astro.props;
-const slug = id.split("/")[0];
+const { id, title, date, lastUpdate, related } = Astro.props;
+const slug = id.replace(/\.md$/, "");
 const image = `/${slug}/cover.png`;
 ---
 
@@ -19,7 +22,7 @@ const image = `/${slug}/cover.png`;
 
 			<div class="flex flex-row space-x-8 justify-center">
 				<time class="semibold text-sm text-muted" datetime={date.toISOString()}>
-					{formatDate(date, true)}
+					{formatDate(date)}
 				</time>
 
 				{
@@ -27,7 +30,7 @@ const image = `/${slug}/cover.png`;
 						<p class="flex flex-row items-center">
 							<span class="text-sm">updated</span>
 							<time class="semibold text-sm text-muted" datetime={lastUpdate.toISOString()}>
-								{formatDate(lastUpdate, true)}
+								{formatDate(lastUpdate)}
 							</time>
 						</p>
 					)
@@ -39,4 +42,23 @@ const image = `/${slug}/cover.png`;
 			<slot />
 		</div>
 	</article>
+
+	{
+		related && related.length > 0 && (
+			<nav class="mt-20 border-t border-border pt-8">
+				<h2 class="text-sm text-muted mb-4">Similar notes</h2>
+				<ul class="space-y-3">
+					{related.map((post) => (
+						<li>
+							<a
+								class="text-sm text-foreground transition hover:text-heading"
+								href={`/${post.slug}`}>
+								{post.data.title}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		)
+	}
 </PageLayout>
