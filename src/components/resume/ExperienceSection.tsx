@@ -54,7 +54,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 	return (
 		<section>
 			<header className="mb-8 flex flex-row items-center justify-between">
-				<h2 className="text-xl font-semibold text-foreground">Experience</h2>
+				<h2 className="text-foreground text-xl font-semibold">Experience</h2>
 				<ModeSwitch />
 			</header>
 
@@ -68,12 +68,12 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 							<header className="">
 								<div className="flex flex-row items-center justify-between">
 									<div className="flex flex-col md:flex-row md:items-center md:gap-2">
-										<h3 className="flex flex-row text-lg font-medium text-heading hover:text-foreground">
+										<h3 className="text-heading hover:text-foreground flex flex-row text-lg font-medium">
 											{exp.organization}
 										</h3>
 										<h4 className="text-subtle">{exp.title}</h4>
 									</div>
-									<div className="text-xs font-bold text-subtle">
+									<div className="text-subtle text-xs font-bold">
 										{formattedStart} – {formattedEnd}
 									</div>
 								</div>
@@ -82,7 +82,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
 							<AnimatePresence initial={false}>
 								{mode === "long" && (
 									<motion.div
-										className="prose prose-sm dark:prose-invert max-w-none text-foreground"
+										className="prose prose-sm dark:prose-invert text-foreground max-w-none"
 										transition={{
 											ease: "easeInOut",
 										}}

@@ -1,0 +1,15 @@
+---
+title: Implement Reduce
+date: 2020-04-26
+topics: [tooling]
+excerpt: "A video walkthrough of implementing the reduce function from scratch."
+---
+
+<iframe src="https://www.youtube.com/embed/F2H7QrkEPg8" />
+
+I have been wanting to post some videos for a while now. It is incredibly scary,
+but exciting of course.
+
+Instead of trying to perfect this, I decided to just record _something_, upload
+it and see what happens. I have no expectations at all on this, other than
+improving and being more comfortable with things like this. thing.

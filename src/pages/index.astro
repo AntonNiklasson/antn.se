@@ -1,51 +1,57 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
-import { groupBy } from "../utils/group-by";
 import { formatDate } from "../utils/format-date";
 
-const raw = await getCollection("blog");
-const sorted = raw.sort((a, b) => {
-	const x = new Date(a.data.date);
-	const y = new Date(b.data.date);
-	return y.valueOf() - x.valueOf();
+const activeTag = Astro.url.searchParams.get("tag");
+
+const allPosts = (await getCollection("blog")).sort((a, b) => {
+	return new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf();
 });
 
-const groupedByYear = groupBy(sorted, (post): number => {
-	const published = new Date(post.data.date);
-	return published.getFullYear();
-});
+const posts = activeTag
+	? allPosts.filter((p) => p.data.topics?.includes(activeTag))
+	: allPosts;
 ---
 
 <PageLayout>
-	<div class="space-y-16">
+	{activeTag && (
+		<div class="mb-8">
+			<div class="flex items-center justify-start gap-x-8">
+				<h3 class="text-lg text-blue-600">#{activeTag}</h3>
+				<a href="/" class="text-xs text-subtle hover:text-foreground transition">Clear filter</a>
+			</div>
+			<p class="text-xs text-subtle mt-1">{posts.length} posts</p>
+		</div>
+	)}
+	<ul class="space-y-8">
 		{
-			Object.entries(groupedByYear)
-				.reverse()
-				.map(([year, posts]) => {
-					return (
-						<>
-							<section>
-								<h3 class="text-md pb-4">{year}</h3>
-
-								<ul class="ml-4 space-y-4">
-									{posts.map((post) => (
-										<li>
-											<a
-												class="block text-muted transition hover:text-foreground"
-												href={`/${post.slug}`}>
-												<h2 class="text-sm text-foreground">{post.data.title}</h2>
-												<time class="semibold text-xs text-muted" datetime={post.data.date.toISOString()}>
-													{formatDate(post.data.date)}
-												</time>
-											</a>
-										</li>
-									))}
-								</ul>
-							</section>
-						</>
-					);
-				})
+			posts.map((post) => (
+				<li class="flex flex-col gap-y-1">
+					<a
+						class="block text-muted transition hover:text-foreground"
+						href={`/${post.slug}`}>
+						<h2 class="text-sm text-foreground">{post.data.title}</h2>
+					</a>
+					{post.data.excerpt && (
+						<p class="text-xs text-muted">{post.data.excerpt}</p>
+					)}
+					<div class="flex items-center gap-x-8">
+						<time
+							class="text-xs text-subtle"
+							datetime={post.data.date.toISOString()}>
+							{formatDate(post.data.date)}
+						</time>
+						<div class="flex gap-x-1">{!activeTag && (post.data.topics ?? []).map((t) => (
+							<a
+								href={`/?tag=${t}`}
+								class="text-xs text-blue-600 hover:text-foreground transition">
+								#{t}
+							</a>
+						))}</div>
+					</div>
+				</li>
+			))
 		}
-	</div>
+	</ul>
 </PageLayout>

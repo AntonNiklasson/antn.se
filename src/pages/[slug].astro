@@ -1,13 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogPost from "../layouts/BlogPost.astro";
-
-export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-	}));
-}
+import { findRelatedPosts } from "../utils/related-posts";
 
 const slug = Astro.params.slug!;
 const allPosts = await getCollection("blog");
@@ -16,9 +10,10 @@ if (!post) {
 	throw new Error(`Post not found: ${slug}`);
 }
 
+const related = findRelatedPosts(slug, allPosts);
 const { Content } = await post.render();
 ---
 
-<BlogPost id={post.id} {...post.data}>
+<BlogPost id={post.id} {...post.data} related={related}>
 	<Content />
 </BlogPost>

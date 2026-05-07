@@ -119,7 +119,8 @@ function html({ title, date }) {
 
 function getPostMeta(pathname) {
 	try {
-		const path = `src/content/blog/${pathname}index.mdx`;
+		const slug = pathname.replace(/\/$/, "");
+		const path = `src/content/blog/${slug}.md`;
 		const file = fs.readFileSync(path);
 		const meta = parseFrontmatter(file).data;
 

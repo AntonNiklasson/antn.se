@@ -1,0 +1,9 @@
+{
+  "default": false,
+
+  // Disallow inline style for both links and images.
+  // Use reference-style definitions at the bottom of each file.
+  "MD054": {
+    "inline": false
+  }
+}
