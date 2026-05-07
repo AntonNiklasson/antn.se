@@ -7,11 +7,10 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"check": "oxfmt --check ./src",
+		"prepare": "git config core.hooksPath .githooks",
 		"format": "oxfmt ./src",
-		"test": "vitest",
-		"make:post": "bun run scripts/new-post/index.ts",
-"lint:md": "markdownlint-cli2 'src/content/blog/**/*.md'"
+		"lint": "oxfmt --check ./src && markdownlint-cli2 'src/content/blog/**/*.md'",
+		"test": "vitest"
 	},
 	"packageManager": "pnpm@9.11.0",
 	"engines": {
