@@ -2,6 +2,7 @@
 title: Pull Requests and Code Reviews
 date: 2018-10-05
 topics: [product]
+excerpt: "What makes a pull request great and how to do a thorough code review."
 ---
 
 Writing code is basically a constant struggle to figure out what to changes
@@ -80,8 +81,8 @@ in same way as any other code.
 This point should also include things outside of unit-tests or integration
 tests. What about performance? Could this change have an impact on the overall
 performance of the system? Is there something within the new feature that could
-benefit from a bit of optimisation? What about
-[perceived performance][perceived-perf]?
+benefit from a bit of optimisation? What about [perceived
+performance][perceived-perf]?
 
 [perceived-perf]: https://en.wikipedia.org/wiki/Perceived_performance
 

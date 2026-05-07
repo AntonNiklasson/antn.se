@@ -2,6 +2,8 @@
 title: Measurable Teams
 date: 2018-07-14
 topics: [product]
+excerpt:
+    "Using weekly questionnaires and health monitors to measure team well-being."
 ---
 
 During the last 12 months I've been a part of a rather large software
@@ -25,21 +27,22 @@ you have ever worked on. Sometimes it is the complete opposite. Everything
 sucks. But that is life. And life spills in to work sometimes.
 
 My friend [Henrik][henrik] wrote about how he has been [monitoring the teams
-well-being over time][henrik-post]. How have you been feeling during the last week? How
-satisfied did you feel at work this week? These are the kinds of questions he
-asked us every single week for the last 8 months or so. Go read his post, that
-topic is super interesting. Data-driven retrospectives is a thing now.
+well-being over time][henrik-post]. How have you been feeling during the last
+week? How satisfied did you feel at work this week? These are the kinds of
+questions he asked us every single week for the last 8 months or so. Go read his
+post, that topic is super interesting. Data-driven retrospectives is a thing
+now.
 
 ![][img]
 
-I found [Atlassian's Team Health Monitor][health-monitor] while planning for a retrospective
-a few weeks back. They have compiled their insights and shared knowledge about
-what a high-performing team is doing right into something actually tangible and
-actionable. I think the Health Monitor is great for us because it gives us a
-clearer picture of what is working well, and what areas to focus on going
-forward. It is different from what Henrik does, but it is related. The lack of
-well-defined long-term goals might be the cause of frustration and
-dissatisfaction within the team.
+I found [Atlassian's Team Health Monitor][health-monitor] while planning for a
+retrospective a few weeks back. They have compiled their insights and shared
+knowledge about what a high-performing team is doing right into something
+actually tangible and actionable. I think the Health Monitor is great for us
+because it gives us a clearer picture of what is working well, and what areas to
+focus on going forward. It is different from what Henrik does, but it is
+related. The lack of well-defined long-term goals might be the cause of
+frustration and dissatisfaction within the team.
 
 > "Part cure, part preventative medicine, the Health Monitor is your team's
 > chance to listen to each other and take an honest look in the mirror. You'll
@@ -72,6 +75,6 @@ What gets measured gets managed.
 [henrik]: https://medium.com/@H_Stahl
 [henrik-post]:
 	https://uxplanet.org/are-you-monitoring-your-teams-well-being-if-not-you-should-b8aa53a6ce35
-[health-monitor]: https://www.atlassian.com/team-playbook/health-monitor/project-teams
-
+[health-monitor]:
+	https://www.atlassian.com/team-playbook/health-monitor/project-teams
 [img]: ./assets/measurable-teams--data.jpg

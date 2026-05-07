@@ -2,6 +2,7 @@
 title: Talk About Flexbox
 date: 2015-03-04
 topics: [tooling]
+excerpt: "Giving my first meetup talk about CSS Flexbox."
 ---
 
 Yesterday I went to a meetup to talk about flexbox. It is definitely not
@@ -17,5 +18,4 @@ I did a short intro to flexbox and the current state of it. Here are my
 [![Slides][slides]][slides]
 
 [slides]: http://antonniklasson.github.io/talk-flexbox
-
 [slides]: ./assets/talk-about-flexbox--flexbox-slides.png

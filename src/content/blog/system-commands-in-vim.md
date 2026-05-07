@@ -2,6 +2,8 @@
 title: System commands in vim
 date: 2019-05-29
 topics: [tooling]
+excerpt:
+    "Running system commands from inside Vim using the expression register."
 ---
 
 **TL;DR:** <kbd>Ctrl</kbd><kbd>R</kbd> + _any register_ inputs the contents of
@@ -11,10 +13,8 @@ You can run system commands in vim using the _expression register_, available on
 `=`. Pasting from the expression register involves writing an expression that
 evaluates to a string, and it supports a function `system()` to run commands.
 
-<kbd>Ctrl</kbd>
-<kbd>R</kbd>
-<kbd>=</kbd> then `system('ls -la')` inputs the output of `ls -la` in your
-current vim buffer.
+<kbd>Ctrl</kbd> <kbd>R</kbd> <kbd>=</kbd> then `system('ls -la')` inputs the
+output of `ls -la` in your current vim buffer.
 
 ---
 
@@ -57,9 +57,7 @@ position.
 Here is how to run a system command in the _expression register_:
 
 1. Enter insert mode
-2. <kbd>Ctrl</kbd>
-   <kbd>R</kbd>
-   <kbd>=</kbd>
+2. <kbd>Ctrl</kbd> <kbd>R</kbd> <kbd>=</kbd>
 3. Type `system('<command-here>')` and press enter
 
 <blockquote class="note">

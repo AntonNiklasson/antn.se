@@ -2,6 +2,9 @@
 title: Focus Management in React with forwardRef and useImperativeHandle
 date: 2020-04-12
 topics: [tooling]
+excerpt:
+    "Using forwardRef and useImperativeHandle to manage focus in custom React
+    components."
 ---
 
 Hooks has been a great addition to React. I feel like my components are more fun
@@ -88,9 +91,7 @@ export function App() {
 }
 ```
 
-Read more about it in the React docs
-[here][refs-docs] and
-[here][hooks-ref]
+Read more about it in the React docs [here][refs-docs] and [here][hooks-ref]
 
 This will not work. React can not attach refs to function components like that.
 With a class-based component there is an instance to hold on to. The instance
@@ -202,9 +203,8 @@ export const Input = forwardRef(function({ label, multiline = false, ...props },
 1. `ref`: the ref object it should be attached to
 2. `createHandle`: a function that returns the next value to be put on
    `ref.current`
-3. `deps`: used as in other hooks (Dan Abramov wrote
-   [a complete guide to useEffect][useeffect-guide]
-   where these are explained in-depth)
+3. `deps`: used as in other hooks (Dan Abramov wrote [a complete guide to
+   useEffect][useeffect-guide] where these are explained in-depth)
 
 [refs-docs]: https://reactjs.org/docs/refs-and-the-dom.html
 [hooks-ref]: https://reactjs.org/docs/hooks-reference.html#useref
@@ -219,4 +219,5 @@ Here is the full example as a working thing:
 	allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
 	sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-[medium-s-formatting-menu]: ./assets/focus-management-in-react--formatting_menu.png
+[medium-s-formatting-menu]:
+	./assets/focus-management-in-react--formatting_menu.png

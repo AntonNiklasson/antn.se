@@ -2,6 +2,9 @@
 title: Introduction to CSS Grid
 date: 2017-12-11
 topics: [tooling]
+excerpt:
+    "A visual introduction to CSS Grid: defining grids, positioning items, and
+    using template areas."
 ---
 
 Flexbox is awesome. So why would we spend time on something like CSS Grid? Well,

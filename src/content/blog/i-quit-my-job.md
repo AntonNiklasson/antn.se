@@ -1,6 +1,7 @@
 ---
 title: I Quit My Job
 date: 2018-08-26
+excerpt: "Leaving my job at Netlight to start freelancing."
 ---
 
 A few weeks back I decided to leave Netlight. It has been great, and I have to

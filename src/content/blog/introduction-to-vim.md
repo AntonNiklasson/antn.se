@@ -2,6 +2,9 @@
 title: Introduction to Vim
 date: 2016-01-21
 topics: [tooling]
+excerpt:
+    "Getting started with Vim: modes, basic commands, and why vimtutor is the
+    best first step."
 ---
 
 I worked with Vim from time-to-time for the last four years. I am still a
@@ -24,8 +27,7 @@ input characters and probably why vim is confusing at first. Go back to normal
 mode with <span class="keyboard-button">Esc</span>. Or if you prefer;
 <span class="keyboard-button">Ctrl</span>
 <span class="keyboard-button">C</span>. From _Normal_ mode you can go to
-_Visual_ mode via
-<span class="keyboard-button">v</span>. This mode is for
+_Visual_ mode via <span class="keyboard-button">v</span>. This mode is for
 selecting/deleting/moving text. Go back to _Normal_ just like in _Insert_.
 
 **Tip:** Enter _Insert_ with i, _Visual_ with v. Exit back to _Normal_ with Esc
@@ -86,12 +88,11 @@ you the fundamentals in a very practical way. Just do it.
 
 ## Then what?
 
-I've got [my vimrc][vimrc] online.
-You might find something useful. Also plugins might be of interest to you. I use
-[Vundle][vundle] to handle my plugins.
+I've got [my vimrc][vimrc] online. You might find something useful. Also plugins
+might be of interest to you. I use [Vundle][vundle] to handle my plugins.
 
-Finally there's huge amounts of material on vim available on youtube.
-[Check it out][vim-youtube].
+Finally there's huge amounts of material on vim available on youtube. [Check it
+out][vim-youtube].
 
 [vimrc]: https://github.com/AntonNiklasson/dotfiles/blob/master/vimrc
 [vundle]: https://github.com/VundleVim/Vundle.vim

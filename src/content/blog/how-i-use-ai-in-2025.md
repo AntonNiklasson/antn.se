@@ -1,7 +1,10 @@
 ---
 title: "How I use AI in 2025"
 date: 2025-05-07
-topics: [tooling]
+topics: [tooling, ai]
+excerpt:
+    "A snapshot of my AI tooling stack: Raycast, Cursor, dictation, and code
+    reviews."
 ---
 
 I wanted to write some thoughts on this topic as a letter to my future self. I
@@ -12,10 +15,10 @@ will ever get, and it is already incredible in many ways.
 It really feels like where in this AI whirlwind right now. There are new tools
 and solutions popping up all the time. Models are getting more and more complex,
 and everyone is talking about AI right now it feels like. I know I am kind of in
-a bubble here, working at [Sana][sana]. But still, my parents also
-see this all folding out. Perhaps not in the same as I do, but it is not
-something just for the people in tech. In a few years time we will be able to
-reflect on how AI fundamentally changed the world, for the better I hope.
+a bubble here, working at [Sana][sana]. But still, my parents also see this all
+folding out. Perhaps not in the same as I do, but it is not something just for
+the people in tech. In a few years time we will be able to reflect on how AI
+fundamentally changed the world, for the better I hope.
 
 I have been adoptiong various AI tools gradually over the last two years or so,
 and now I am at a point where I use them continuously. Sometimes I find myself
@@ -29,15 +32,14 @@ This is what my current stack of tools looks like:
 
 ## Asking questions, bouncing ideas, and getting quick answers
 
-I am using [Raycast][raycast] as kind of
-general purpose AI UI. I have not used ChatGPT that much, I started using
-Raycast pretty early. It is very well integrated to my operating system, and
-most things are at my fingertips. It gives me quick access to a bunch of models,
-well optimized for quick one-off questions and bouncing ideas. This is often the
-first things I go to, it has mostly replaced search engines, or going to a
-specific site to find information. I often trust the model to give me what I
-need. Sometimes I click through to the sources to understand where the answer
-came from.
+I am using [Raycast][raycast] as kind of general purpose AI UI. I have not used
+ChatGPT that much, I started using Raycast pretty early. It is very well
+integrated to my operating system, and most things are at my fingertips. It
+gives me quick access to a bunch of models, well optimized for quick one-off
+questions and bouncing ideas. This is often the first things I go to, it has
+mostly replaced search engines, or going to a specific site to find information.
+I often trust the model to give me what I need. Sometimes I click through to the
+sources to understand where the answer came from.
 
 I often type out a question, or even just a few words, and hit Tab on my
 keyboard. This launches their "quick AI" which is just amazing for getting a

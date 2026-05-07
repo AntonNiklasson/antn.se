@@ -2,6 +2,9 @@
 title: Dynamic templates in Obsidian with JavaScript
 date: 2024-02-29
 topics: [tooling]
+excerpt:
+    "Using Templater and custom JavaScript to generate dynamic weekly notes in
+    Obsidian."
 ---
 
 On top of [my habit of creating a daily note][daily-note] in Obsidian, I'm also
@@ -75,7 +78,7 @@ will come back to the things I write at least once.
 	https://silentvoid13.github.io/Templater/user-functions/script-user-functions.html
 [script-gist]:
 	https://gist.github.com/AntonNiklasson/977ab4feb7c520dc668f4d7c263785ac
-
 [img-1]: ./assets/dynamic-templates-obsidian-javascript--list-of-days.png
 [img-2]: ./assets/dynamic-templates-obsidian-javascript--folder-templates.png
-[img-3]: ./assets/dynamic-templates-obsidian-javascript--user-script-settings.png
+[img-3]:
+	./assets/dynamic-templates-obsidian-javascript--user-script-settings.png

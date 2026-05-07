@@ -1,6 +1,7 @@
 ---
 title: Headspace
 date: 2015-06-09
+excerpt: "Trying guided meditation for 10 minutes a day with the Headspace app."
 ---
 
 I have tried something new. For the last 10 days I have spent 10 minutes each

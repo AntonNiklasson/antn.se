@@ -2,6 +2,8 @@
 title: Contributing to React
 date: 2016-05-02
 topics: [tooling]
+excerpt:
+    "Overcoming the intimidation of contributing to a major open source project."
 ---
 
 I've been writing a bit of React during the last few months. Today I decided
@@ -22,12 +24,12 @@ fixing, what features they are looking to implement or what can be optimized.
 
 It turns out that the developers involved in React are making it easier to get
 into contributing. They are actually categorizing some issues on GitHub as
-[_good first bug_][good-first-bug].
-That's awesome.
+[_good first bug_][good-first-bug]. That's awesome.
 
 [![Good First Bug][good-first-bug]][good-first-bug]
 
-[good-first-bug]: https://github.com/facebook/react/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+bug%22
+[good-first-bug]:
+	https://github.com/facebook/react/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+bug%22
 
 Right now, there are 22 open issues in that category. Most of them are quite
 old. Are the developers really not touching these to give us a chance? Maybe

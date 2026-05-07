@@ -1,6 +1,9 @@
 ---
 title: Ask Them Anything on GitHub
 date: 2016-04-27
+excerpt:
+    "The trend of AMA repositories on GitHub, where anyone can ask you questions
+    via issues."
 ---
 
 I discovered this interesting thing on GitHub. There is a trend of opening a

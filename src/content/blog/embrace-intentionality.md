@@ -1,7 +1,9 @@
 ---
 title: Embrace Intentionality
 date: 2024-02-10
-topics: [product]
+excerpt:
+    "How becoming a parent forced me to be more deliberate about how I spend my
+    time."
 ---
 
 Becoming a parent has completely changed my life. I am no longer able to do

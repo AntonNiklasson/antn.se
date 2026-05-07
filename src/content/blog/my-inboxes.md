@@ -2,15 +2,15 @@
 title: My Inboxes
 date: 2024-03-21
 lastUpdate: 2024-04-08
-topics: [tooling]
+excerpt:
+    "An inventory of all the inboxes I care about and which ones to dial back."
 ---
 
 I have a long list of various inboxes that I care about. Some are more important
 than others. I want to reserve my time and energy to what is actually important
 in life, and cut out as much as possible of everything else. All in the spirit
-of [embracing intentionality][intentionality]. This list
-helps me be a bit more aware, which hopefully leads to more control and
-intentional behaviour.
+of [embracing intentionality][intentionality]. This list helps me be a bit more
+aware, which hopefully leads to more control and intentional behaviour.
 
 Here is an unordered list of inboxes I care about right now:
 

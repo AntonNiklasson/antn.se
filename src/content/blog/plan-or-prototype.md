@@ -1,7 +1,10 @@
 ---
 title: Plan or prototype
 date: 2026-02-25
-topics: [product]
+topics: [product, ai]
+excerpt:
+    "My shift from writing code to planning and reviewing as AI agents do more
+    of the implementation."
 ---
 
 My day-to-day has shifted a lot in the last few months. I barely write any code

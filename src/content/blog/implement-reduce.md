@@ -2,6 +2,7 @@
 title: Implement Reduce
 date: 2020-04-26
 topics: [tooling]
+excerpt: "A video walkthrough of implementing the reduce function from scratch."
 ---
 
 <iframe src="https://www.youtube.com/embed/F2H7QrkEPg8" />

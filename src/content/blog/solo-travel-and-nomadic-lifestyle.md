@@ -1,6 +1,9 @@
 ---
 title: Thoughts on solo-travel and a nomadic lifestyle
 date: 2019-02-04
+excerpt:
+    "Reflections on solo travel, remote work, and packing light for a month in
+    Southeast Asia."
 ---
 
 The second half of 2018 involved quitting my job, starting my own company,
