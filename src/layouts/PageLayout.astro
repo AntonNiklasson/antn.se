@@ -65,9 +65,9 @@ const links = [
 		<header
 			transition:name="fade"
 			id="site-header"
-			class="bg-background fixed top-0 left-0 w-full group justify-start items-stretch z-50 transition py-5">
+			class="sticky top-0 z-50 w-full bg-background">
 			<div
-				class="mx-auto flex max-w-[65ch] flex-col items-start gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-0">
+				class="mx-auto flex max-w-[65ch] flex-col items-start gap-2 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-0">
 				<h1 class="text-xl font-extrabold">
 					<a href="/" class="flex items-center gap-3 text-heading transition"
 						>anton niklasson.</a
@@ -77,11 +77,10 @@ const links = [
 				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />
 			</div>
 
-			<span class="absolute top-full h-6 w-full bg-linear-to-b from-background to-transparent"
-			></span>
+			<div class="h-6 w-full bg-linear-to-b from-background to-transparent"></div>
 		</header>
 
-		<main transition:animate="fade" class="mx-auto mt-24 mb-12 max-w-[65ch] px-4 sm:mt-28 sm:mb-16 sm:px-0">
+		<main transition:animate="fade" class="mx-auto mb-12 max-w-[65ch] px-4 sm:mb-16 sm:px-0">
 			<slot />
 		</main>
 	</body>
