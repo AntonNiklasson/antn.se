@@ -23,10 +23,4 @@ app for macOS. Try it out and let me know what you think.
 
 https://github.com/AntonNiklasson/github-dashboard
 
-<div class="no-shadow">
-
-![][screenshot]
-
-</div>
-
-[screenshot]: ./assets/github-dashboard--screenshot.png
+<img class="no-shadow" src="/blog/github-dashboard--screenshot.png" alt="" />
