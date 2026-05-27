@@ -16,7 +16,9 @@ So I started building my own thing. I tend to create lots of smaller pull
 requests, depending a bit on what areas I am working on. Sometimes I focus on a
 single thing for a couple of days, and other times I have 5-10 pull requests
 open in parallel. This led me to build a dashboard for pull requests, both my
-own and where I'm requested as a reviewer.
+own and where I'm requested as a reviewer. The dashboard also lets me look at
+everything from both instances at the same time, or focus on one at a time.
+Obviously it's also keyboard friendly, with vim-like bindings.
 
 It is available open-source on github, and currently it is packaged as a desktop
 app for macOS. Try it out and let me know what you think.
