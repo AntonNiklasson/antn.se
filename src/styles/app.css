@@ -64,4 +64,5 @@ body {
 	touch-action: pan-x pan-y;
 	color: var(--color-foreground);
 	color-scheme: light dark;
+	-webkit-tap-highlight-color: transparent;
 }
