@@ -13,9 +13,9 @@ experiences:
       description: |
           Building super intelligence for work.
       contributions:
-          - Implemented automated end-to-end tests to enable continuous deployment
-          - Built out foundations for a pragmatic design system
-          - Implemented and advocated for design tokens across a large product and multiple teams
+          - Closed the gap between design and engineering, improving how the two collaborate
+          - Raised the bar on engineering principles, especially testing and continuous deployment
+          - Mentored engineers and evolved our ways of working to help engineering scale
       tech:
           - typescript
           - react
