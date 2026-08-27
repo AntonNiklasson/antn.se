@@ -1,7 +1,6 @@
 ---
 title: "How I use AI in 2025"
 date: 2025-05-07
-topics: [tooling, ai]
 excerpt:
     "A snapshot of my AI tooling stack: Raycast, Cursor, dictation, and code
     reviews."

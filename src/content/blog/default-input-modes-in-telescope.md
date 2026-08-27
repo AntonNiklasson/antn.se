@@ -1,7 +1,6 @@
 ---
 title: Default input modes in telescope pickers
 date: 2025-01-04
-topics: [tooling]
 excerpt:
     "Configuring telescope.nvim pickers to start in normal mode instead of
     insert mode."

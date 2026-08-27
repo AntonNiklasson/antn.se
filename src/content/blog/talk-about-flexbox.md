@@ -1,7 +1,6 @@
 ---
 title: Talk About Flexbox
 date: 2015-03-04
-topics: [tooling]
 excerpt: "Giving my first meetup talk about CSS Flexbox."
 ---
 

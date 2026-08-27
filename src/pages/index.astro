@@ -3,27 +3,12 @@ import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import { formatDate } from "../utils/format-date";
 
-const activeTag = Astro.url.searchParams.get("tag");
-
-const allPosts = (await getCollection("blog")).sort((a, b) => {
+const posts = (await getCollection("blog")).sort((a, b) => {
 	return new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf();
 });
-
-const posts = activeTag
-	? allPosts.filter((p) => p.data.topics?.includes(activeTag))
-	: allPosts;
 ---
 
 <PageLayout>
-	{activeTag && (
-		<div class="mb-8">
-			<div class="flex items-center justify-start gap-x-8">
-				<h3 class="text-lg text-blue-600">#{activeTag}</h3>
-				<a href="/" class="text-xs text-subtle hover:text-foreground transition">Clear filter</a>
-			</div>
-			<p class="text-xs text-subtle mt-1">{posts.length} posts</p>
-		</div>
-	)}
 	<ul class="space-y-8">
 		{
 			posts.map((post) => (
@@ -36,20 +21,11 @@ const posts = activeTag
 					{post.data.excerpt && (
 						<p class="text-xs text-muted">{post.data.excerpt}</p>
 					)}
-					<div class="flex items-center gap-x-8">
-						<time
-							class="text-xs text-subtle"
-							datetime={post.data.date.toISOString()}>
-							{formatDate(post.data.date)}
-						</time>
-						<div class="flex gap-x-1">{!activeTag && (post.data.topics ?? []).map((t) => (
-							<a
-								href={`/?tag=${t}`}
-								class="text-xs text-blue-600 hover:text-foreground transition">
-								#{t}
-							</a>
-						))}</div>
-					</div>
+					<time
+						class="text-xs text-subtle"
+						datetime={post.data.date.toISOString()}>
+						{formatDate(post.data.date)}
+					</time>
 				</li>
 			))
 		}

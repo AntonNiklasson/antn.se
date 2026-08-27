@@ -1,7 +1,6 @@
 ---
 title: System commands in vim
 date: 2019-05-29
-topics: [tooling]
 excerpt:
     "Running system commands from inside Vim using the expression register."
 ---

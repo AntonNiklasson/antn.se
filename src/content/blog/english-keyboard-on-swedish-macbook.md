@@ -1,7 +1,6 @@
 ---
 title: "English Keyboard on a Swedish MacBook"
 date: 2016-08-16
-topics: [tooling]
 excerpt:
     "Switching to an English keyboard layout on a Swedish MacBook for easier
     coding."

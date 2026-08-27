@@ -1,7 +1,6 @@
 ---
 title: Contributing to React
 date: 2016-05-02
-topics: [tooling]
 excerpt:
     "Overcoming the intimidation of contributing to a major open source project."
 ---

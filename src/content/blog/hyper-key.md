@@ -1,7 +1,6 @@
 ---
 title: Hyper Key
 date: 2024-01-03
-topics: [tooling]
 excerpt:
     "Mapping CapsLock to a hyper key for global keyboard shortcuts on macOS."
 ---

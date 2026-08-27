@@ -1,7 +1,6 @@
 ---
 title: Smooth Worktrees
 date: 2026-04-29
-topics: [tooling, ai]
 excerpt:
     "A tmux-based tool for quickly spinning up git worktrees with a ready-to-go
     dev environment."

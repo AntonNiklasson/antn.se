@@ -1,7 +1,6 @@
 ---
 title: GitHub Dashboard
 date: 2026-05-27
-topics: [tooling]
 excerpt:
     "A desktop app for keeping track of my open pull requests across github.com
     and github enterprise."

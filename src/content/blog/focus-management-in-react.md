@@ -1,7 +1,6 @@
 ---
 title: Focus Management in React with forwardRef and useImperativeHandle
 date: 2020-04-12
-topics: [tooling]
 excerpt:
     "Using forwardRef and useImperativeHandle to manage focus in custom React
     components."

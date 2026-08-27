@@ -1,7 +1,6 @@
 ---
 title: Introduction to CSS Grid
 date: 2017-12-11
-topics: [tooling]
 excerpt:
     "A visual introduction to CSS Grid: defining grids, positioning items, and
     using template areas."

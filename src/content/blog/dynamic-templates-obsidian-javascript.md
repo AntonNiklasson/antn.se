@@ -1,7 +1,6 @@
 ---
 title: Dynamic templates in Obsidian with JavaScript
 date: 2024-02-29
-topics: [tooling]
 excerpt:
     "Using Templater and custom JavaScript to generate dynamic weekly notes in
     Obsidian."

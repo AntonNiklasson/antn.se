@@ -1,7 +1,6 @@
 ---
 title: CSSGrid.pro
 date: 2018-05-23
-topics: [tooling]
 excerpt: "An interactive tool I built for learning CSS Grid by doing."
 ---
 

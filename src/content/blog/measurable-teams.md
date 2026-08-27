@@ -1,7 +1,6 @@
 ---
 title: Measurable Teams
 date: 2018-07-14
-topics: [product]
 excerpt:
     "Using weekly questionnaires and health monitors to measure team well-being."
 ---

@@ -2,7 +2,6 @@
 title: The two modes of product engineering
 date: 2024-11-12
 lastUpdate: 2025-01-08
-topics: [product]
 excerpt:
     "The difference between building the right thing and building the thing
     right."

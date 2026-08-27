@@ -1,7 +1,6 @@
 ---
 title: On Flexbox
 date: 2015-02-06
-topics: [tooling]
 excerpt: "Early explorations with CSS Flexbox and its browser support."
 ---
 

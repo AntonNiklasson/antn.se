@@ -1,7 +1,6 @@
 ---
 title: Default to sharing
 date: 2024-04-17
-topics: [product]
 excerpt: "Why all software developers should share their work publicly."
 ---
 

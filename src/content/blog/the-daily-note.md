@@ -1,7 +1,6 @@
 ---
 title: The Daily Note
 date: 2023-12-05
-topics: [tooling]
 excerpt:
     "Starting each day with a blank note to capture ideas, feelings, and tasks."
 ---

@@ -1,7 +1,6 @@
 ---
 title: What is the best file structure for a React project?
 date: 2018-08-20
-topics: [tooling]
 excerpt:
     "Comparing file-by-type vs file-by-feature approaches to structuring React
     projects."

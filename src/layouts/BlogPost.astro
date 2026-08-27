@@ -8,7 +8,7 @@ type Props = CollectionEntry<"blog">["data"] & {
 	related?: CollectionEntry<"blog">[];
 };
 
-const { id, title, date, lastUpdate, topics, related } = Astro.props;
+const { id, title, date, lastUpdate, related } = Astro.props;
 const slug = id.replace(/\.md$/, "");
 const image = `/${slug}/cover.png`;
 ---
@@ -33,20 +33,6 @@ const image = `/${slug}/cover.png`;
 					)
 				}
 			</div>
-
-			{
-				topics && topics.length > 0 && (
-					<div class="flex justify-center gap-x-1">
-						{topics.map((t) => (
-							<a
-								href={`/?tag=${t}`}
-								class="text-xs text-blue-600 transition hover:text-foreground">
-								#{t}
-							</a>
-						))}
-					</div>
-				)
-			}
 		</header>
 
 		<div class="lg:prose-md prose prose-sm prose-headings:font-normal dark:prose-invert mx-auto">

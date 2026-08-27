@@ -1,7 +1,6 @@
 ---
 title: Introduction to Vim
 date: 2016-01-21
-topics: [tooling]
 excerpt:
     "Getting started with Vim: modes, basic commands, and why vimtutor is the
     best first step."

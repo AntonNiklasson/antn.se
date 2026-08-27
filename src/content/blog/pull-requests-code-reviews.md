@@ -1,7 +1,6 @@
 ---
 title: Pull Requests and Code Reviews
 date: 2018-10-05
-topics: [product]
 excerpt: "What makes a pull request great and how to do a thorough code review."
 ---
 
