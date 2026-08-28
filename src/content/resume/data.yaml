@@ -4,14 +4,12 @@ intro: |
     The product that I build is just as important as the team building it. I will do whatever I can to make everyone feel heard, that we collaborate with clarity and intention and that we continuously seek to improve our ways of working.
 
 experiences:
-    - title: Personalizing Learning
+    - title: Superintelligence for work
       organization: Sana Labs
       time:
           from:
               month: 4
               year: 2021
-      description: |
-          Building super intelligence for work.
       contributions:
           - Joined when <10 engineers, grew with the org through years of rapid change
           - Contributed across the stack, from design systems to database design and collaborative infrastructure
