@@ -1,0 +1,158 @@
+<particle-background aria-hidden="true">
+	<canvas></canvas>
+</particle-background>
+
+<style>
+	particle-background {
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		color: #64748b;
+	}
+
+	canvas {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		particle-background {
+			color: #94a3b8;
+		}
+	}
+
+	@media print {
+		particle-background {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	import { connectionStrength, createParticles, particleOpacity, stepParticles } from "../lib/particles";
+
+	class ParticleBackground extends HTMLElement {
+		private cleanup?: () => void;
+
+		connectedCallback() {
+			this.cleanup?.();
+			const canvas = this.querySelector("canvas");
+			const context = canvas?.getContext("2d");
+			if (!canvas || !context) return;
+
+			const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+			const theme = window.matchMedia("(prefers-color-scheme: dark)");
+			let width = 0;
+			let height = 0;
+			let color = "";
+			let particles: ReturnType<typeof createParticles> = [];
+			let frame = 0;
+			let previousTime = 0;
+
+			const draw = () => {
+				context.clearRect(0, 0, width, height);
+				context.strokeStyle = color;
+				context.fillStyle = color;
+				context.lineWidth = 0.85;
+				const opacities = particles.map(particleOpacity);
+
+				for (let i = 0; i < particles.length; i++) {
+					const a = particles[i];
+					for (let j = i + 1; j < particles.length; j++) {
+						const b = particles[j];
+						const strength = connectionStrength(Math.hypot(b.x - a.x, b.y - a.y));
+						if (strength === 0) continue;
+						// Let lines remain visible farther out without strengthening the pull.
+						context.globalAlpha = Math.sqrt(strength) * 0.32 * opacities[i] * opacities[j];
+						context.beginPath();
+						context.moveTo(a.x, a.y);
+						context.lineTo(b.x, b.y);
+						context.stroke();
+					}
+				}
+
+				for (const particle of particles) {
+					// Larger dots feel closer; smaller dots recede into the background.
+					const depth = Math.max(0, Math.min(1, (particle.radius - 0.7) / 1.9));
+					context.globalAlpha = (0.3 + depth * 0.35) * particleOpacity(particle);
+					context.beginPath();
+					context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+					context.fill();
+				}
+				context.globalAlpha = 1;
+			};
+
+			const tick = (time: number) => {
+				stepParticles(particles, previousTime ? (time - previousTime) / 1000 : 0, width, height);
+				previousTime = time;
+				draw();
+				frame = requestAnimationFrame(tick);
+			};
+
+			const syncAnimation = () => {
+				cancelAnimationFrame(frame);
+				previousTime = 0;
+				// Reduced motion gets the same scene, just still.
+				draw();
+				if (!motion.matches && !document.hidden) frame = requestAnimationFrame(tick);
+			};
+
+			const resize = () => {
+				const nextWidth = this.clientWidth;
+				const nextHeight = this.clientHeight;
+				if (width && height) {
+					for (const particle of particles) {
+						particle.x *= nextWidth / width;
+						particle.y *= nextHeight / height;
+					}
+				} else {
+					particles = createParticles(nextWidth, nextHeight);
+				}
+				width = nextWidth;
+				height = nextHeight;
+				// Cap backing-store resolution on high-DPI/mobile displays.
+				const ratio = Math.min(window.devicePixelRatio || 1, 2);
+				canvas.width = Math.round(width * ratio);
+				canvas.height = Math.round(height * ratio);
+				context.setTransform(ratio, 0, 0, ratio, 0, 0);
+				draw();
+			};
+
+			const updateColor = () => {
+				color = getComputedStyle(this).color;
+				draw();
+			};
+
+			updateColor();
+			resize();
+			syncAnimation();
+			const observer = new ResizeObserver(resize);
+			observer.observe(this);
+			window.addEventListener("resize", resize);
+			document.addEventListener("visibilitychange", syncAnimation);
+			motion.addEventListener("change", syncAnimation);
+			theme.addEventListener("change", updateColor);
+
+			// Astro navigation removes the element; don't leave an animation or listeners behind.
+			this.cleanup = () => {
+				cancelAnimationFrame(frame);
+				observer.disconnect();
+				window.removeEventListener("resize", resize);
+				document.removeEventListener("visibilitychange", syncAnimation);
+				motion.removeEventListener("change", syncAnimation);
+				theme.removeEventListener("change", updateColor);
+			};
+		}
+
+		disconnectedCallback() {
+			this.cleanup?.();
+			this.cleanup = undefined;
+		}
+	}
+
+	if (!customElements.get("particle-background")) {
+		customElements.define("particle-background", ParticleBackground);
+	}
+</script>

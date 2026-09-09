@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
-import { fade } from "astro:transitions";
+import ParticleBackground from "../components/ParticleBackground.astro";
 import NavLinks from "../components/NavLinks";
 
 type Props = {
@@ -61,11 +61,12 @@ const links = [
 		<ViewTransitions />
 	</head>
 
-	<body transition:animate="none" class="relative mx-auto my-0 min-h-full w-full bg-background">
+	<body transition:animate="none" class="relative isolate mx-auto my-0 min-h-full w-full bg-background">
+		<ParticleBackground />
 		<header
 			transition:name="fade"
 			id="site-header"
-			class="sticky top-0 z-50 w-full bg-background">
+			class="sticky top-0 z-50 w-full">
 			<div
 				class="mx-auto flex max-w-[65ch] flex-col items-start gap-2 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-0">
 				<h1 class="text-xl font-extrabold">
@@ -77,7 +78,7 @@ const links = [
 				<NavLinks links={links} currentPath={Astro.url.pathname} client:load />
 			</div>
 
-			<div class="h-6 w-full bg-linear-to-b from-background to-transparent"></div>
+			<div class="h-6 w-full" aria-hidden="true"></div>
 		</header>
 
 		<main transition:animate="fade" class="mx-auto mb-12 max-w-[65ch] px-4 sm:mb-16 sm:px-0">
@@ -85,3 +86,18 @@ const links = [
 		</main>
 	</body>
 </html>
+
+<style>
+	main {
+		background: var(--color-background);
+		/* Keep text fully shielded, then feather out into the particle field. */
+		box-shadow: 0 0 40px 28px var(--color-background);
+	}
+
+	@media print {
+		main {
+			background: none;
+			box-shadow: none;
+		}
+	}
+</style>
