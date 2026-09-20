@@ -55,7 +55,7 @@
 				context.clearRect(0, 0, width, height);
 				context.strokeStyle = color;
 				context.fillStyle = color;
-				context.lineWidth = 0.85;
+				context.lineWidth = 0.65;
 				const opacities = particles.map(particleOpacity);
 
 				for (let i = 0; i < particles.length; i++) {
@@ -65,7 +65,7 @@
 						const strength = connectionStrength(Math.hypot(b.x - a.x, b.y - a.y));
 						if (strength === 0) continue;
 						// Let lines remain visible farther out without strengthening the pull.
-						context.globalAlpha = Math.sqrt(strength) * 0.32 * opacities[i] * opacities[j];
+						context.globalAlpha = Math.sqrt(strength) * 0.18 * opacities[i] * opacities[j];
 						context.beginPath();
 						context.moveTo(a.x, a.y);
 						context.lineTo(b.x, b.y);
@@ -76,9 +76,9 @@
 				for (const particle of particles) {
 					// Larger dots feel closer; smaller dots recede into the background.
 					const depth = Math.max(0, Math.min(1, (particle.radius - 0.7) / 1.9));
-					context.globalAlpha = (0.3 + depth * 0.35) * particleOpacity(particle);
+					context.globalAlpha = (0.1 + depth * 0.14) * particleOpacity(particle);
 					context.beginPath();
-					context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+					context.arc(particle.x, particle.y, particle.radius * 0.85, 0, Math.PI * 2);
 					context.fill();
 				}
 				context.globalAlpha = 1;
