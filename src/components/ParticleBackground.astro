@@ -42,7 +42,6 @@
 			const context = canvas?.getContext("2d");
 			if (!canvas || !context) return;
 
-			const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 			const theme = window.matchMedia("(prefers-color-scheme: dark)");
 			let width = 0;
 			let height = 0;
@@ -94,9 +93,8 @@
 			const syncAnimation = () => {
 				cancelAnimationFrame(frame);
 				previousTime = 0;
-				// Reduced motion gets the same scene, just still.
 				draw();
-				if (!motion.matches && !document.hidden) frame = requestAnimationFrame(tick);
+				if (!document.hidden) frame = requestAnimationFrame(tick);
 			};
 
 			const resize = () => {
@@ -132,7 +130,6 @@
 			observer.observe(this);
 			window.addEventListener("resize", resize);
 			document.addEventListener("visibilitychange", syncAnimation);
-			motion.addEventListener("change", syncAnimation);
 			theme.addEventListener("change", updateColor);
 
 			// Astro navigation removes the element; don't leave an animation or listeners behind.
@@ -141,7 +138,6 @@
 				observer.disconnect();
 				window.removeEventListener("resize", resize);
 				document.removeEventListener("visibilitychange", syncAnimation);
-				motion.removeEventListener("change", syncAnimation);
 				theme.removeEventListener("change", updateColor);
 			};
 		}
