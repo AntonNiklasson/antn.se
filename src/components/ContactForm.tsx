@@ -43,7 +43,7 @@ export default function ContactForm() {
 	};
 
 	const fieldClass =
-		"w-full border-b border-border bg-background px-0 py-1.5 text-base sm:text-sm text-foreground transition placeholder:text-subtle focus:border-heading focus:outline-1 focus:outline-offset-2 focus:outline-heading";
+		"w-full rounded-[3px] border border-border/60 bg-background px-2 py-1.5 text-base sm:text-sm text-foreground transition placeholder:text-subtle focus:border-muted focus:outline-1 focus:outline-offset-2 focus:outline-border";
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
