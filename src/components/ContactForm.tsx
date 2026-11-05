@@ -43,19 +43,19 @@ export default function ContactForm() {
 	};
 
 	const fieldClass =
-		"w-full rounded-md border border-border bg-background px-3 py-2.5 text-base text-heading transition placeholder:text-muted focus:border-heading focus:outline-2 focus:outline-offset-2 focus:outline-heading";
+		"w-full border-b border-border bg-background px-0 py-1.5 text-base sm:text-sm text-foreground transition placeholder:text-subtle focus:border-heading focus:outline-1 focus:outline-offset-2 focus:outline-heading";
 
 	return (
-		<form onSubmit={handleSubmit} className="space-y-6" aria-busy={isSubmitting}>
-			<div className="grid gap-6 sm:grid-cols-2">
-				<div className="space-y-2">
-					<label htmlFor="name" className="text-heading block text-sm font-medium">
+		<form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
+			<div className="grid gap-5 sm:grid-cols-2">
+				<div className="space-y-1">
+					<label htmlFor="name" className="text-muted block text-xs">
 						Name
 					</label>
 					<input id="name" name="name" autoComplete="name" required maxLength={100} className={fieldClass} />
 				</div>
-				<div className="space-y-2">
-					<label htmlFor="contact" className="text-heading block text-sm font-medium">
+				<div className="space-y-1">
+					<label htmlFor="contact" className="text-muted block text-xs">
 						Email
 					</label>
 					<input
@@ -69,8 +69,8 @@ export default function ContactForm() {
 					/>
 				</div>
 			</div>
-			<div className="space-y-2">
-				<label htmlFor="message" className="text-heading block text-sm font-medium">
+			<div className="space-y-1">
+				<label htmlFor="message" className="text-muted block text-xs">
 					Message
 				</label>
 				<textarea
@@ -78,9 +78,9 @@ export default function ContactForm() {
 					name="message"
 					required
 					maxLength={1000}
-					rows={6}
+					rows={4}
 					placeholder="What’s on your mind?"
-					className={`${fieldClass} min-h-36 resize-y`}
+					className={`${fieldClass} min-h-24 resize-y`}
 				/>
 			</div>
 			<div className="hidden" aria-hidden="true">
@@ -90,7 +90,7 @@ export default function ContactForm() {
 			<button
 				type="submit"
 				disabled={isSubmitting}
-				className="bg-heading text-background focus-visible:outline-heading rounded-md px-5 py-2.5 text-sm font-medium transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 disabled:cursor-wait disabled:opacity-50">
+				className="text-muted hover:text-heading focus-visible:outline-heading decoration-border py-1 text-sm underline underline-offset-4 transition focus-visible:outline-1 focus-visible:outline-offset-4 disabled:cursor-wait disabled:opacity-50">
 				{isSubmitting ? "Sending…" : "Send message"}
 			</button>
 			<div
