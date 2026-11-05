@@ -43,7 +43,7 @@ export default function ContactForm() {
 	};
 
 	const fieldClass =
-		"w-full rounded-md border border-border bg-background px-3 py-2.5 text-base text-heading transition placeholder:text-muted focus:border-fuchsia-700 focus:outline-2 focus:outline-offset-2 focus:outline-fuchsia-700";
+		"w-full rounded-md border border-border bg-background px-3 py-2.5 text-base text-heading transition placeholder:text-muted focus:border-heading focus:outline-2 focus:outline-offset-2 focus:outline-heading";
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6" aria-busy={isSubmitting}>
@@ -90,7 +90,7 @@ export default function ContactForm() {
 			<button
 				type="submit"
 				disabled={isSubmitting}
-				className="bg-heading text-background rounded-md px-5 py-2.5 text-sm font-medium transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fuchsia-700 disabled:cursor-wait disabled:opacity-50">
+				className="bg-heading text-background focus-visible:outline-heading rounded-md px-5 py-2.5 text-sm font-medium transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 disabled:cursor-wait disabled:opacity-50">
 				{isSubmitting ? "Sending…" : "Send message"}
 			</button>
 			<div
