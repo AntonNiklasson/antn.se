@@ -79,7 +79,7 @@ export default function ContactForm() {
 			</div>
 			<div className="font-handwritten space-y-1 text-xl">
 				<label htmlFor="name" className="text-muted block">
-					Sincerely,
+					All the best,
 				</label>
 				<input
 					id="name"
