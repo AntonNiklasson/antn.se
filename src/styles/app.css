@@ -67,13 +67,13 @@ body {
 }
 
 @font-face {
-	font-family: "Caveat";
-	src: url("/fonts/Caveat.ttf") format("truetype");
+	font-family: "Patrick Hand";
+	src: url("/fonts/PatrickHand-Regular.ttf") format("truetype");
 	font-style: normal;
-	font-weight: 400 700;
+	font-weight: 400;
 	font-display: swap;
 }
 
 .font-handwritten {
-	font-family: "Caveat", cursive;
+	font-family: "Patrick Hand", cursive;
 }
