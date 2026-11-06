@@ -95,12 +95,14 @@ export default function ContactForm() {
 				<label htmlFor="website">Website (leave blank)</label>
 				<input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
 			</div>
-			<button
-				type="submit"
-				disabled={isSubmitting}
-				className="text-foreground border-border/60 bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-sm transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
-				{isSubmitting ? "Sending…" : "Send message"}
-			</button>
+			<div className="pt-3 pl-4">
+				<button
+					type="submit"
+					disabled={isSubmitting}
+					className="text-foreground border-border/60 bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-sm transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
+					{isSubmitting ? "Sending…" : "Send message"}
+				</button>
+			</div>
 			<div
 				role="status"
 				aria-live="polite"
