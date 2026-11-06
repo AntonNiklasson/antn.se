@@ -99,7 +99,7 @@ export default function ContactForm() {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="text-foreground border-border/60 bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-sm transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
+					className="text-foreground border-border bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
 					{isSubmitting ? "Sending…" : "Send message"}
 				</button>
 			</div>
