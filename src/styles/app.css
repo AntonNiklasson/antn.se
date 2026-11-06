@@ -77,3 +77,12 @@ body {
 .font-handwritten {
 	font-family: "Patrick Hand", cursive;
 }
+
+.contact-paper {
+	border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+	border-radius: 2px 5px 3px 1px;
+	background: var(--color-background);
+	box-shadow:
+		0 2px 3px rgb(0 0 0 / 0.03),
+		0 10px 28px rgb(0 0 0 / 0.04);
+}

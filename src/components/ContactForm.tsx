@@ -46,7 +46,7 @@ export default function ContactForm() {
 		"font-handwritten w-full rounded-none border-0 bg-background p-1 text-xl text-foreground transition placeholder:text-subtle focus:bg-surface/50 focus:outline-none";
 
 	return (
-		<form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
+		<form onSubmit={handleSubmit} className="contact-paper space-y-5 p-5 sm:p-8" aria-busy={isSubmitting}>
 			<p className="font-handwritten text-foreground text-xl">Hi Anton,</p>
 			<div>
 				<label htmlFor="message" className="sr-only">
