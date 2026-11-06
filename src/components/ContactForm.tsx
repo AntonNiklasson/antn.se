@@ -59,7 +59,7 @@ export default function ContactForm() {
 					maxLength={1000}
 					rows={5}
 					placeholder="What’s on your mind?"
-					className={`${fieldClass} block min-h-24 resize-y`}
+					className={`${fieldClass} block min-h-24 resize-none`}
 				/>
 			</div>
 			<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
@@ -95,7 +95,7 @@ export default function ContactForm() {
 				<label htmlFor="website">Website (leave blank)</label>
 				<input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
 			</div>
-			<div className="pt-3 pl-4">
+			<div className="flex justify-end pt-3">
 				<button
 					type="submit"
 					disabled={isSubmitting}
