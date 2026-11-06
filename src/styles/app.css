@@ -65,3 +65,15 @@ body {
 	color: var(--color-foreground);
 	color-scheme: light dark;
 }
+
+@font-face {
+	font-family: "Caveat";
+	src: url("/fonts/Caveat.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400 700;
+	font-display: swap;
+}
+
+.font-handwritten {
+	font-family: "Caveat", cursive;
+}

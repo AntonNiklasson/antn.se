@@ -43,11 +43,11 @@ export default function ContactForm() {
 	};
 
 	const fieldClass =
-		"w-full rounded-[3px] border border-border/60 bg-background px-2 py-1.5 text-base sm:text-sm text-foreground transition placeholder:text-subtle focus:border-muted focus:outline-none";
+		"font-handwritten w-full rounded-none border-0 border-b border-border/60 bg-background px-0 py-1 text-xl text-foreground transition placeholder:text-subtle focus:border-muted focus:outline-none";
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
-			<p className="text-foreground text-sm">Hi Anton,</p>
+			<p className="font-handwritten text-foreground text-xl">Hi Anton,</p>
 			<div>
 				<label htmlFor="message" className="sr-only">
 					Message
@@ -62,7 +62,7 @@ export default function ContactForm() {
 					className={`${fieldClass} block min-h-24 resize-y`}
 				/>
 			</div>
-			<div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+			<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
 				<label htmlFor="contact" className="text-muted">
 					You can reach me at
 				</label>
@@ -77,7 +77,7 @@ export default function ContactForm() {
 					className={`${fieldClass} max-w-64 min-w-0 flex-1 basis-48`}
 				/>
 			</div>
-			<div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+			<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
 				<label htmlFor="name" className="text-muted">
 					Sincerely,
 				</label>
