@@ -47,30 +47,9 @@ export default function ContactForm() {
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
-			<div className="grid gap-5 sm:grid-cols-2">
-				<div className="space-y-1">
-					<label htmlFor="name" className="text-muted block text-xs">
-						Name
-					</label>
-					<input id="name" name="name" autoComplete="name" required maxLength={100} className={fieldClass} />
-				</div>
-				<div className="space-y-1">
-					<label htmlFor="contact" className="text-muted block text-xs">
-						Email
-					</label>
-					<input
-						id="contact"
-						name="contact"
-						type="email"
-						autoComplete="email"
-						required
-						maxLength={100}
-						className={fieldClass}
-					/>
-				</div>
-			</div>
-			<div className="space-y-1">
-				<label htmlFor="message" className="text-muted block text-xs">
+			<p className="text-foreground text-sm">Hi Anton,</p>
+			<div>
+				<label htmlFor="message" className="sr-only">
 					Message
 				</label>
 				<textarea
@@ -78,9 +57,38 @@ export default function ContactForm() {
 					name="message"
 					required
 					maxLength={1000}
-					rows={4}
+					rows={5}
 					placeholder="What’s on your mind?"
-					className={`${fieldClass} min-h-24 resize-y`}
+					className={`${fieldClass} block min-h-24 resize-y`}
+				/>
+			</div>
+			<div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+				<label htmlFor="contact" className="text-muted">
+					You can reach me at
+				</label>
+				<input
+					id="contact"
+					name="contact"
+					type="email"
+					autoComplete="email"
+					placeholder="you@example.com"
+					required
+					maxLength={100}
+					className={`${fieldClass} max-w-64 min-w-0 flex-1 basis-48`}
+				/>
+			</div>
+			<div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm">
+				<label htmlFor="name" className="text-muted">
+					Sincerely,
+				</label>
+				<input
+					id="name"
+					name="name"
+					autoComplete="name"
+					placeholder="Your name"
+					required
+					maxLength={100}
+					className={`${fieldClass} max-w-52 min-w-0 flex-1 basis-40`}
 				/>
 			</div>
 			<div className="hidden" aria-hidden="true">
