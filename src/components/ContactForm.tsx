@@ -77,8 +77,8 @@ export default function ContactForm() {
 					className={`${fieldClass} max-w-64 min-w-0 flex-1 basis-48`}
 				/>
 			</div>
-			<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
-				<label htmlFor="name" className="text-muted">
+			<div className="font-handwritten space-y-1 text-xl">
+				<label htmlFor="name" className="text-muted block">
 					Sincerely,
 				</label>
 				<input
@@ -88,7 +88,7 @@ export default function ContactForm() {
 					placeholder="Your name"
 					required
 					maxLength={100}
-					className={`${fieldClass} max-w-52 min-w-0 flex-1 basis-40`}
+					className={`${fieldClass} block max-w-52`}
 				/>
 			</div>
 			<div className="hidden" aria-hidden="true">
