@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
+const sentKey = "contact-form-sent-at";
+const sentWindowMs = 5 * 60 * 1000;
+
 const draftKey = "contact-form-draft";
 const draftFields = ["name", "contact", "message"] as const;
 
@@ -12,6 +15,17 @@ export default function ContactForm() {
 	const [replyPhrase, setReplyPhrase] = useState(replyPhrases[0]);
 
 	useEffect(() => {
+		try {
+			const sentAt = Number(localStorage.getItem(sentKey));
+			const elapsed = Date.now() - sentAt;
+			if (sentAt > 0 && elapsed >= 0 && elapsed < sentWindowMs) {
+				setStatus({ type: "success", message: "" });
+			} else {
+				localStorage.removeItem(sentKey);
+			}
+		} catch {
+			// The form remains usable when storage is unavailable.
+		}
 		try {
 			const draft = JSON.parse(localStorage.getItem(draftKey) || "null");
 			if (draft && typeof draft === "object") {
@@ -52,7 +66,7 @@ export default function ContactForm() {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		if (isSubmitting) return;
+		if (isSubmitting || status.type === "success") return;
 		const form = e.currentTarget;
 		setIsSubmitting(true);
 		setStatus({ type: null, message: "" });
@@ -67,6 +81,7 @@ export default function ContactForm() {
 			if (response.ok) {
 				form.reset();
 				try {
+					localStorage.setItem(sentKey, String(Date.now()));
 					localStorage.removeItem(draftKey);
 				} catch {
 					// Storage may be disabled by the browser.
@@ -158,24 +173,27 @@ export default function ContactForm() {
 					<input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
 				</div>
 			</div>
-			<div className="border-border/40 bg-surface/20 flex flex-wrap items-center justify-end gap-3 border-t px-5 py-4 sm:px-8">
-				<button
-					type={status.type === "success" ? "button" : "submit"}
-					onClick={status.type === "success" ? () => setStatus({ type: null, message: "" }) : undefined}
-					disabled={isSubmitting}
-					className="text-foreground border-border bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
-					{status.type === "success" ? "Write another note" : isSubmitting ? "Sending…" : "Send message"}
-				</button>
-				<div
-					role="status"
-					aria-live="polite"
-					aria-atomic="true"
-					className={
-						status.type === "error" ? "text-sm text-red-700 dark:text-red-400" : "text-foreground text-sm"
-					}>
-					{status.type === "error" ? status.message : ""}
+			{status.type !== "success" && (
+				<div className="border-border/40 bg-surface/20 flex flex-wrap items-center justify-end gap-3 border-t px-5 py-4 sm:px-8">
+					<button
+						type="submit"
+						disabled={isSubmitting}
+						className="text-foreground border-border bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
+						{isSubmitting ? "Sending…" : "Send message"}
+					</button>
+					<div
+						role="status"
+						aria-live="polite"
+						aria-atomic="true"
+						className={
+							status.type === "error"
+								? "text-sm text-red-700 dark:text-red-400"
+								: "text-foreground text-sm"
+						}>
+						{status.type === "error" ? status.message : ""}
+					</div>
 				</div>
-			</div>
+			)}
 		</form>
 	);
 }
