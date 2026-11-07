@@ -1,6 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const greetings = ["Hi Anton,", "Hey Anton,", "Hello Anton,", "Hi there, Anton,"];
+const replyPhrases = ["You can reach me at", "Find me at", "Drop me a reply at", "My email is"];
 
 export default function ContactForm() {
+	const [greeting, setGreeting] = useState(greetings[0]);
+	const [replyPhrase, setReplyPhrase] = useState(replyPhrases[0]);
+
+	useEffect(() => {
+		setGreeting(greetings[Math.floor(Math.random() * greetings.length)]);
+		setReplyPhrase(replyPhrases[Math.floor(Math.random() * replyPhrases.length)]);
+	}, []);
+
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [status, setStatus] = useState<{
 		type: "success" | "error" | null;
@@ -48,7 +59,7 @@ export default function ContactForm() {
 	return (
 		<form onSubmit={handleSubmit} className="contact-paper overflow-hidden" aria-busy={isSubmitting}>
 			<div className="space-y-5 p-5 sm:p-8">
-				<p className="font-handwritten text-foreground text-xl">Hi Anton,</p>
+				<p className="font-handwritten text-foreground text-xl">{greeting}</p>
 				<div>
 					<label htmlFor="message" className="sr-only">
 						Message
@@ -65,7 +76,7 @@ export default function ContactForm() {
 				</div>
 				<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
 					<label htmlFor="contact" className="text-muted">
-						You can reach me at
+						{replyPhrase}
 					</label>
 					<input
 						id="contact"
