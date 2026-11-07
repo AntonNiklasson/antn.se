@@ -1,13 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const draftKey = "contact-form-draft";
+const draftFields = ["name", "contact", "message"] as const;
 
 const greetings = ["Hi Anton,", "Hey Anton,", "Hello Anton,", "Hi there, Anton,"];
 const replyPhrases = ["You can reach me at", "Find me at", "Drop me a reply at", "My email is"];
 
 export default function ContactForm() {
+	const formRef = useRef<HTMLFormElement>(null);
 	const [greeting, setGreeting] = useState(greetings[0]);
 	const [replyPhrase, setReplyPhrase] = useState(replyPhrases[0]);
 
 	useEffect(() => {
+		try {
+			const draft = JSON.parse(localStorage.getItem(draftKey) || "null");
+			if (draft && typeof draft === "object") {
+				for (const name of draftFields) {
+					const field = formRef.current?.elements.namedItem(name);
+					if (
+						(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) &&
+						typeof draft[name] === "string"
+					) {
+						field.value = draft[name].slice(0, field.maxLength);
+					}
+				}
+			}
+		} catch {
+			// Drafts are optional when storage is unavailable or invalid.
+		}
 		setGreeting(greetings[Math.floor(Math.random() * greetings.length)]);
 		setReplyPhrase(replyPhrases[Math.floor(Math.random() * replyPhrases.length)]);
 	}, []);
@@ -17,6 +37,17 @@ export default function ContactForm() {
 		type: "success" | "error" | null;
 		message: string;
 	}>({ type: null, message: "" });
+
+	const saveDraft = () => {
+		if (!formRef.current) return;
+		const data = new FormData(formRef.current);
+		const draft = Object.fromEntries(draftFields.map((name) => [name, data.get(name)]));
+		try {
+			localStorage.setItem(draftKey, JSON.stringify(draft));
+		} catch {
+			// Sending still works when browser storage is unavailable.
+		}
+	};
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -35,6 +66,11 @@ export default function ContactForm() {
 
 			if (response.ok) {
 				form.reset();
+				try {
+					localStorage.removeItem(draftKey);
+				} catch {
+					// Storage may be disabled by the browser.
+				}
 				setStatus({
 					type: "success",
 					message: "Message sent successfully! I'll get back to you soon.",
@@ -57,7 +93,12 @@ export default function ContactForm() {
 		"font-handwritten w-full rounded-none border-0 bg-background p-1 text-xl text-foreground transition placeholder:text-subtle focus:bg-surface/50 focus:outline-none";
 
 	return (
-		<form onSubmit={handleSubmit} className="contact-paper overflow-hidden" aria-busy={isSubmitting}>
+		<form
+			ref={formRef}
+			onInput={saveDraft}
+			onSubmit={handleSubmit}
+			className="contact-paper overflow-hidden"
+			aria-busy={isSubmitting}>
 			<div className="space-y-5 p-5 sm:p-8">
 				<p className="font-handwritten text-foreground text-xl">{greeting}</p>
 				<div>
