@@ -4,9 +4,12 @@ import PageLayout from "../layouts/PageLayout.astro";
 import Resume from "../components/resume/Resume";
 
 const data = await getEntry("resume", "data");
+if (!data) {
+	throw new Error("Missing required resume content: resume/data");
+}
 ---
 
-<PageLayout title="Resume" summary={data.intro}>
+<PageLayout title="Resume" summary={data.data.intro}>
 	<Resume data={data.data} />
 
 	<style>
