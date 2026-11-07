@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Analytics from "../components/Analytics.astro";
 import BaseHead from "../components/BaseHead.astro";
 import ParticleBackground from "../components/ParticleBackground.astro";
 import NavLinks from "../components/NavLinks";
@@ -45,19 +46,7 @@ const links = [
 			image={image}
 		/>
 
-		<!-- Google tag (gtag.js) -->
-		<script
-			type="text/partytown"
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-XMNWG25QKL"></script>
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "G-XMNWG25QKL");
-		</script>
+		<Analytics />
 		<ViewTransitions />
 	</head>
 
