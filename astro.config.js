@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import { generatePostCovers } from "./scripts/generate-post-covers";
-import partytown from "@astrojs/partytown";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
 import tailwind from "@tailwindcss/vite";
@@ -15,16 +14,7 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkWikiLinks],
 	},
-	integrations: [
-		sitemap(),
-		react(),
-		generatePostCovers(),
-		partytown({
-			config: {
-				forward: ["dataLayer.push"],
-			},
-		}),
-	],
+	integrations: [sitemap(), react(), generatePostCovers()],
 	vite: {
 		plugins: [tailwind()],
 	},

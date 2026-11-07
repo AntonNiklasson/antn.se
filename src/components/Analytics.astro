@@ -1,0 +1,15 @@
+---
+// Public beacon token for the existing antn.se Web Analytics site.
+const token = "93ddc771c9ef4483a7dc1bcae4a8ec6c";
+---
+
+{
+	import.meta.env.PROD && (
+		<script
+			is:inline
+			defer
+			src="https://static.cloudflareinsights.com/beacon.min.js"
+			data-cf-beacon={JSON.stringify({ token, spa: true })}
+		/>
+	)
+}
