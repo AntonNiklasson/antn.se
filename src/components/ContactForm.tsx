@@ -99,7 +99,16 @@ export default function ContactForm() {
 			onSubmit={handleSubmit}
 			className="contact-paper overflow-hidden"
 			aria-busy={isSubmitting}>
-			<div className="space-y-5 p-5 sm:p-8">
+			{status.type === "success" && (
+				<div role="status" className="space-y-3 px-6 py-12 sm:px-8">
+					<p className="font-handwritten text-heading text-3xl">Thanks for the note!</p>
+					<p className="text-muted text-sm leading-relaxed">
+						Your message is on its way. I’ll get back to you soon.
+					</p>
+					<p className="font-handwritten text-muted pt-3 text-xl">— Anton</p>
+				</div>
+			)}
+			<div hidden={status.type === "success"} className="space-y-4 p-5 sm:space-y-5 sm:p-8">
 				<p className="font-handwritten text-foreground text-xl">{greeting}</p>
 				<div>
 					<label htmlFor="message" className="sr-only">
@@ -110,12 +119,12 @@ export default function ContactForm() {
 						name="message"
 						required
 						maxLength={1000}
-						rows={5}
+						rows={4}
 						placeholder="What’s on your mind?"
 						className={`${fieldClass} block min-h-24 resize-none`}
 					/>
 				</div>
-				<div className="font-handwritten flex flex-wrap items-center gap-x-2 gap-y-2 text-xl">
+				<div className="font-handwritten flex flex-col items-start gap-0 text-xl sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2">
 					<label htmlFor="contact" className="text-muted">
 						{replyPhrase}
 					</label>
@@ -127,7 +136,7 @@ export default function ContactForm() {
 						placeholder="you@example.com"
 						required
 						maxLength={100}
-						className={`${fieldClass} max-w-64 min-w-0 flex-1 basis-48`}
+						className={`${fieldClass} max-w-64 min-w-0 sm:flex-1 sm:basis-48`}
 					/>
 				</div>
 				<div className="font-handwritten space-y-1 text-xl">
@@ -151,10 +160,11 @@ export default function ContactForm() {
 			</div>
 			<div className="border-border/40 bg-surface/20 flex flex-wrap items-center justify-end gap-3 border-t px-5 py-4 sm:px-8">
 				<button
-					type="submit"
+					type={status.type === "success" ? "button" : "submit"}
+					onClick={status.type === "success" ? () => setStatus({ type: null, message: "" }) : undefined}
 					disabled={isSubmitting}
 					className="text-foreground border-border bg-background hover:border-muted hover:bg-surface focus-visible:outline-border rounded-[3px] border px-3 py-1.5 text-xs font-semibold transition focus-visible:outline-1 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-50">
-					{isSubmitting ? "Sending…" : "Send message"}
+					{status.type === "success" ? "Write another note" : isSubmitting ? "Sending…" : "Send message"}
 				</button>
 				<div
 					role="status"
@@ -163,7 +173,7 @@ export default function ContactForm() {
 					className={
 						status.type === "error" ? "text-sm text-red-700 dark:text-red-400" : "text-foreground text-sm"
 					}>
-					{status.message}
+					{status.type === "error" ? status.message : ""}
 				</div>
 			</div>
 		</form>
