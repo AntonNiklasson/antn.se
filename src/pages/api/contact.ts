@@ -89,9 +89,12 @@ export const POST: APIRoute = async ({ request }) => {
 		}
 
 		// Send email via Resend
+		const replyTo = contact.trim();
+		const isEmail = /^[^\s@<>(),;:\\"]+@[^\s@<>(),;:\\"]+\.[^\s@<>(),;:\\"]+$/.test(replyTo);
 		const { data, error } = await resend.emails.send({
 			from: "contact@antn.se",
 			to: [env.CONTACT_EMAIL],
+			...(isEmail ? { replyTo } : {}),
 			subject: "antn.se - contact form",
 			html: `
 				<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
