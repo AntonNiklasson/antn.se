@@ -8,7 +8,7 @@ it off earlier this year with a bang. It was such a step change from I had tried
 before. It was actually mind-blowing. It felt like a long-time dream of having
 my own Jarvis was coming to fruition.
 
-OpenClaw was pretty easy to get started with, but it was also a bit malliable. I
+OpenClaw was pretty easy to get started with, but it was also a bit malleable. I
 wanted to send it voice notes, so it built itself a pipeline to receive and
 decode those files. Magic.
 
