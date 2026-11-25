@@ -4,25 +4,25 @@ date: 2026-11-25
 ---
 
 I have been experimenting with personal AI assistants recently. OpenClaw kicked
-it off earlier this year with a bang. I set it up on a Raspberry Pi I had lying
-around. It was actually mind-blowing at first. It felt like a long-time dream of
-having my own Jarvis was coming to fruition.
+it off earlier this year with a bang. It was such a step change from I had tried
+before. It was actually mind-blowing. It felt like a long-time dream of having
+my own Jarvis was coming to fruition.
 
-OpenClaw was great, pretty easy to get set up with an integration through
-Telegram. I wanted to send it voice notes, so it built itself a pipeline to
-receive and decode those files. Magic.
+OpenClaw was pretty easy to get started with, but it was also a bit malliable. I
+wanted to send it voice notes, so it built itself a pipeline to receive and
+decode those files. Magic.
 
 But looking back at it now, it feels almost ahead of its time. I did not trust
 the foundation models as much as I do today, so it felt like there was always a
-risk of something going south. After this summer, though, I heard someone call
-it the post-Opus 5.5 era. It is all different. Models are now basically always
-doing what I want. I spend most of my time directing and steering, and very
-little time correcting and fixing.
+risk of something going south. After this summer though (I heard someone refer
+to it as the post-Opus 5.5 era) it is all different. Models are now basically
+always doing what I want. I spend most of my time directing and steering, and
+very little time correcting, tweaking by hand or redoing it myself.
 
-This led me to try Instinct and now, most recently, Grok Bot. I have also used
-ChatGPT extensively in a general assistant role. I hand over my email, calendar,
-and Todoist setup for tasks. Ideally, even Obsidian, though most of them lack
-that capability.
+This led me to try Instinct and now, most recently, Grok Bot. I have also tried
+to use ChatGPT extensively as a general assistant. I hand over my email,
+calendar, and Todoist setup for tasks. Ideally even Obsidian, though most of
+them lack that capability.
 
 ## Instinct
 
@@ -41,7 +41,7 @@ case.
 
 ## ChatGPT
 
-ChatGPT is great as a whole. Lots of integrations available. But it is not
+ChatGPT is great as a whole. Lots of integrations available, but it is not
 really built as an assistant. It is more of a chat product with integrations. It
 is a bit weak on the proactive angle. I am excited to try Dots, but it is not in
 Sweden yet, as far as I am aware.
@@ -49,9 +49,9 @@ Sweden yet, as far as I am aware.
 ## Grok Bot
 
 Grok Bot is the most recent product I am trying. It is from SpaceX AI, which I
-am not really a fan of. But their products are undeniably really interesting. It
-is available through their X subscription, which includes some kind of bundle of
-Cursor, X, Grok (which are the actual models), and Grok Bot (the assistant
+am honestly not really a fan of. But their products are undeniably interesting.
+It is available through their X subscription, which includes some kind of bundle
+of Cursor, X, Grok (which are the actual models), and Grok Bot (the assistant
 product).
 
 The bot product leans heavily into this idea of employing a bunch of AI
