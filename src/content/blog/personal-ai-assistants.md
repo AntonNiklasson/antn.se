@@ -2,8 +2,8 @@
 title: Personal AI assistants
 date: 2026-11-25
 excerpt:
-    "I have been experimenting with personal AI assistants recently: OpenClaw,
-    Instinct, ChatGPT, and Grok Bot."
+    "A brief overview of my experience with OpenClaw, Instinct, ChatGPT, and
+    Grok Bot."
 ---
 
 I have been experimenting with personal AI assistants recently. OpenClaw kicked
